@@ -3,10 +3,12 @@
   "name": "cwd",
   "version": "0.1.0",
   "author": "Darin Morrison <freebroccolo@users.noreply.github.com>",
-  "main": "index.mjs",
-  "module": "index.mjs",
+  "main": "pkg/example_cwd.js",
+  "files": [
+    "pkg"
+  ],
   "scripts": {
     "prestart": "wasm-pack build --target nodejs",
-    "start": "node index.js"
+    "start": "node pkg/example_cwd.js"
   }
 }
