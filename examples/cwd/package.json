@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "name": "cwd",
+  "version": "0.1.0",
+  "author": "Darin Morrison <freebroccolo@users.noreply.github.com>",
+  "main": "index.mjs",
+  "module": "index.mjs",
+  "scripts": {
+    "prestart": "wasm-pack build --target nodejs",
+    "start": "node index.js"
+  }
+}

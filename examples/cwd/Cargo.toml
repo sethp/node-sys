@@ -1,0 +1,27 @@
+[package]
+publish = false
+name = "example-cwd"
+version = "0.1.0"
+authors = ["Darin Morrison <freebroccolo@users.noreply.github.com>"]
+edition = "2018"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+console_error_panic_hook = "0.1.6"
+
+[dependencies.js-sys]
+version = "0.3.19"
+
+[dependencies.node-sys]
+version = "0.1.0"
+path = "../.."
+
+[dependencies.wasm-bindgen]
+version = "0.2.42"
+features = ["nightly"]
+
+[dependencies.web-sys]
+version = "0.3.19"
+features = ["console"]

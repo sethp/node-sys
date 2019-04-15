@@ -32,4 +32,5 @@ features = ["serde-serialize", "nightly"]
 
 [workspace]
 members = [
+  "examples/cwd"
 ]
