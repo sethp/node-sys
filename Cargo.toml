@@ -11,6 +11,9 @@ Raw bindings to the Node.js API for projects using wasm-bindgen.
 """
 edition = "2018"
 
+[badges]
+maintenance = { status = "experimental" }
+
 [lib]
 crate-type = ["cdylib", "rlib"]
 
