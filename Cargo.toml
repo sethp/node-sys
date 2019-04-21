@@ -30,6 +30,9 @@ features = []
 version = "0.2.42"
 features = ["serde-serialize", "nightly"]
 
+[patch.crates-io.node-sys]
+path = "."
+
 [workspace]
 members = [
   "examples/cwd"

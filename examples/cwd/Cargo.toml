@@ -16,7 +16,6 @@ version = "0.3.19"
 
 [dependencies.node-sys]
 version = "0.1.0"
-path = "../.."
 
 [dependencies.wasm-bindgen]
 version = "0.2.42"
