@@ -60,19 +60,19 @@ worker_threads = []
 zlib = []
 
 [dependencies]
-serde = "1.0.90"
-serde_derive = "1.0.90"
+serde = "1.0.91"
+serde_derive = "1.0.91"
 
 [dependencies.js-sys]
-version = "0.3.19"
+version = "0.3.20"
 features = []
 
 [dependencies.web-sys]
-version = "0.3.19"
+version = "0.3.20"
 features = []
 
 [dependencies.wasm-bindgen]
-version = "0.2.42"
+version = "0.2.43"
 features = ["serde-serialize", "nightly"]
 
 [patch.crates-io.node-sys]
