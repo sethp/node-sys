@@ -1,3 +1,5 @@
+pub mod macros;
+
 #[cfg(feature = "assert")]
 pub mod assert;
 
