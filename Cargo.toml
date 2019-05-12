@@ -11,6 +11,9 @@ Raw bindings to the Node.js API for projects using wasm-bindgen.
 """
 edition = "2018"
 
+[package.metadata.docs.rs]
+features = ['serde-serialize']
+
 [badges]
 maintenance = { status = "experimental" }
 
@@ -73,7 +76,10 @@ features = []
 
 [dependencies.wasm-bindgen]
 version = "0.2.43"
-features = ["serde-serialize", "nightly"]
+features = ["serde-serialize", "nightly", "strict-macro"]
+
+[dev-dependencies]
+wasm-bindgen-test = "0.2.43"
 
 [patch.crates-io.node-sys]
 path = "."
