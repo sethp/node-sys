@@ -9,11 +9,10 @@ use wasm_bindgen_test::*;
 fn assertion_error_new() {
     // manual error
     let manual = assert::AssertionError::new(&{
-        use js_sys::Reflect::set;
         let opts = Object::new();
-        set(&opts, &"actual".into(), &18u32.into()).unwrap();
-        set(&opts, &"expected".into(), &29u32.into()).unwrap();
-        set(&opts, &"operator".into(), &"strictEqual".into()).unwrap();
+        Reflect::set(&opts, &"actual".into(), &18u32.into()).unwrap();
+        Reflect::set(&opts, &"expected".into(), &29u32.into()).unwrap();
+        Reflect::set(&opts, &"operator".into(), &"strictEqual".into()).unwrap();
         opts.into()
     });
     // thrown error
