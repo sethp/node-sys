@@ -47,9 +47,19 @@ extern "C" {
     ) -> Result<(), JsValue>;
 
     #[wasm_bindgen(catch, js_name = "strictEqual")]
-    pub fn strict_equal(
+    pub fn strict_equal(actual: &JsValue, expected: &JsValue) -> Result<(), JsValue>;
+
+    #[wasm_bindgen(catch, js_name = "strictEqual")]
+    pub fn strict_equal_with_error(
         actual: &JsValue,
         expected: &JsValue,
-        message: Option<Error>,
+        message: Error,
+    ) -> Result<(), JsValue>;
+
+    #[wasm_bindgen(catch, js_name = "strictEqual")]
+    pub fn strict_equal_with_message(
+        actual: &JsValue,
+        expected: &JsValue,
+        message: JsString,
     ) -> Result<(), JsValue>;
 }
