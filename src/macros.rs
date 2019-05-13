@@ -12,12 +12,12 @@ macro_rules! options {
 macro_rules! __options_rest {
     { $this:tt , $key:ident $($rest:tt)* } => {
         {
-            $crate::__options_str_key_val!($this , $key $($rest)*)
+            $crate::__options_key_val!($this , (stringify!($key)) $($rest)*)
         }
     };
     { $this:tt , $key:tt $($rest:tt)* } => {
         {
-            $crate::__options_raw_key_val!($this , $key $($rest)*)
+            $crate::__options_key_val!($this , $key $($rest)*)
         }
     };
     { $this:tt , } => {
@@ -29,18 +29,9 @@ macro_rules! __options_rest {
 
 #[doc(hidden)]
 #[macro_export]
-macro_rules! __options_raw_key_val {
+macro_rules! __options_key_val {
     { $this:tt , $key:tt : $val:tt , $($rest:tt)* } => {{
         Reflect::set(&$this, &$key.into(), &$val.into()).unwrap();
-        $crate::__options_rest!($this , $($rest)*)
-    }};
-}
-
-#[doc(hidden)]
-#[macro_export]
-macro_rules! __options_str_key_val {
-    { $this:tt , $key:ident : $val:tt , $($rest:tt)* } => {{
-        Reflect::set(&$this, &stringify!($key).into(), &$val.into()).unwrap();
         $crate::__options_rest!($this , $($rest)*)
     }};
 }
