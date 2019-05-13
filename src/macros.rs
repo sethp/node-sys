@@ -1,10 +1,56 @@
 #[macro_export]
 macro_rules! options {
-    ($($key:tt : $val:expr $(,)?),*) => {
+    ($($rest:tt)*) => {{
+        use js_sys::{Object, Reflect};
+        let this = Object::new();
+        $crate::__options_rest!(this, $($rest)*)
+    }};
+}
+
+#[doc(hidden)]
+#[macro_export]
+macro_rules! __options_rest {
+    ($this:tt , $key:ident : $val:expr , $($rest:tt)*) => {
         {
-            let obj = Object::new();
-            { $(Reflect::set(&obj, &$key.into(), &$val.into()).unwrap());* };
-            obj.into()
+            $crate::__options_str_key_val!($this, $key : $val, $($rest)*)
         }
     };
+    ($this:tt , $key:tt : $val:expr , $($rest:tt)*) => {
+        {
+            $crate::__options_raw_key_val!($this, $key : $val, $($rest)*)
+        }
+    };
+    ($this:tt , $key:ident : $val:expr) => {
+        {
+            $crate::__options_str_key_val!($this, $key : $val,)
+        }
+    };
+    ($this:tt , $key:tt : $val:expr) => {
+        {
+            $crate::__options_raw_key_val!($this, $key : $val,)
+        }
+    };
+    ($this:tt ,) => {
+        {
+            $this.into()
+        }
+    };
+}
+
+#[doc(hidden)]
+#[macro_export]
+macro_rules! __options_raw_key_val {
+    ($this:tt , $key:tt : $val:tt , $($rest:tt)*) => {{
+        Reflect::set(&$this, &$key.into(), &$val.into()).unwrap();
+        $crate::__options_rest!($this, $($rest)*)
+    }};
+}
+
+#[doc(hidden)]
+#[macro_export]
+macro_rules! __options_str_key_val {
+    ($this:tt , $key:ident : $val:tt , $($rest:tt)*) => {{
+        Reflect::set(&$this, &stringify!($key).into(), &$val.into()).unwrap();
+        $crate::__options_rest!($this, $($rest)*)
+    }};
 }
