@@ -29,6 +29,23 @@ extern "C" {
 
 #[wasm_bindgen(module = assert)]
 extern "C" {
+    #[wasm_bindgen(catch, js_name = "deepStrictEqual")]
+    pub fn deep_strict_equal(actual: &JsValue, expected: &JsValue) -> Result<(), JsValue>;
+
+    #[wasm_bindgen(catch, js_name = "deepStrictEqual")]
+    pub fn deep_strict_equal_with_error(
+        actual: &JsValue,
+        expected: &JsValue,
+        message: &Error,
+    ) -> Result<(), JsValue>;
+
+    #[wasm_bindgen(catch, js_name = "deepStrictEqual")]
+    pub fn deep_strict_equal_with_string(
+        actual: &JsValue,
+        expected: &JsValue,
+        message: &JsString,
+    ) -> Result<(), JsValue>;
+
     #[wasm_bindgen(catch, js_name = "strictEqual")]
     pub fn strict_equal(
         actual: &JsValue,
