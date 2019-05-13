@@ -1,4 +1,4 @@
-use js_sys::{Boolean, Error, JsString, Object};
+use js_sys::{Boolean, Error, JsString, Object, RegExp};
 use wasm_bindgen::prelude::*;
 
 // AssertionError
@@ -62,4 +62,16 @@ extern "C" {
         expected: &JsValue,
         message: &JsString,
     ) -> Result<(), JsValue>;
+
+    #[wasm_bindgen(catch, js_name = "throws")]
+    pub fn throws_with_regexp(fun: &Function, error: &RegExp, message: &JsString);
+
+    #[wasm_bindgen(catch, js_name = "throws")]
+    pub fn throws_with_function(fun: &Function, error: &Function, message: &JsString);
+
+    #[wasm_bindgen(catch, js_name = "throws")]
+    pub fn throws_with_object(fun: &Function, error: &Object, message: &JsString);
+
+    #[wasm_bindgen(catch, js_name = "throws")]
+    pub fn throws_with_error(fun: &Function, error: &Error, message: &JsString);
 }
