@@ -10,7 +10,6 @@ use wasm_bindgen_test::*;
 
 #[wasm_bindgen_test]
 fn assertion_error_new() {
-    use wasm_bindgen::prelude::*;
     // manual error
     let manual = assert::AssertionError::new(&options! {
         actual: 18u32,
