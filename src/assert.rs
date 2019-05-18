@@ -64,14 +64,30 @@ extern "C" {
     ) -> Result<(), JsValue>;
 
     #[wasm_bindgen(catch, js_name = "throws")]
-    pub fn throws_with_regexp(fun: &Function, error: &RegExp, message: &JsString);
+    pub fn throws_with_regexp(
+        fun: &Function,
+        error: &RegExp,
+        message: &JsString,
+    ) -> Result<(), JsValue>;
 
     #[wasm_bindgen(catch, js_name = "throws")]
-    pub fn throws_with_function(fun: &Function, error: &Function, message: &JsString);
+    pub fn throws_with_function(
+        fun: &Function,
+        error: &Function,
+        message: &JsString,
+    ) -> Result<(), JsValue>;
 
     #[wasm_bindgen(catch, js_name = "throws")]
-    pub fn throws_with_object(fun: &Function, error: &Object, message: &JsString);
+    pub fn throws_with_object(
+        fun: &Function,
+        error: &Object,
+        message: &JsString,
+    ) -> Result<(), JsValue>;
 
     #[wasm_bindgen(catch, js_name = "throws")]
-    pub fn throws_with_error(fun: &Function, error: &Error, message: &JsString);
+    pub fn throws_with_error(
+        fun: &Function,
+        error: &Error,
+        message: &JsString,
+    ) -> Result<(), JsValue>;
 }
