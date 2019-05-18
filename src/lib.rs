@@ -116,3 +116,14 @@ pub mod worker_threads;
 
 #[cfg(feature = "zlib")]
 pub mod zlib;
+
+// FIXME
+pub trait Cast {
+    fn cast<T>(&self) -> T
+    where
+        Self: Clone + Into<T>,
+    {
+        Into::<T>::into(self.clone())
+    }
+}
+impl<A> Cast for A {}
