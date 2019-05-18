@@ -1,8 +1,7 @@
 #[macro_export]
 macro_rules! options {
     ($($rest:tt)*) => {{
-        use js_sys::{Object, Reflect};
-        let this = Object::new();
+        let this = js_sys::Object::new();
         $crate::__options_rest!(this | , $($rest)*)
     }};
 }
@@ -31,7 +30,7 @@ macro_rules! __options_rest {
 #[macro_export]
 macro_rules! __options_key_val {
     { $this:ident | $key:tt : $val:tt $($rest:tt)* } => {{
-        Reflect::set(&$this, &$key.into(), &$val.into()).unwrap();
+        js_sys::Reflect::set(&$this, &$key.into(), &$val.into()).unwrap();
         $crate::__options_rest!($this | $($rest)*)
     }};
 }
