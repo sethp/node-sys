@@ -17,7 +17,7 @@ fn assertion_error_new() {
         operator: "strictEqual",
     });
     // thrown error
-    if let Err(thrown) = assert::strict_equal(&18u32.into(), &29u32.into(), None) {
+    if let Err(thrown) = assert::strict_equal(&18u32.into(), &29u32.into()) {
         let thrown = thrown.unchecked_into::<AssertionError>();
         assert_eq!(manual.operator(), thrown.operator());
         assert_eq!(manual.actual(), thrown.actual());
