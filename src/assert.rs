@@ -1,4 +1,4 @@
-use js_sys::{Boolean, Error, JsString, Object, RegExp};
+use js_sys::{Boolean, Error, Function, JsString, Object, RegExp};
 use wasm_bindgen::prelude::*;
 
 // AssertionError
