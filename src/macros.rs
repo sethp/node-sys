@@ -9,16 +9,19 @@ macro_rules! options {
 #[doc(hidden)]
 #[macro_export]
 macro_rules! __options_rest {
+    // try to parse the key as an identifier (unquoted) first
     { $this:ident | , $key:ident $($rest:tt)* } => {
         {
             $crate::__options_key_val!($this | (stringify!($key)) $($rest)*)
         }
     };
+    // try to parse the key as a token tree if it isn't an identifier
     { $this:ident | , $key:tt $($rest:tt)* } => {
         {
             $crate::__options_key_val!($this | $key $($rest)*)
         }
     };
+    // when all fields are processed, return the object
     { $this:ident | $(,)? } => {
         {
             $this.into()
