@@ -1,3 +1,5 @@
+pub mod macros;
+
 #[allow(unused_imports)]
 use js_sys::Object;
 
