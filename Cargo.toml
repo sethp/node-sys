@@ -22,29 +22,29 @@ doctest = false
 test = false
 
 [build-dependencies]
-env_logger = "0.6.2"
-failure = "0.1.5"
-sourcefile = "0.1.4"
-wasm-bindgen-webidl = "0.2.48"
+env_logger = "^0.7.0"
+failure = "^0.1.5"
+sourcefile = "^0.1.4"
+wasm-bindgen-webidl = "^0.2.51"
 
 [dependencies]
-serde = "1.0.98"
-serde_derive = "1.0.98"
+serde = "^1.0.101"
+serde_derive = "^1.0.101"
 
 [dependencies.js-sys]
-version = "0.3.25"
+version = "^0.3.28"
 features = []
 
 [dependencies.web-sys]
-version = "0.3.25"
+version = "^0.3.28"
 features = []
 
 [dependencies.wasm-bindgen]
-version = "0.2.48"
+version = "^0.2.51"
 features = ["serde-serialize", "strict-macro"]
 
 [dev-dependencies]
-wasm-bindgen-test = "0.2.48"
+wasm-bindgen-test = "^0.3.1"
 
 [patch.crates-io.node-sys]
 path = "."
