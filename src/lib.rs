@@ -3,8 +3,6 @@ pub mod macros;
 #[allow(unused_imports)]
 use js_sys::Object;
 
-include!(env!("BINDINGS"));
-
 // FIXME
 pub trait Cast {
     fn cast<T>(&self) -> T
