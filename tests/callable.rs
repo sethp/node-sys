@@ -1,9 +1,9 @@
 mod assert {
+    use node_sys::assert;
     use wasm_bindgen_test::*;
 
     #[wasm_bindgen_test]
     fn assertion_error_options_new() {
-        use node_sys::assert;
         let message = Default::default();
         let actual = 0u32.into();
         let expected = 1u32.into();
@@ -16,7 +16,6 @@ mod assert {
 
     #[wasm_bindgen_test]
     fn assertion_error_new() {
-        use node_sys::assert;
         let message = Default::default();
         let actual = 0u32.into();
         let expected = 1u32.into();
