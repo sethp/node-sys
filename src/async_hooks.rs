@@ -83,6 +83,8 @@ impl CreateHookCallbacks {
 
 #[wasm_bindgen(module = "async_hooks")]
 extern {
+    /// A representation of a collection of functions called throughout the lifetime of async
+    /// operations.
     #[wasm_bindgen(extends = Object)]
     pub type AsyncHook;
 
