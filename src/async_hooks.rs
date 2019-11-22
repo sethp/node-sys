@@ -88,6 +88,7 @@ extern {
     #[wasm_bindgen(extends = Object)]
     pub type AsyncHook;
 
+    /// Registers functions to be called for different lifetime events of each async operation.
     #[wasm_bindgen(js_name = "createHook")]
     pub fn create_hook(callbacks: CreateHookCallbacks) -> AsyncHook;
 }
