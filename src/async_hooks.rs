@@ -80,3 +80,8 @@ impl CreateHookCallbacks {
         self.promise_resolve = promise_resolve;
     }
 }
+
+#[wasm_bindgen(module = "async_hooks")]
+extern {
+    pub type AsyncHook;
+}
