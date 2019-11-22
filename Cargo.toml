@@ -19,101 +19,23 @@ crate-type = ["cdylib", "rlib"]
 doctest = false
 test = false
 
-[build-dependencies]
-env_logger = "^0.7.0"
-failure = "^0.1.5"
-sourcefile = "^0.1.4"
-wasm-bindgen-webidl = "^0.2.51"
-
 [dependencies]
-serde = "^1.0.101"
-serde_derive = "^1.0.101"
+serde = "^1.0.102"
 
 [dependencies.js-sys]
-version = "^0.3.28"
+version = "^0.3.32"
 features = []
 
 [dependencies.web-sys]
-version = "^0.3.28"
+version = "^0.3.32"
 features = []
 
 [dependencies.wasm-bindgen]
-version = "^0.2.51"
+version = "^0.2.55"
 features = ["serde-serialize", "strict-macro"]
 
 [dev-dependencies]
-wasm-bindgen-test = "^0.3.1"
+wasm-bindgen-test = "^0.3.5"
 
 [patch.crates-io.node-sys]
 path = "."
-
-[features]
-Array = []
-ArrayBuffer = []
-AssertionError = []
-AssertionErrorOptions = []
-Boolean = []
-DataView = []
-Date = []
-Error = []
-EvalError = []
-Function = []
-Generator = []
-Iterator = []
-IteratorNext = []
-Map = []
-Number = []
-Promise = []
-Proxy = []
-RangeError = []
-ReferenceError = []
-RegExp = []
-Set = []
-SharedArrayBuffer = []
-String = []
-Symbol = []
-SyntaxError = []
-TypeError = []
-URIError = []
-WeakMap = []
-WeakSet = []
-default = []
-assert = []
-async_hooks = []
-buffer = []
-child_process = []
-cluster = []
-console = []
-constants = []
-crypto = []
-dgram = []
-dns = []
-domain = []
-events = []
-fs = []
-http = []
-http2 = []
-https = []
-inspector = []
-module = []
-net = []
-os = []
-path = []
-perf_hook = []
-process = []
-punycode = []
-querystring = []
-readline = []
-repl = []
-stream = []
-string_decoder = []
-timers = []
-tls = []
-trace_events = []
-tty = []
-url = []
-util = []
-v8 = []
-vm = []
-worker_threads = []
-zlib = []
