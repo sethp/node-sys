@@ -27,6 +27,7 @@ impl AssertionErrorOptions {
         })
     }
 
+    /// If provided, the error message is set to this value.
     #[wasm_bindgen(getter)]
     pub fn message(&self) -> Option<JsString> {
         self.message.clone()
@@ -37,6 +38,7 @@ impl AssertionErrorOptions {
         self.message = message;
     }
 
+    /// The actual property on the error instance.
     #[wasm_bindgen(getter)]
     pub fn actual(&self) -> JsValue {
         self.actual.clone()
@@ -47,6 +49,7 @@ impl AssertionErrorOptions {
         self.actual = actual
     }
 
+    /// The expected property on the error instance.
     #[wasm_bindgen(getter)]
     pub fn expected(&self) -> JsValue {
         self.expected.clone()
@@ -57,6 +60,7 @@ impl AssertionErrorOptions {
         self.expected = expected
     }
 
+    /// The operator property on the error instance.
     #[wasm_bindgen(getter)]
     pub fn operator(&self) -> JsString {
         self.operator.clone()
@@ -70,6 +74,8 @@ impl AssertionErrorOptions {
 
 #[wasm_bindgen(module = "assert")]
 extern {
+    /// Indicates the failure of an assertion. All errors thrown by the assert module will be
+    /// instances of the AssertionError class.
     #[wasm_bindgen(extends = Error)]
     pub type AssertionError;
 
