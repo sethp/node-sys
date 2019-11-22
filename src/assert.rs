@@ -18,13 +18,13 @@ impl AssertionErrorOptions {
         actual: JsValue,
         expected: JsValue,
         operator: JsString,
-    ) -> Result<AssertionErrorOptions, JsValue> {
-        Ok(AssertionErrorOptions {
+    ) -> AssertionErrorOptions {
+        AssertionErrorOptions {
             message,
             actual,
             expected,
             operator,
-        })
+    }
     }
 
     /// If provided, the error message is set to this value.
