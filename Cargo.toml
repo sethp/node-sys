@@ -15,6 +15,7 @@ Raw bindings to the Node.js API for projects using wasm-bindgen.
 maintenance = { status = "experimental" }
 
 [lib]
+crate-type = ["cdylib", "rlib"]
 doctest = false
 test = false
 
