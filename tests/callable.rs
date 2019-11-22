@@ -82,4 +82,10 @@ mod async_hooks {
     fn create_hook_callbacks_new() {
         helper::create_hook_callbacks();
     }
+
+    #[wasm_bindgen_test]
+    fn create_hook() {
+        let callbacks = helper::create_hook_callbacks();
+        async_hooks::create_hook(callbacks);
+    }
 }
