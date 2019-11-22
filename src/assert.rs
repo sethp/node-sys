@@ -8,7 +8,6 @@ pub struct AssertionErrorOptions {
     actual: JsValue,
     expected: JsValue,
     operator: JsString,
-    // stack_start_fn: JsValue, // FIXME: Function
 }
 
 #[wasm_bindgen]
