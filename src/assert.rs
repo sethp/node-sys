@@ -68,3 +68,12 @@ impl AssertionErrorOptions {
         self.operator = operator
     }
 }
+
+#[wasm_bindgen(module = "assert")]
+extern {
+    #[wasm_bindgen(extends = Error)]
+    pub type AssertionError;
+
+    #[wasm_bindgen(constructor)]
+    pub fn new(options: AssertionErrorOptions) -> AssertionError;
+}
