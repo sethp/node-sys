@@ -1,4 +1,4 @@
-use js_sys::Function;
+use js_sys::{Function, Object};
 use wasm_bindgen::prelude::*;
 
 #[allow(non_snake_case)]
@@ -83,6 +83,7 @@ impl CreateHookCallbacks {
 
 #[wasm_bindgen(module = "async_hooks")]
 extern {
+    #[wasm_bindgen(extends = Object)]
     pub type AsyncHook;
 
     #[wasm_bindgen(js_name = "createHook")]
