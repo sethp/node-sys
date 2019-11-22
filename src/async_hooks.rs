@@ -84,4 +84,7 @@ impl CreateHookCallbacks {
 #[wasm_bindgen(module = "async_hooks")]
 extern {
     pub type AsyncHook;
+
+    #[wasm_bindgen(js_name = "createHook")]
+    pub fn create_hook(callbacks: CreateHookCallbacks) -> AsyncHook;
 }
