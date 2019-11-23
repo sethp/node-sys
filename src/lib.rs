@@ -29,7 +29,7 @@ pub mod dgram;
 /// connecting to a name server.
 pub mod dns;
 
-/// The events module provides functionality for working with [EventEmitter].
+/// The events module provides functionality for working with `EventEmitter`.
 pub mod events;
 
 /// The fs module provides an API for interacting with the file system in a manner closely modeled
