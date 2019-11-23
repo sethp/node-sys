@@ -22,7 +22,7 @@ extern {
 
     /// Adds the listener function to the end of the `listener` array for the event named
     /// `event_name`.
-    #[wasm_bindgen(method, js_name = "on")]
+    #[wasm_bindgen(method, js_name = "addListener")]
     pub fn add_listener(this: &EventEmitter, event_name: &str, listener: &Function) -> EventEmitter;
 
     /// Synchronously calls each of the listeners registered for the event named `event_name`, in
@@ -32,16 +32,16 @@ extern {
 
     /// Returns an array listing the events for which the emitter has registered listeners. The
     /// values in the array will be strings or Symbols.
-    #[wasm_bindgen(method)]
+    #[wasm_bindgen(method, js_name = "eventNames")]
     pub fn event_names(this: &EventEmitter) -> Box<[JsValue]>;
 
     /// Returns the current max listener value for the EventEmitter which is either set by
     /// `EventEmitter::setMaxListeners` or defaults to `EventEmitter::defaultMaxListeners`.
-    #[wasm_bindgen(method)]
+    #[wasm_bindgen(method, js_name = "getMaxListeners")]
     pub fn get_max_listeners(this: &EventEmitter);
 
     /// Returns the number of listeners listening to the event named `event_name`.
-    #[wasm_bindgen(method)]
+    #[wasm_bindgen(method, js_name = "listenerCount")]
     pub fn listener_count(this: &EventEmitter) -> usize;
 
     /// Returns a copy of the array of listeners for the event named `event_name`.
