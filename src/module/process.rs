@@ -11,5 +11,7 @@ extern {
 
     #[wasm_bindgen(method)]
     pub fn cwd(this: &Process) -> JsString;
-}
 
+    #[wasm_bindgen(method)]
+    pub fn version(this: &Process) -> JsString;
+}
