@@ -36,6 +36,8 @@ pub mod events;
 /// around standard POSIX functions.
 pub mod fs;
 
+pub(crate) mod global;
+
 /// The http module provides an implementation of the HTTP protocol for clients and servers.
 pub mod http;
 
@@ -115,3 +117,5 @@ pub mod worker_threads;
 /// The zlib module provides compression functionality implemented using Gzip and Deflate/Inflate,
 /// as well as Brotli.
 pub mod zlib;
+
+pub use global::global;
