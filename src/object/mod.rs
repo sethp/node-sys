@@ -1,6 +1,7 @@
 pub(crate) mod before_exit_listener;
 pub(crate) mod buffer;
 pub(crate) mod cpu_usage;
+pub(crate) mod disconnect_listener;
 pub(crate) mod domain;
 pub(crate) mod hr_time;
 pub(crate) mod memory_usage;
@@ -16,6 +17,7 @@ pub(crate) mod timer;
 pub use before_exit_listener::*;
 pub use buffer::*;
 pub use cpu_usage::*;
+pub use disconnect_listener::*;
 pub use domain::*;
 pub use hr_time::*;
 pub use memory_usage::*;
