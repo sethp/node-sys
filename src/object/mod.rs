@@ -1,6 +1,7 @@
 pub(crate) mod before_exit_listener;
 pub(crate) mod buffer;
 pub(crate) mod call_site;
+pub(crate) mod console_constructor;
 pub(crate) mod console_constructor_options;
 pub(crate) mod cpu_usage;
 pub(crate) mod disconnect_listener;
@@ -30,6 +31,7 @@ pub(crate) mod warning_listener;
 pub use before_exit_listener::*;
 pub use buffer::*;
 pub use call_site::*;
+pub use console_constructor::*;
 pub use console_constructor_options::*;
 pub use cpu_usage::*;
 pub use disconnect_listener::*;
