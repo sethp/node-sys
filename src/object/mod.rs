@@ -28,6 +28,7 @@ pub(crate) mod timer;
 pub(crate) mod uncaught_exception_listener;
 pub(crate) mod unhandled_rejection_listener;
 pub(crate) mod warning_listener;
+pub(crate) mod writeable_stream;
 
 pub use before_exit_listener::*;
 pub use buffer::*;
@@ -59,3 +60,4 @@ pub use timer::*;
 pub use uncaught_exception_listener::*;
 pub use unhandled_rejection_listener::*;
 pub use warning_listener::*;
+pub use writeable_stream::*;
