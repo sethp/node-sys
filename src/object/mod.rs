@@ -5,6 +5,7 @@ pub(crate) mod hr_time;
 pub(crate) mod memory_usage;
 pub(crate) mod node_module;
 pub(crate) mod node_require_function;
+pub(crate) mod process_features;
 pub(crate) mod timer;
 
 pub use buffer::*;
@@ -14,4 +15,5 @@ pub use hr_time::*;
 pub use memory_usage::*;
 pub use node_module::*;
 pub use node_require_function::*;
+pub use process_features::*;
 pub use timer::*;
