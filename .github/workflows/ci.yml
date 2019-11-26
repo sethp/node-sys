@@ -177,6 +177,4 @@ jobs:
         with:
           node-version: '13.x'
       - run: npm ci
-      - run: |
-          wasm-pack build
-          wasm-pack test --node -- --all
+      - run: wasm-pack test --node -- --all
