@@ -64,7 +64,7 @@ pub mod path;
 pub mod perf_hooks;
 
 /// The process module provides information about, and control over, the current Node.js process.
-pub mod process;
+pub(crate) mod process;
 
 /// The querystring module provides utilities for parsing and formatting URL query strings.
 pub mod querystring;
@@ -119,3 +119,4 @@ pub mod worker_threads;
 pub mod zlib;
 
 pub use global::global;
+pub use process::process;
