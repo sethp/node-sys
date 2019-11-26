@@ -20,6 +20,7 @@ pub(crate) mod remove_listener_listener;
 pub(crate) mod require_resolve;
 pub(crate) mod signals_listener;
 pub(crate) mod timer;
+pub(crate) mod uncaught_exception_listener;
 
 pub use before_exit_listener::*;
 pub use buffer::*;
@@ -43,3 +44,4 @@ pub use remove_listener_listener::*;
 pub use require_resolve::*;
 pub use signals_listener::*;
 pub use timer::*;
+pub use uncaught_exception_listener::*;
