@@ -77,6 +77,8 @@ pub mod readline;
 /// a standalone program or includible in other applications.
 pub mod repl;
 
+pub(crate) mod require;
+
 /// The stream module provides an API for implementing the stream interface.
 pub mod stream;
 
@@ -120,3 +122,4 @@ pub mod zlib;
 
 pub use global::global;
 pub use process::process;
+pub use require::require;
