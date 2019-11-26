@@ -121,6 +121,6 @@ pub mod worker_threads;
 pub mod zlib;
 
 pub use buffer::*;
-pub use global::global;
-pub use process::process;
-pub use require::require;
+pub use global::*;
+pub use process::*;
+pub use require::*;
