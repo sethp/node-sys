@@ -7,6 +7,7 @@ pub(crate) mod node_module;
 pub(crate) mod node_require_function;
 pub(crate) mod process_features;
 pub(crate) mod process_release;
+pub(crate) mod process_send_options;
 pub(crate) mod timer;
 
 pub use buffer::*;
@@ -18,4 +19,5 @@ pub use node_module::*;
 pub use node_require_function::*;
 pub use process_features::*;
 pub use process_release::*;
+pub use process_send_options::*;
 pub use timer::*;
