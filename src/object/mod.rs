@@ -1,3 +1,4 @@
+pub(crate) mod before_exit_listener;
 pub(crate) mod buffer;
 pub(crate) mod cpu_usage;
 pub(crate) mod domain;
@@ -12,6 +13,7 @@ pub(crate) mod process_versions;
 pub(crate) mod require_resolve;
 pub(crate) mod timer;
 
+pub use before_exit_listener::*;
 pub use buffer::*;
 pub use cpu_usage::*;
 pub use domain::*;
