@@ -5,7 +5,7 @@ pub mod assert;
 /// asynchronous resources created inside a Node.js application.
 pub mod async_hooks;
 
-pub mod buffer;
+pub(crate) mod buffer;
 
 /// The child_process module provides the ability to spawn child processes in a manner that is
 /// similar, but not identical, to popen(3).
@@ -120,6 +120,7 @@ pub mod worker_threads;
 /// as well as Brotli.
 pub mod zlib;
 
+pub use buffer::*;
 pub use global::global;
 pub use process::process;
 pub use require::require;
