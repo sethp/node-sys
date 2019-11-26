@@ -16,6 +16,7 @@ pub(crate) mod process_release;
 pub(crate) mod process_send_options;
 pub(crate) mod process_versions;
 pub(crate) mod rejection_handled_listener;
+pub(crate) mod remove_listener_listener;
 pub(crate) mod require_resolve;
 pub(crate) mod timer;
 
@@ -37,5 +38,6 @@ pub use process_release::*;
 pub use process_send_options::*;
 pub use process_versions::*;
 pub use rejection_handled_listener::*;
+pub use remove_listener_listener::*;
 pub use require_resolve::*;
 pub use timer::*;
