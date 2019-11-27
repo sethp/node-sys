@@ -5,6 +5,7 @@ use wasm_bindgen::prelude::*;
 extern {
     /// An object that emits events which trigger functions registered as listeners.
     #[wasm_bindgen(extends = Object)]
+    #[derive(Clone, Debug, Eq, PartialEq)]
     pub type EventEmitter;
 
     #[wasm_bindgen(constructor)]
