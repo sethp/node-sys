@@ -36,8 +36,8 @@ impl CreateHookCallbacks {
     }
 
     #[wasm_bindgen(setter)]
-    pub fn set_init(&mut self, init: Function) {
-        self.init = init;
+    pub fn set_init(&mut self, value: Function) {
+        self.init = value;
     }
 
     #[wasm_bindgen(getter)]
@@ -46,8 +46,8 @@ impl CreateHookCallbacks {
     }
 
     #[wasm_bindgen(setter)]
-    pub fn set_before(&mut self, before: Function) {
-        self.before = before;
+    pub fn set_before(&mut self, value: Function) {
+        self.before = value;
     }
 
     #[wasm_bindgen(getter)]
@@ -56,8 +56,8 @@ impl CreateHookCallbacks {
     }
 
     #[wasm_bindgen(setter)]
-    pub fn set_after(&mut self, after: Function) {
-        self.after = after;
+    pub fn set_after(&mut self, value: Function) {
+        self.after = value;
     }
 
     #[wasm_bindgen(getter)]
@@ -66,8 +66,8 @@ impl CreateHookCallbacks {
     }
 
     #[wasm_bindgen(setter)]
-    pub fn set_destroy(&mut self, destroy: Function) {
-        self.destroy = destroy;
+    pub fn set_destroy(&mut self, value: Function) {
+        self.destroy = value;
     }
 
     #[wasm_bindgen(getter)]
@@ -76,8 +76,8 @@ impl CreateHookCallbacks {
     }
 
     #[wasm_bindgen(setter)]
-    pub fn set_promise_resolve(&mut self, promise_resolve: Function) {
-        self.promise_resolve = promise_resolve;
+    pub fn set_promise_resolve(&mut self, value: Function) {
+        self.promise_resolve = value;
     }
 }
 

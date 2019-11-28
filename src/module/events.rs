@@ -19,7 +19,7 @@ extern {
     pub fn default_max_listeners(this: &EventEmitter) -> usize;
 
     #[wasm_bindgen(method, setter, js_name = "defaultMaxListeners")]
-    pub fn set_default_max_listeners(this: &EventEmitter, default_max_listeners: usize);
+    pub fn set_default_max_listeners(this: &EventEmitter, value: usize);
 
     /// Adds the listener function to the end of the `listener` array for the event named
     /// `event_name`.

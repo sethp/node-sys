@@ -18,7 +18,7 @@ impl ProcessSendOptions {
     }
 
     #[wasm_bindgen(setter)]
-    pub fn set_swallow_errors(&mut self, swallow_errors: Option<bool>) {
-        self.swallow_errors = swallow_errors;
+    pub fn set_swallow_errors(&mut self, value: Option<bool>) {
+        self.swallow_errors = value;
     }
 }

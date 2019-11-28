@@ -34,8 +34,8 @@ impl AssertionErrorOptions {
     }
 
     #[wasm_bindgen(setter)]
-    pub fn set_message(&mut self, message: Option<JsString>) {
-        self.message = message;
+    pub fn set_message(&mut self, value: Option<JsString>) {
+        self.message = value;
     }
 
     /// The actual property on the error instance.
@@ -45,8 +45,8 @@ impl AssertionErrorOptions {
     }
 
     #[wasm_bindgen(setter)]
-    pub fn set_actual(&mut self, actual: JsValue) {
-        self.actual = actual
+    pub fn set_actual(&mut self, value: JsValue) {
+        self.actual = value;
     }
 
     /// The expected property on the error instance.
@@ -56,8 +56,8 @@ impl AssertionErrorOptions {
     }
 
     #[wasm_bindgen(setter)]
-    pub fn set_expected(&mut self, expected: JsValue) {
-        self.expected = expected
+    pub fn set_expected(&mut self, value: JsValue) {
+        self.expected = value;
     }
 
     /// The operator property on the error instance.
@@ -67,8 +67,8 @@ impl AssertionErrorOptions {
     }
 
     #[wasm_bindgen(setter)]
-    pub fn set_operator(&mut self, operator: JsString) {
-        self.operator = operator
+    pub fn set_operator(&mut self, value: JsString) {
+        self.operator = value;
     }
 }
 
