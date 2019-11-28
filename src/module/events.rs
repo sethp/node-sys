@@ -8,5 +8,6 @@ extern {
     /// Creates a `Promise` that is fulfilled when the `EventEmitter` emits the given event or that
     /// is rejected when the `EventEmitter` emits `"error"`. The `Promise` will resolve with an
     /// array of all the arguments emitted to the given event.
+    #[must_use]
     pub fn once(emitter: &EventEmitter, name: &str) -> Promise;
 }
