@@ -120,7 +120,5 @@ pub mod worker_threads;
 /// as well as Brotli.
 pub mod zlib;
 
-pub use buffer::*;
-pub use global::*;
-pub use process::*;
-pub use require::*;
+pub use process::process;
+pub use require::require;

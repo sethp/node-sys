@@ -4,14 +4,5 @@ use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
 extern {
-    pub type BufferModule;
-
-    pub static buffer: BufferModule;
-
-    pub fn transcode(
-        this: &BufferModule,
-        source: &Uint8Array,
-        from_enc: &TranscodeEncoding,
-        to_enc: &TranscodeEncoding,
-    ) -> Buffer;
+    pub fn transcode(source: &Uint8Array, from_enc: &TranscodeEncoding, to_enc: &TranscodeEncoding) -> Buffer;
 }
