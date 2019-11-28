@@ -1,4 +1,4 @@
-use crate::{module::events::EventEmitter, object::Timer};
+use crate::{interface::Timer, module::events::EventEmitter};
 use js_sys::Function;
 use wasm_bindgen::prelude::*;
 

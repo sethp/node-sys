@@ -1,4 +1,4 @@
-use crate::object::ReadWriteStream;
+use crate::interface::ReadWriteStream;
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]

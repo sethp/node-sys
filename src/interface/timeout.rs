@@ -1,4 +1,4 @@
-use crate::object::Timer;
+use crate::interface::Timer;
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]

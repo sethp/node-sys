@@ -3,7 +3,8 @@
 #![deny(clippy::all)]
 // #![deny(missing_docs)] // FIXME: wasm-bindgen macros break this
 
+pub(crate) mod interface;
 pub(crate) mod module;
-pub(crate) mod object;
+
+pub use interface::*;
 pub use module::*;
-pub use object::*;

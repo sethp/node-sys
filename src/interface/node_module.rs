@@ -1,4 +1,4 @@
-use crate::object::NodeRequireFunction;
+use crate::interface::NodeRequireFunction;
 use js_sys::{Array, JsString};
 use wasm_bindgen::prelude::*;
 

@@ -1,4 +1,4 @@
-use crate::object::NodeRequireFunction;
+use crate::interface::NodeRequireFunction;
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
