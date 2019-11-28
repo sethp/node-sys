@@ -1,4 +1,5 @@
 use crate::{
+    class::EventEmitter,
     interface::{
         CpuUsage,
         Domain,
@@ -10,7 +11,6 @@ use crate::{
         ProcessSendOptions,
         ProcessVersions,
     },
-    module::events::EventEmitter,
 };
 use js_sys::{Array, Function, JsString, Number, Object};
 use wasm_bindgen::prelude::*;

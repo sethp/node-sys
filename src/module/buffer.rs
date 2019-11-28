@@ -1,4 +1,4 @@
-pub use crate::interface::{Buffer, TranscodeEncoding};
+pub use crate::{class::Buffer, interface::TranscodeEncoding};
 use js_sys::Uint8Array;
 use wasm_bindgen::prelude::*;
 

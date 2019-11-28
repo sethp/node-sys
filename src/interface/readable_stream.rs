@@ -1,4 +1,4 @@
-use crate::events::EventEmitter;
+use crate::class::EventEmitter;
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
