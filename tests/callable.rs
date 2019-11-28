@@ -1,5 +1,6 @@
 mod assert {
     use node_sys::assert;
+    use wasm_bindgen::prelude::*;
     use wasm_bindgen_test::*;
 
     #[wasm_bindgen_test]
@@ -32,12 +33,12 @@ mod assert {
         use node_sys::assert;
         let fst = {
             let this = Object::new();
-            Reflect::set(&this, &"a".into(), &1u32.into()).unwrap();
+            Reflect::set(&this, &"a".into(), &1u32.into()).unwrap_throw();
             this
         };
         let snd = {
             let this = Object::new();
-            Reflect::set(&this, &"a".into(), &"1".into()).unwrap();
+            Reflect::set(&this, &"a".into(), &"1".into()).unwrap_throw();
             this
         };
         let message = Default::default();
