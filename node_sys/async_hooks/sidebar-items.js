@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["create_hook","Registers functions to be called for different lifetime events of each async operation."]],"struct":[["AsyncHook","A representation of a collection of functions called throughout the lifetime of async operations."],["CreateHookCallbacks",""]]});
