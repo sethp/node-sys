@@ -1,8 +1,55 @@
-use crate::class::EventEmitter;
+use crate::{
+    class::EventEmitter,
+    interface::{PipeOptions, WritableStream},
+};
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
 extern {
     #[wasm_bindgen(extends = EventEmitter)]
+    #[derive(Clone, Debug, Eq, PartialEq)]
     pub type ReadableStream;
+
+    //******************//
+    // Instance Methods //
+    //******************//
+
+    #[wasm_bindgen(method)]
+    pub fn is_paused(this: &ReadableStream) -> bool;
+
+    #[wasm_bindgen(method)]
+    pub fn pause(this: &ReadableStream) -> ReadableStream;
+
+    #[wasm_bindgen(method)]
+    pub fn pipe(this: &ReadableStream, dest: &WritableStream, opts: PipeOptions) -> bool;
+
+    #[wasm_bindgen(method)]
+    pub fn read(this: &ReadableStream) -> bool;
+
+    #[wasm_bindgen(method)]
+    pub fn resume(this: &ReadableStream) -> bool;
+
+    #[wasm_bindgen(method)]
+    pub fn set_encoding(this: &ReadableStream) -> bool;
+
+    #[wasm_bindgen(method)]
+    pub fn shift(this: &ReadableStream) -> bool;
+
+    #[wasm_bindgen(method)]
+    pub fn unpipe(this: &ReadableStream) -> bool;
+
+    #[wasm_bindgen(method)]
+    pub fn unshift(this: &ReadableStream) -> bool;
+
+    #[wasm_bindgen(method)]
+    pub fn wrap(this: &ReadableStream) -> bool;
+
+    //*********************//
+    // Instance Properties //
+    //*********************//
+
+    #[wasm_bindgen(method, getter)]
+    pub fn readable(this: &ReadableStream) -> bool;
+
+// FIXME: async iterator
 }
