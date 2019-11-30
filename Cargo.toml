@@ -6,7 +6,7 @@ authors = ["Darin Morrison <darinmorrison@users.noreply.github.com>"]
 license = "(Apache-2.0 OR MIT)"
 readme = "README.md"
 categories = ["wasm"]
-repository = "https://github.com/freebroccolo/node-sys"
+repository = "https://github.com/interfaces-rs/node-sys"
 description = """
 Raw bindings to the Node.js API for projects using wasm-bindgen.
 """
