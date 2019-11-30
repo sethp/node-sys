@@ -6,13 +6,15 @@
 <span id="6">6</span>
 <span id="7">7</span>
 <span id="8">8</span>
+<span id="9">9</span>
 </pre><div class="example-wrap"><pre class="rust ">
-<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">interface</span>::{<span class="ident">ReadableStream</span>, <span class="ident">WriteableStream</span>};
+<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">interface</span>::{<span class="ident">ReadableStream</span>, <span class="ident">WritableStream</span>};
 <span class="kw">use</span> <span class="ident">wasm_bindgen</span>::<span class="ident">prelude</span>::<span class="kw-2">*</span>;
 
 <span class="attribute">#[<span class="ident">wasm_bindgen</span>]</span>
 <span class="kw">extern</span> {
-    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">extends</span> <span class="op">=</span> <span class="ident">ReadableStream</span>, <span class="ident">extends</span> <span class="op">=</span> <span class="ident">WriteableStream</span>)]</span>
+    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">extends</span> <span class="op">=</span> <span class="ident">ReadableStream</span>, <span class="ident">extends</span> <span class="op">=</span> <span class="ident">WritableStream</span>)]</span>
+    <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Clone</span>, <span class="ident">Debug</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>)]</span>
     <span class="kw">pub</span> <span class="kw">type</span> <span class="ident">ReadWriteStream</span>;
 }
 </pre></div>
