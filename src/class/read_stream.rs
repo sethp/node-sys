@@ -5,7 +5,7 @@ use wasm_bindgen::{prelude::*, JsCast};
 #[wasm_bindgen(module = "events")]
 extern {
     #[wasm_bindgen(extends = ReadableStream)]
-    #[derive(Clone, Debug, Eq, PartialEq)]
+    #[derive(Clone, Debug)]
     pub type ReadStream;
 
     //******************//

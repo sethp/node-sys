@@ -1,13 +1,13 @@
 use crate::{
     class::EventEmitter,
-    interface::{PipeOptions, WritableStream},
+    interface::{AsyncIterator, PipeOptions, WritableStream},
 };
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
 extern {
-    #[wasm_bindgen(extends = EventEmitter)]
-    #[derive(Clone, Debug, Eq, PartialEq)]
+    #[wasm_bindgen(extends = EventEmitter, extends = AsyncIterator)]
+    #[derive(Clone, Debug)]
     pub type ReadableStream;
 
     //******************//
