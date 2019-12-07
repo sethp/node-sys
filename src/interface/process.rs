@@ -18,6 +18,7 @@ use wasm_bindgen::prelude::*;
 #[wasm_bindgen]
 extern {
     #[wasm_bindgen(extends = EventEmitter)]
+    #[derive(Clone, Debug, PartialEq)]
     pub type Process;
 
     #[wasm_bindgen(method, catch)]
