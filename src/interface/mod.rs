@@ -1,3 +1,4 @@
+pub(crate) mod assertion_error_options;
 pub(crate) mod async_iterator;
 pub(crate) mod before_exit_listener;
 pub(crate) mod call_site;
@@ -44,6 +45,7 @@ pub(crate) mod unhandled_rejection_listener;
 pub(crate) mod warning_listener;
 pub(crate) mod writable_stream;
 
+// pub use assertion_error_options::*;
 pub use async_iterator::*;
 pub use before_exit_listener::*;
 pub use call_site::*;
