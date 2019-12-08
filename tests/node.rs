@@ -210,10 +210,24 @@ mod buffer {
         }
     }
 
+    mod instance {
+        use wasm_bindgen_test::*;
+
+        #[wasm_bindgen_test]
+        fn compare() {
+            let target = crate::buffer::helper::buffer();
+            let target_start = Default::default();
+            let target_end = Default::default();
+            let source_start = Default::default();
+            let source_end = Default::default();
+            target.compare(&target, target_start, target_end, source_start, source_end);
+        }
+    }
+
     mod r#static {
         use js_sys::{Array, ArrayBuffer, Uint8Array};
         use node_sys::Buffer;
-        use wasm_bindgen_test::*;    
+        use wasm_bindgen_test::*;
 
         #[wasm_bindgen_test]
         fn alloc() {
@@ -222,39 +236,39 @@ mod buffer {
             let encoding = Default::default();
             Buffer::alloc(size, Some(&fill), encoding);
         }
-    
+
         #[wasm_bindgen_test]
         fn alloc_unsafe() {
             let size = Default::default();
             Buffer::alloc_unsafe(size);
         }
-    
+
         #[wasm_bindgen_test]
         fn byte_length() {
             let string = &"".into();
             let encoding = Default::default();
             Buffer::byte_length(&string, encoding);
         }
-    
+
         #[wasm_bindgen_test]
-        fn compare() {
+        fn compare_() {
             let buf = Buffer::from_array(&Array::new());
-            Buffer::compare(&buf, &buf);
+            Buffer::compare_(&buf, &buf);
         }
-    
+
         #[wasm_bindgen_test]
         fn concat() {
             let list = &Array::new();
             let total_length = Default::default();
             Buffer::concat(list, total_length);
         }
-    
+
         #[wasm_bindgen_test]
         fn from_array() {
             let array = Array::new();
             Buffer::from_array(&array);
         }
-    
+
         #[wasm_bindgen_test]
         fn from_array_buffer() {
             let buffer = ArrayBuffer::new(0);
@@ -262,30 +276,30 @@ mod buffer {
             let length = Default::default();
             Buffer::from_array_buffer(&buffer, byte_offset, length);
         }
-    
+
         #[wasm_bindgen_test]
         fn from_array_uint8() {
             let array = Uint8Array::new_with_length(0);
             Buffer::from_array_uint8(&array);
         }
-    
+
         #[wasm_bindgen_test]
         fn from_string() {
             let string = &"".into();
             let encoding = Default::default();
             Buffer::from_string(string, encoding);
         }
-    
+
         #[wasm_bindgen_test]
         fn is_buffer() {
             assert!(Buffer::is_buffer(&Buffer::from_array(&Array::new())));
         }
-    
+
         #[wasm_bindgen_test]
         fn is_encoding() {
             assert!(Buffer::is_encoding(&"utf8".into()));
         }
-    
+
         #[wasm_bindgen_test]
         fn pool_size() {
             Buffer::pool_size();
