@@ -30,7 +30,7 @@ extern {
     #[wasm_bindgen(variadic)]
     pub fn resolve(path_segments: &Array) -> JsString;
 
-    // FIXME: path.posix
+// FIXME: path.posix
 
-    // FIXME: path.win32
+// FIXME: path.win32
 }
