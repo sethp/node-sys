@@ -48,6 +48,7 @@ pub(crate) mod unhandled_rejection_listener;
 pub(crate) mod warning_listener;
 pub(crate) mod writable_stream;
 pub(crate) mod zlib;
+pub(crate) mod zlib_options;
 
 // pub use assertion_error_options::*;
 pub use async_iterator::*;
@@ -99,3 +100,4 @@ pub use unhandled_rejection_listener::*;
 pub use warning_listener::*;
 pub use writable_stream::*;
 pub use zlib::*;
+pub use zlib_options::*;
