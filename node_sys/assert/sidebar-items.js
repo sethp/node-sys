@@ -1,1 +1,1 @@
-initSidebarItems({"fn":[["deep_strict_equal",""]],"struct":[["AssertionError",""],["AssertionErrorOptions",""]]});
+initSidebarItems({"fn":[["deep_strict_equal",""],["does_not_reject_function",""],["does_not_reject_promise",""],["does_not_throw",""],["fail",""],["if_error",""],["not_deep_strict_equal",""],["not_strict_equal",""],["ok",""],["rejects_function",""],["rejects_promise",""],["strict_equal",""],["throws",""]],"struct":[["AssertionError",""],["AssertionErrorOptions",""]]});
