@@ -1,1 +1,1 @@
-initSidebarItems({});
+initSidebarItems({"struct":[["Dir",""],["Dirent",""],["FsWatcher",""],["ReadStream",""],["Stats",""],["WriteStream",""]]});
