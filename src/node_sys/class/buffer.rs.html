@@ -43,6 +43,17 @@
 <span id="43">43</span>
 <span id="44">44</span>
 <span id="45">45</span>
+<span id="46">46</span>
+<span id="47">47</span>
+<span id="48">48</span>
+<span id="49">49</span>
+<span id="50">50</span>
+<span id="51">51</span>
+<span id="52">52</span>
+<span id="53">53</span>
+<span id="54">54</span>
+<span id="55">55</span>
+<span id="56">56</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="kw">use</span> <span class="ident">js_sys</span>::{<span class="ident">Array</span>, <span class="ident">ArrayBuffer</span>, <span class="ident">JsString</span>, <span class="ident">Uint8Array</span>};
 <span class="kw">use</span> <span class="ident">wasm_bindgen</span>::<span class="ident">prelude</span>::<span class="kw-2">*</span>;
@@ -62,8 +73,9 @@
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">static_method_of</span> <span class="op">=</span> <span class="ident">Buffer</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;byteLength&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">byte_length</span>(<span class="ident">string</span>: <span class="kw-2">&amp;</span><span class="ident">JsString</span>, <span class="ident">encoding</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">JsString</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">u32</span>;
 
-    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">static_method_of</span> <span class="op">=</span> <span class="ident">Buffer</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">compare</span>(<span class="ident">buf1</span>: <span class="kw-2">&amp;</span><span class="ident">Buffer</span>, <span class="ident">buf2</span>: <span class="kw-2">&amp;</span><span class="ident">Buffer</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">i32</span>;
+    <span class="comment">// FIXME: compiler complains about</span>
+    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">static_method_of</span> <span class="op">=</span> <span class="ident">Buffer</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;compare&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">compare_</span>(<span class="ident">buf1</span>: <span class="kw-2">&amp;</span><span class="ident">Buffer</span>, <span class="ident">buf2</span>: <span class="kw-2">&amp;</span><span class="ident">Buffer</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">i32</span>;
 
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">static_method_of</span> <span class="op">=</span> <span class="ident">Buffer</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">concat</span>(<span class="ident">list</span>: <span class="kw-2">&amp;</span><span class="ident">Array</span>, <span class="ident">total_length</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">u32</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Buffer</span>;
@@ -88,6 +100,16 @@
 
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">static_method_of</span> <span class="op">=</span> <span class="ident">Buffer</span>, <span class="ident">getter</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;poolSize&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">pool_size</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">usize</span>;
+
+    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">compare</span>(
+        <span class="ident">source</span>: <span class="kw-2">&amp;</span><span class="ident">Buffer</span>,
+        <span class="ident">target</span>: <span class="kw-2">&amp;</span><span class="ident">Buffer</span>,
+        <span class="ident">target_start</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">usize</span><span class="op">&gt;</span>,
+        <span class="ident">target_end</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">usize</span><span class="op">&gt;</span>,
+        <span class="ident">source_start</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">usize</span><span class="op">&gt;</span>,
+        <span class="ident">source_end</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">usize</span><span class="op">&gt;</span>,
+    ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">i32</span>;
 }
 </pre></div>
 </section><section id="search" class="content hidden"></section><section class="footer"></section><aside id="help" class="hidden"><div><h1 class="hidden">Help</h1><div class="shortcuts"><h2>Keyboard Shortcuts</h2><dl><dt><kbd>?</kbd></dt><dd>Show this help dialog</dd><dt><kbd>S</kbd></dt><dd>Focus the search field</dd><dt><kbd>↑</kbd></dt><dd>Move up in search results</dd><dt><kbd>↓</kbd></dt><dd>Move down in search results</dd><dt><kbd>↹</kbd></dt><dd>Switch tab</dd><dt><kbd>&#9166;</kbd></dt><dd>Go to active search result</dd><dt><kbd>+</kbd></dt><dd>Expand all sections</dd><dt><kbd>-</kbd></dt><dd>Collapse all sections</dd></dl></div><div class="infos"><h2>Search Tricks</h2><p>Prefix searches with a type followed by a colon (e.g., <code>fn:</code>) to restrict the search to a given type.</p><p>Accepted types are: <code>fn</code>, <code>mod</code>, <code>struct</code>, <code>enum</code>, <code>trait</code>, <code>type</code>, <code>macro</code>, and <code>const</code>.</p><p>Search functions by type signature (e.g., <code>vec -> usize</code> or <code>* -> vec</code>)</p><p>Search multiple things at once by splitting your query with comma (e.g., <code>str,u8</code> or <code>String,struct:Vec,test</code>)</p></div></div></aside><script>window.rootPath = "../../../";window.currentCrate = "node_sys";</script><script src="../../../aliases.js"></script><script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script><script defer src="../../../search-index.js"></script></body></html>
