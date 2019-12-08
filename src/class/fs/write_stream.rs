@@ -2,7 +2,7 @@ use crate::interface::WritableStream;
 use js_sys::Function;
 use wasm_bindgen::{prelude::*, JsCast};
 
-#[wasm_bindgen(module = "events")]
+#[wasm_bindgen(module = "fs")]
 extern {
     #[wasm_bindgen(extends = WritableStream)]
     #[derive(Clone, Debug, Eq, PartialEq)]
