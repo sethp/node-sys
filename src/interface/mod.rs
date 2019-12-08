@@ -1,6 +1,7 @@
 pub(crate) mod assertion_error_options;
 pub(crate) mod async_iterator;
 pub(crate) mod before_exit_listener;
+pub(crate) mod brotli_options;
 pub(crate) mod call_site;
 pub(crate) mod console_constructor;
 pub(crate) mod console_constructor_options;
@@ -50,6 +51,7 @@ pub(crate) mod writable_stream;
 // pub use assertion_error_options::*;
 pub use async_iterator::*;
 pub use before_exit_listener::*;
+pub use brotli_options::*;
 pub use call_site::*;
 pub use console_constructor::*;
 pub use console_constructor_options::*;
