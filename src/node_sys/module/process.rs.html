@@ -5,16 +5,12 @@
 <span id="5">5</span>
 <span id="6">6</span>
 <span id="7">7</span>
-<span id="8">8</span>
-<span id="9">9</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">interface</span>::<span class="ident">Process</span>;
 <span class="kw">use</span> <span class="ident">wasm_bindgen</span>::<span class="ident">prelude</span>::<span class="kw-2">*</span>;
 
 <span class="attribute">#[<span class="ident">wasm_bindgen</span>]</span>
 <span class="kw">extern</span> {
-    <span class="doccomment">/// The process module provides information about, and control over, the current Node.js</span>
-    <span class="doccomment">/// process.</span>
     <span class="kw">pub</span> <span class="kw">static</span> <span class="ident">process</span>: <span class="ident">Process</span>;
 }
 </pre></div>

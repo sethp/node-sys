@@ -89,9 +89,6 @@
 <span id="89">89</span>
 <span id="90">90</span>
 <span id="91">91</span>
-<span id="92">92</span>
-<span id="93">93</span>
-<span id="94">94</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="kw">use</span> <span class="ident">js_sys</span>::{<span class="ident">Function</span>, <span class="ident">Object</span>};
 <span class="kw">use</span> <span class="ident">wasm_bindgen</span>::<span class="ident">prelude</span>::<span class="kw-2">*</span>;
@@ -178,12 +175,9 @@
 
 <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">module</span> <span class="op">=</span> <span class="string">&quot;async_hooks&quot;</span>)]</span>
 <span class="kw">extern</span> {
-    <span class="doccomment">/// A representation of a collection of functions called throughout the lifetime of async</span>
-    <span class="doccomment">/// operations.</span>
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">extends</span> <span class="op">=</span> <span class="ident">Object</span>)]</span>
     <span class="kw">pub</span> <span class="kw">type</span> <span class="ident">AsyncHook</span>;
 
-    <span class="doccomment">/// Registers functions to be called for different lifetime events of each async operation.</span>
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;createHook&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">create_hook</span>(<span class="ident">callbacks</span>: <span class="ident">CreateHookCallbacks</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">AsyncHook</span>;
 }
