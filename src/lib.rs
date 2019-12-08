@@ -7,6 +7,6 @@ pub(crate) mod class;
 pub(crate) mod interface;
 pub(crate) mod module;
 
-pub use class::*;
+pub use class::{Buffer, EventEmitter, Immediate, Module, Timeout, Wasi};
 pub use interface::*;
 pub use module::*;
