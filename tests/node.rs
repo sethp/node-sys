@@ -201,6 +201,15 @@ mod async_hooks {
 }
 
 mod buffer {
+    pub mod helper {
+        use js_sys::Array;
+        use node_sys::Buffer;
+
+        pub fn buffer() -> Buffer {
+            Buffer::from_array(&Array::new())
+        }
+    }
+
     mod r#static {
         use js_sys::{Array, ArrayBuffer, Uint8Array};
         use node_sys::Buffer;
