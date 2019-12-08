@@ -50,6 +50,7 @@ pub(crate) mod writable_stream;
 pub(crate) mod zlib;
 pub(crate) mod zlib_options;
 pub(crate) mod zlib_params;
+pub(crate) mod zlib_reset;
 
 // pub use assertion_error_options::*;
 pub use async_iterator::*;
@@ -103,3 +104,4 @@ pub use writable_stream::*;
 pub use zlib::*;
 pub use zlib_options::*;
 pub use zlib_params::*;
+pub use zlib_reset::*;
