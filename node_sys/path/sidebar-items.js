@@ -1,1 +1,1 @@
-initSidebarItems({});
+initSidebarItems({"fn":[["basename",""],["dirname",""],["extname",""],["format",""],["is_absolute",""],["join",""],["normalize",""],["parse",""],["relative",""],["resolve",""]],"static":[["delimiter",""],["sep",""]]});
