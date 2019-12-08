@@ -16,8 +16,9 @@ extern {
     #[wasm_bindgen(static_method_of = Buffer, js_name = "byteLength")]
     pub fn byte_length(string: &JsString, encoding: Option<&JsString>) -> u32;
 
-    #[wasm_bindgen(static_method_of = Buffer)]
-    pub fn compare(buf1: &Buffer, buf2: &Buffer) -> i32;
+    // FIXME: compiler complains about
+    #[wasm_bindgen(static_method_of = Buffer, js_name = "compare")]
+    pub fn compare_(buf1: &Buffer, buf2: &Buffer) -> i32;
 
     #[wasm_bindgen(static_method_of = Buffer)]
     pub fn concat(list: &Array, total_length: Option<u32>) -> Buffer;
@@ -42,4 +43,14 @@ extern {
 
     #[wasm_bindgen(static_method_of = Buffer, getter, js_name = "poolSize")]
     pub fn pool_size() -> usize;
+
+    #[wasm_bindgen(method)]
+    pub fn compare(
+        source: &Buffer,
+        target: &Buffer,
+        target_start: Option<usize>,
+        target_end: Option<usize>,
+        source_start: Option<usize>,
+        source_end: Option<usize>,
+    ) -> i32;
 }
