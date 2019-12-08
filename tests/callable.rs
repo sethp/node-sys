@@ -109,6 +109,23 @@ mod events {
     }
 }
 
+mod path {
+    use js_sys::Array;
+    use node_sys::path;
+    use wasm_bindgen_test::*;
+
+    #[wasm_bindgen_test]
+    fn join() {
+        path::join(&{
+            let val = Array::new();
+            val.push(&"foo".into());
+            val.push(&"bar".into());
+            val.push(&"baz".into());
+            val
+        });
+    }
+}
+
 mod process {
     use node_sys::process;
     use wasm_bindgen_test::*;
