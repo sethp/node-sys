@@ -1,1 +1,1 @@
-initSidebarItems({"fn":[["once",""]],"struct":[["EventEmitter","An object that emits events which trigger functions registered as listeners."]]});
+initSidebarItems({"fn":[["once",""]],"struct":[["EventEmitter",""]]});

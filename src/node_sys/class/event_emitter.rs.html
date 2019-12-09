@@ -61,43 +61,12 @@
 <span id="61">61</span>
 <span id="62">62</span>
 <span id="63">63</span>
-<span id="64">64</span>
-<span id="65">65</span>
-<span id="66">66</span>
-<span id="67">67</span>
-<span id="68">68</span>
-<span id="69">69</span>
-<span id="70">70</span>
-<span id="71">71</span>
-<span id="72">72</span>
-<span id="73">73</span>
-<span id="74">74</span>
-<span id="75">75</span>
-<span id="76">76</span>
-<span id="77">77</span>
-<span id="78">78</span>
-<span id="79">79</span>
-<span id="80">80</span>
-<span id="81">81</span>
-<span id="82">82</span>
-<span id="83">83</span>
-<span id="84">84</span>
-<span id="85">85</span>
-<span id="86">86</span>
-<span id="87">87</span>
-<span id="88">88</span>
-<span id="89">89</span>
-<span id="90">90</span>
-<span id="91">91</span>
-<span id="92">92</span>
-<span id="93">93</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="kw">use</span> <span class="ident">js_sys</span>::{<span class="ident">Function</span>, <span class="ident">Object</span>};
 <span class="kw">use</span> <span class="ident">wasm_bindgen</span>::<span class="ident">prelude</span>::<span class="kw-2">*</span>;
 
 <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">module</span> <span class="op">=</span> <span class="string">&quot;events&quot;</span>)]</span>
 <span class="kw">extern</span> {
-    <span class="doccomment">/// An object that emits events which trigger functions registered as listeners.</span>
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">extends</span> <span class="op">=</span> <span class="ident">Object</span>)]</span>
     <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Clone</span>, <span class="ident">Debug</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>)]</span>
     <span class="kw">pub</span> <span class="kw">type</span> <span class="ident">EventEmitter</span>;
@@ -105,83 +74,54 @@
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">constructor</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">EventEmitter</span>;
 
-    <span class="doccomment">/// By default, a maximum of `10` listeners can be registered for any single event. This limit</span>
-    <span class="doccomment">/// can be changed for individual `EventEmitter` instances using the</span>
-    <span class="doccomment">/// `emitter::set_max_listeners` method. To change the default for all `EventEmitter`</span>
-    <span class="doccomment">/// instances, the `EventEmitter::default_max_listeners` property can be used.</span>
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">getter</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;defaultMaxListeners&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">default_max_listeners</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">EventEmitter</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f64</span>;
 
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">setter</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;defaultMaxListeners&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_default_max_listeners</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">EventEmitter</span>, <span class="ident">value</span>: <span class="ident">f64</span>);
 
-    <span class="doccomment">/// Adds the listener function to the end of the `listener` array for the event named</span>
-    <span class="doccomment">/// `event_name`.</span>
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;addListener&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">add_listener</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">EventEmitter</span>, <span class="ident">event_name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="ident">listener</span>: <span class="kw-2">&amp;</span><span class="ident">Function</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">EventEmitter</span>;
 
-    <span class="doccomment">/// Synchronously calls each of the listeners registered for the event named `event_name`, in</span>
-    <span class="doccomment">/// the order they were registered, passing the supplied arguments to each.</span>
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">variadic</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">emit</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">EventEmitter</span>, <span class="ident">event_name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="ident">args</span>: <span class="ident">Box</span><span class="op">&lt;</span>[<span class="ident">JsValue</span>]<span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span>;
 
-    <span class="doccomment">/// Returns an array listing the events for which the emitter has registered listeners. The</span>
-    <span class="doccomment">/// values in the array will be strings or Symbols.</span>
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;eventNames&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">event_names</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">EventEmitter</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Box</span><span class="op">&lt;</span>[<span class="ident">JsValue</span>]<span class="op">&gt;</span>;
 
-    <span class="doccomment">/// Returns the current max listener value for the EventEmitter which is either set by</span>
-    <span class="doccomment">/// `EventEmitter::setMaxListeners` or defaults to `EventEmitter::defaultMaxListeners`.</span>
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;getMaxListeners&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_max_listeners</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">EventEmitter</span>);
 
-    <span class="doccomment">/// Returns the number of listeners listening to the event named `event_name`.</span>
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;listenerCount&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">listener_count</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">EventEmitter</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f64</span>;
 
-    <span class="doccomment">/// Returns a copy of the array of listeners for the event named `event_name`.</span>
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">listeners</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">EventEmitter</span>, <span class="ident">event_name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Box</span><span class="op">&lt;</span>[<span class="ident">JsValue</span>]<span class="op">&gt;</span>; <span class="comment">// FIXME: Box&lt;[Function]&gt;</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">listeners</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">EventEmitter</span>, <span class="ident">event_name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Box</span><span class="op">&lt;</span>[<span class="ident">JsValue</span>]<span class="op">&gt;</span>;
 
-    <span class="doccomment">/// Alias for `EventEmitter::remove_listener`.</span>
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">off</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">EventEmitter</span>, <span class="ident">event_name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="ident">listener</span>: <span class="kw-2">&amp;</span><span class="ident">Function</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">EventEmitter</span>;
 
-    <span class="doccomment">/// Adds the listener function to the end of the `listener` array for the event named</span>
-    <span class="doccomment">/// `event_name`.</span>
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;on&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">on</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">EventEmitter</span>, <span class="ident">event_name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="ident">listener</span>: <span class="kw-2">&amp;</span><span class="ident">Function</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">EventEmitter</span>;
 
-    <span class="doccomment">/// Adds a one-time `listener` function for the event named `event_name`. The next time</span>
-    <span class="doccomment">/// `event_name` is triggered, this listener is removed and then invoked.</span>
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;once&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">once</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">EventEmitter</span>, <span class="ident">event_name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="ident">listener</span>: <span class="kw-2">&amp;</span><span class="ident">Function</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">EventEmitter</span>;
 
-    <span class="doccomment">/// Adds the `listener` function to the beginning of the listeners array for the event named</span>
-    <span class="doccomment">/// `event_name`.</span>
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;prependListener&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">prepend_listener</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">EventEmitter</span>, <span class="ident">event_name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="ident">listener</span>: <span class="kw-2">&amp;</span><span class="ident">Function</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">EventEmitter</span>;
 
-    <span class="doccomment">/// Adds a one-time `listener` function for the event named `event_name` to the beginning of the</span>
-    <span class="doccomment">/// listeners array.</span>
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;prependOnceListener&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">prepend_once_listener</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">EventEmitter</span>, <span class="ident">event_name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="ident">listener</span>: <span class="kw-2">&amp;</span><span class="ident">Function</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">EventEmitter</span>;
 
-    <span class="doccomment">/// Removes all listeners, or those of the specified `event_name`.</span>
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;removeAllListeners&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">remove_all_listeners</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">EventEmitter</span>, <span class="ident">event_name</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">EventEmitter</span>;
 
-    <span class="doccomment">/// Removes the specified `listener` from the listener array for the event named `event_name`.</span>
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;removeListener&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">remove_listener</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">EventEmitter</span>, <span class="ident">event_name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="ident">listener</span>: <span class="kw-2">&amp;</span><span class="ident">Function</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">EventEmitter</span>;
 
-    <span class="doccomment">/// By default `EventEmitters` will print a warning if more than `10` listeners are added for a</span>
-    <span class="doccomment">/// particular event.</span>
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;setMaxListeners&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_max_listeners</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">EventEmitter</span>, <span class="ident">n</span>: <span class="ident">f64</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">EventEmitter</span>;
 
-    <span class="doccomment">/// Returns a copy of the array of listeners for the event named `event_name`, including any</span>
-    <span class="doccomment">/// wrappers (such as those created by `.once()`).</span>
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;rawListeners&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">raw_listeners</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">EventEmitter</span>, <span class="ident">event_name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Box</span><span class="op">&lt;</span>[<span class="ident">JsValue</span>]<span class="op">&gt;</span>;
 }
