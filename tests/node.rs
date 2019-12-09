@@ -591,7 +591,7 @@ mod buffer {
         #[wasm_bindgen_test]
         fn write_big_int64_be() {
             let buffer = Buffer::alloc(8.into(), None, None);
-            let value = 0;
+            let value = 0i64;
             let offset = Default::default();
             buffer.write_big_int64_be(value, offset);
         }
@@ -599,15 +599,55 @@ mod buffer {
         #[wasm_bindgen_test]
         fn write_big_int64_le() {
             let buffer = Buffer::alloc(8.into(), None, None);
-            let value = 0;
+            let value = 0i64;
             let offset = Default::default();
             buffer.write_big_int64_le(value, offset);
         }
 
         #[wasm_bindgen_test]
+        fn write_int8() {
+            let buffer = Buffer::alloc(1.into(), None, None);
+            let value = 0i8;
+            let offset = Default::default();
+            buffer.write_int8(value, offset);
+        }
+
+        #[wasm_bindgen_test]
+        fn write_int16_be() {
+            let buffer = Buffer::alloc(2.into(), None, None);
+            let value = 0i16;
+            let offset = Default::default();
+            buffer.write_int16_be(value, offset);
+        }
+
+        #[wasm_bindgen_test]
+        fn write_int16_le() {
+            let buffer = Buffer::alloc(2.into(), None, None);
+            let value = 0i16;
+            let offset = Default::default();
+            buffer.write_int16_le(value, offset);
+        }
+
+        #[wasm_bindgen_test]
+        fn write_int32_be() {
+            let buffer = Buffer::alloc(4.into(), None, None);
+            let value = 0i32;
+            let offset = Default::default();
+            buffer.write_int32_be(value, offset);
+        }
+
+        #[wasm_bindgen_test]
+        fn write_int32_le() {
+            let buffer = Buffer::alloc(4.into(), None, None);
+            let value = 0i32;
+            let offset = Default::default();
+            buffer.write_int32_le(value, offset);
+        }
+
+        #[wasm_bindgen_test]
         fn write_big_uint64_be() {
             let buffer = Buffer::alloc(8.into(), None, None);
-            let value = 0;
+            let value = 0u64;
             let offset = Default::default();
             buffer.write_big_uint64_be(value, offset);
         }
@@ -615,9 +655,49 @@ mod buffer {
         #[wasm_bindgen_test]
         fn write_big_uint64_le() {
             let buffer = Buffer::alloc(8.into(), None, None);
-            let value = 0;
+            let value = 0u64;
             let offset = Default::default();
             buffer.write_big_uint64_le(value, offset);
+        }
+
+        #[wasm_bindgen_test]
+        fn write_uint8() {
+            let buffer = Buffer::alloc(1.into(), None, None);
+            let value = 0u8;
+            let offset = Default::default();
+            buffer.write_uint8(value, offset);
+        }
+
+        #[wasm_bindgen_test]
+        fn write_uint16_be() {
+            let buffer = Buffer::alloc(2.into(), None, None);
+            let value = 0u16;
+            let offset = Default::default();
+            buffer.write_uint16_be(value, offset);
+        }
+
+        #[wasm_bindgen_test]
+        fn write_uint16_le() {
+            let buffer = Buffer::alloc(2.into(), None, None);
+            let value = 0u16;
+            let offset = Default::default();
+            buffer.write_uint16_le(value, offset);
+        }
+
+        #[wasm_bindgen_test]
+        fn write_uint32_be() {
+            let buffer = Buffer::alloc(4.into(), None, None);
+            let value = 0u32;
+            let offset = Default::default();
+            buffer.write_uint32_be(value, offset);
+        }
+
+        #[wasm_bindgen_test]
+        fn write_uint32_le() {
+            let buffer = Buffer::alloc(4.into(), None, None);
+            let value = 0u32;
+            let offset = Default::default();
+            buffer.write_uint32_le(value, offset);
         }
     }
 }

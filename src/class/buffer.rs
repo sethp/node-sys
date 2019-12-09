@@ -198,16 +198,46 @@ extern {
     ) -> f64;
 
     #[wasm_bindgen(method, js_name = "writeBigInt64BE")]
-    pub fn write_big_int64_be(this: &Buffer, value: u64, offset: Option<f64>) -> f64;
+    pub fn write_big_int64_be(this: &Buffer, value: i64, offset: Option<f64>) -> f64;
 
     #[wasm_bindgen(method, js_name = "writeBigInt64LE")]
-    pub fn write_big_int64_le(this: &Buffer, value: u64, offset: Option<f64>) -> f64;
+    pub fn write_big_int64_le(this: &Buffer, value: i64, offset: Option<f64>) -> f64;
 
     #[wasm_bindgen(method, js_name = "writeBigUInt64BE")]
     pub fn write_big_uint64_be(this: &Buffer, value: u64, offset: Option<f64>) -> f64;
 
     #[wasm_bindgen(method, js_name = "writeBigUInt64LE")]
     pub fn write_big_uint64_le(this: &Buffer, value: u64, offset: Option<f64>) -> f64;
+
+    #[wasm_bindgen(method, js_name = "writeInt8")]
+    pub fn write_int8(this: &Buffer, value: i8, offset: Option<f64>) -> f64;
+
+    #[wasm_bindgen(method, js_name = "writeInt16BE")]
+    pub fn write_int16_be(this: &Buffer, value: i16, offset: Option<f64>) -> f64;
+
+    #[wasm_bindgen(method, js_name = "writeInt16LE")]
+    pub fn write_int16_le(this: &Buffer, value: i16, offset: Option<f64>) -> f64;
+
+    #[wasm_bindgen(method, js_name = "writeInt32BE")]
+    pub fn write_int32_be(this: &Buffer, value: i32, offset: Option<f64>) -> f64;
+
+    #[wasm_bindgen(method, js_name = "writeInt32LE")]
+    pub fn write_int32_le(this: &Buffer, value: i32, offset: Option<f64>) -> f64;
+
+    #[wasm_bindgen(method, js_name = "writeUInt8")]
+    pub fn write_uint8(this: &Buffer, value: u8, offset: Option<f64>) -> f64;
+
+    #[wasm_bindgen(method, js_name = "writeUInt16BE")]
+    pub fn write_uint16_be(this: &Buffer, value: u16, offset: Option<f64>) -> f64;
+
+    #[wasm_bindgen(method, js_name = "writeUInt16LE")]
+    pub fn write_uint16_le(this: &Buffer, value: u16, offset: Option<f64>) -> f64;
+
+    #[wasm_bindgen(method, js_name = "writeUInt32BE")]
+    pub fn write_uint32_be(this: &Buffer, value: u32, offset: Option<f64>) -> f64;
+
+    #[wasm_bindgen(method, js_name = "writeUInt32LE")]
+    pub fn write_uint32_le(this: &Buffer, value: u32, offset: Option<f64>) -> f64;
 
     //*********************//
     // Instance Properties //
