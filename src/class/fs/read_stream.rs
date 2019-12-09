@@ -13,7 +13,7 @@ extern {
     //******************//
 
     #[wasm_bindgen(method, getter, js_name = "bytesRead")]
-    pub fn bytes_read(this: &ReadStream) -> usize;
+    pub fn bytes_read(this: &ReadStream) -> f64;
 
     #[wasm_bindgen(method, getter)]
     pub fn path(this: &ReadStream) -> JsValue; // Buffer | string

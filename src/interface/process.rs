@@ -75,37 +75,37 @@ extern {
     pub fn exit(this: &Process);
 
     #[wasm_bindgen(method, getter, js_name = "exitCode")]
-    pub fn exit_code(this: &Process) -> Option<usize>;
+    pub fn exit_code(this: &Process) -> Option<i32>;
 
     #[wasm_bindgen(method, getter)]
     pub fn features(this: &Process) -> ProcessFeatures;
 
     #[wasm_bindgen(method, js_name = "getgid")]
-    pub fn get_egid(this: &Process) -> usize;
+    pub fn get_egid(this: &Process) -> i32;
 
     #[wasm_bindgen(method, js_name = "getgid")]
-    pub fn get_euid(this: &Process) -> usize;
+    pub fn get_euid(this: &Process) -> i32;
 
     #[wasm_bindgen(method, js_name = "getgid")]
-    pub fn get_gid(this: &Process) -> usize;
+    pub fn get_gid(this: &Process) -> i32;
 
     #[wasm_bindgen(method, js_name = "getgroups")]
     pub fn get_groups(this: &Process) -> Array;
 
     #[wasm_bindgen(method, js_name = "getgid")]
-    pub fn get_uid(this: &Process) -> usize;
+    pub fn get_uid(this: &Process) -> i32;
 
     #[wasm_bindgen(method, getter, js_name = "hrtime")]
     pub fn hr_time(this: &Process) -> HrTime;
 
     #[wasm_bindgen(method, catch)]
-    pub fn kill(this: &Process, pid: usize) -> Result<(), JsValue>;
+    pub fn kill(this: &Process, pid: u32) -> Result<(), JsValue>;
 
     #[wasm_bindgen(method, catch, js_name = "kill")]
-    pub fn kill_with_signal_name(this: &Process, pid: usize, signal_name: &JsString) -> Result<(), JsValue>;
+    pub fn kill_with_signal_name(this: &Process, pid: u32, signal_name: &JsString) -> Result<(), JsValue>;
 
     #[wasm_bindgen(method, catch, js_name = "kill")]
-    pub fn kill_with_signal_id(this: &Process, pid: usize, signal_id: usize) -> Result<(), JsValue>;
+    pub fn kill_with_signal_id(this: &Process, pid: u32, signal_id: i32) -> Result<(), JsValue>;
 
     #[wasm_bindgen(method, getter, js_name = "mainModule")]
     pub fn main_module(this: &Process) -> Option<NodeModule>;
@@ -117,13 +117,13 @@ extern {
     pub fn next_tick(this: &Process, callback: &Function, args: Box<[JsValue]>);
 
     #[wasm_bindgen(method)]
-    pub fn pid(this: &Process) -> usize;
+    pub fn pid(this: &Process) -> u32;
 
     #[wasm_bindgen(method, getter)]
     pub fn platform(this: &Process) -> JsString;
 
     #[wasm_bindgen(method)]
-    pub fn ppid(this: &Process) -> usize;
+    pub fn ppid(this: &Process) -> u32;
 
     #[wasm_bindgen(method, getter)]
     pub fn release(this: &Process) -> ProcessRelease;
@@ -139,28 +139,28 @@ extern {
     ) -> bool;
 
     #[wasm_bindgen(method, catch, js_name = "setgid")]
-    pub fn set_egid(this: &Process, id: usize) -> Result<(), JsValue>;
+    pub fn set_egid(this: &Process, id: u32) -> Result<(), JsValue>;
 
     #[wasm_bindgen(method, catch, js_name = "setgid")]
-    pub fn set_euid(this: &Process, id: usize) -> Result<(), JsValue>;
+    pub fn set_euid(this: &Process, id: u32) -> Result<(), JsValue>;
 
     #[wasm_bindgen(method, catch, js_name = "setgid")]
-    pub fn set_gid(this: &Process, id: usize) -> Result<(), JsValue>;
+    pub fn set_gid(this: &Process, id: u32) -> Result<(), JsValue>;
 
     #[wasm_bindgen(method, catch, js_name = "setgid")]
-    pub fn set_uid(this: &Process, id: usize) -> Result<(), JsValue>;
+    pub fn set_uid(this: &Process, id: u32) -> Result<(), JsValue>;
 
     #[wasm_bindgen(method, catch, js_name = "setgroups")]
-    pub fn set_groups(this: &Process, id: usize) -> Result<(), JsValue>;
+    pub fn set_groups(this: &Process, id: u32) -> Result<(), JsValue>;
 
     #[wasm_bindgen(method)]
     pub fn title(this: &Process) -> JsString;
 
     #[wasm_bindgen(method)]
-    pub fn umask(this: &Process, mask: Option<usize>) -> usize;
+    pub fn umask(this: &Process, mask: Option<u32>) -> u32;
 
     #[wasm_bindgen(method)]
-    pub fn uptime(this: &Process) -> Number;
+    pub fn uptime(this: &Process) -> f64;
 
     #[wasm_bindgen(method, getter)]
     pub fn version(this: &Process) -> JsString;

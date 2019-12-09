@@ -8,20 +8,20 @@ extern {
     pub type Buffer;
 
     #[wasm_bindgen(static_method_of = Buffer)]
-    pub fn alloc(size: usize, fill: Option<&Buffer>, encoding: Option<&JsString>) -> Buffer;
+    pub fn alloc(size: f64, fill: Option<&Buffer>, encoding: Option<&JsString>) -> Buffer;
 
     #[wasm_bindgen(static_method_of = Buffer, js_name = "allocUnsafe")]
-    pub fn alloc_unsafe(size: usize) -> Buffer;
+    pub fn alloc_unsafe(size: f64) -> Buffer;
 
     #[wasm_bindgen(static_method_of = Buffer, js_name = "byteLength")]
-    pub fn byte_length(string: &JsString, encoding: Option<&JsString>) -> u32;
+    pub fn byte_length(string: &JsString, encoding: Option<&JsString>) -> f64;
 
     // FIXME: compiler complains about
     #[wasm_bindgen(static_method_of = Buffer, js_name = "compare")]
     pub fn compare_(buf1: &Buffer, buf2: &Buffer) -> i32;
 
     #[wasm_bindgen(static_method_of = Buffer)]
-    pub fn concat(list: &Array, total_length: Option<u32>) -> Buffer;
+    pub fn concat(list: &Array, total_length: Option<f64>) -> Buffer;
 
     #[wasm_bindgen(static_method_of = Buffer, js_name = "isBuffer")]
     pub fn is_buffer(value: &JsValue) -> bool;
@@ -33,7 +33,7 @@ extern {
     pub fn from_array(array: &Array) -> Buffer;
 
     #[wasm_bindgen(static_method_of = Buffer, js_name = "from")]
-    pub fn from_array_buffer(buffer: &ArrayBuffer, byte_offset: Option<u32>, length: Option<u32>) -> Buffer;
+    pub fn from_array_buffer(buffer: &ArrayBuffer, byte_offset: Option<f64>, length: Option<f64>) -> Buffer;
 
     #[wasm_bindgen(static_method_of = Buffer, js_name = "from")]
     pub fn from_array_uint8(array: &Uint8Array) -> Buffer;
@@ -42,15 +42,15 @@ extern {
     pub fn from_string(string: &JsString, encoding: Option<&JsString>) -> Buffer;
 
     #[wasm_bindgen(static_method_of = Buffer, getter, js_name = "poolSize")]
-    pub fn pool_size() -> usize;
+    pub fn pool_size() -> f64;
 
     #[wasm_bindgen(method)]
     pub fn compare(
         source: &Buffer,
         target: &Buffer,
-        target_start: Option<usize>,
-        target_end: Option<usize>,
-        source_start: Option<usize>,
-        source_end: Option<usize>,
+        target_start: Option<f64>,
+        target_end: Option<f64>,
+        source_start: Option<f64>,
+        source_end: Option<f64>,
     ) -> i32;
 }

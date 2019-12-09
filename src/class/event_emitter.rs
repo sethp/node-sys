@@ -16,10 +16,10 @@ extern {
     /// `emitter::set_max_listeners` method. To change the default for all `EventEmitter`
     /// instances, the `EventEmitter::default_max_listeners` property can be used.
     #[wasm_bindgen(method, getter, js_name = "defaultMaxListeners")]
-    pub fn default_max_listeners(this: &EventEmitter) -> usize;
+    pub fn default_max_listeners(this: &EventEmitter) -> f64;
 
     #[wasm_bindgen(method, setter, js_name = "defaultMaxListeners")]
-    pub fn set_default_max_listeners(this: &EventEmitter, value: usize);
+    pub fn set_default_max_listeners(this: &EventEmitter, value: f64);
 
     /// Adds the listener function to the end of the `listener` array for the event named
     /// `event_name`.
@@ -43,7 +43,7 @@ extern {
 
     /// Returns the number of listeners listening to the event named `event_name`.
     #[wasm_bindgen(method, js_name = "listenerCount")]
-    pub fn listener_count(this: &EventEmitter) -> usize;
+    pub fn listener_count(this: &EventEmitter) -> f64;
 
     /// Returns a copy of the array of listeners for the event named `event_name`.
     #[wasm_bindgen(method)]
@@ -84,7 +84,7 @@ extern {
     /// By default `EventEmitters` will print a warning if more than `10` listeners are added for a
     /// particular event.
     #[wasm_bindgen(method, js_name = "setMaxListeners")]
-    pub fn set_max_listeners(this: &EventEmitter, n: usize) -> EventEmitter;
+    pub fn set_max_listeners(this: &EventEmitter, n: f64) -> EventEmitter;
 
     /// Returns a copy of the array of listeners for the event named `event_name`, including any
     /// wrappers (such as those created by `.once()`).

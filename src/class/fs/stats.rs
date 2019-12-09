@@ -1,4 +1,4 @@
-use js_sys::{Date, Number, Object};
+use js_sys::{Date, Object};
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen(module = "fs")]
@@ -37,62 +37,62 @@ extern {
     //*********************//
 
     #[wasm_bindgen(method, getter)]
-    pub fn dev(this: &Stats) -> Number;
+    pub fn dev(this: &Stats) -> f64;
 
     #[wasm_bindgen(method, getter)]
-    pub fn ino(this: &Stats) -> Number;
+    pub fn ino(this: &Stats) -> f64;
 
     #[wasm_bindgen(method, getter)]
-    pub fn mode(this: &Stats) -> Number;
+    pub fn mode(this: &Stats) -> f64;
 
     #[wasm_bindgen(method, getter)]
-    pub fn nlink(this: &Stats) -> Number;
+    pub fn nlink(this: &Stats) -> f64;
 
     #[wasm_bindgen(method, getter)]
-    pub fn uid(this: &Stats) -> Number;
+    pub fn uid(this: &Stats) -> f64;
 
     #[wasm_bindgen(method, getter)]
-    pub fn gid(this: &Stats) -> Number;
+    pub fn gid(this: &Stats) -> f64;
 
     #[wasm_bindgen(method, getter)]
-    pub fn rdev(this: &Stats) -> Number;
+    pub fn rdev(this: &Stats) -> f64;
 
     #[wasm_bindgen(method, getter)]
-    pub fn size(this: &Stats) -> Number;
+    pub fn size(this: &Stats) -> f64;
 
     #[wasm_bindgen(method, getter)]
-    pub fn blksize(this: &Stats) -> Number;
+    pub fn blksize(this: &Stats) -> f64;
 
     #[wasm_bindgen(method, getter)]
-    pub fn blocks(this: &Stats) -> Number;
+    pub fn blocks(this: &Stats) -> f64;
 
     #[wasm_bindgen(method, getter, js_name = "atimeMs")]
-    pub fn atime_ms(this: &Stats) -> Number;
+    pub fn atime_ms(this: &Stats) -> f64;
 
     #[wasm_bindgen(method, getter, js_name = "mtimeMs")]
-    pub fn mtime_ms(this: &Stats) -> Number;
+    pub fn mtime_ms(this: &Stats) -> f64;
 
     #[wasm_bindgen(method, getter, js_name = "ctimeMs")]
-    pub fn ctime_ms(this: &Stats) -> Number;
+    pub fn ctime_ms(this: &Stats) -> f64;
 
     #[wasm_bindgen(method, getter, js_name = "birthtimeMs")]
-    pub fn birthtime_ms(this: &Stats) -> Number;
+    pub fn birthtime_ms(this: &Stats) -> f64;
 
-    // FIXME: requires bigint
-    // #[wasm_bindgen(method, getter, js_name = "atimeNs")]
-    // pub fn atime_ns(this: &Stats) -> Number;
+    // NOTE: requires bigint
+    #[wasm_bindgen(method, getter, js_name = "atimeNs")]
+    pub fn atime_ns(this: &Stats) -> u64;
 
-    // FIXME: requires bigint
-    // #[wasm_bindgen(method, getter, js_name = "mtimeNs")]
-    // pub fn mtime_ns(this: &Stats) -> Number;
+    // NOTE: requires bigint
+    #[wasm_bindgen(method, getter, js_name = "mtimeNs")]
+    pub fn mtime_ns(this: &Stats) -> u64;
 
-    // FIXME: requires bigint
-    // #[wasm_bindgen(method, getter, js_name = "ctimeNs")]
-    // pub fn ctime_ns(this: &Stats) -> Number;
+    // NOTE: requires bigint
+    #[wasm_bindgen(method, getter, js_name = "ctimeNs")]
+    pub fn ctime_ns(this: &Stats) -> u64;
 
-    // FIXME: requires bigint
-    // #[wasm_bindgen(method, getter, js_name = "birthtimeNs")]
-    // pub fn birthtime_ns(this: &Stats) -> Number;
+    // NOTE: requires bigint
+    #[wasm_bindgen(method, getter, js_name = "birthtimeNs")]
+    pub fn birthtime_ns(this: &Stats) -> u64;
 
     #[wasm_bindgen(method, getter)]
     pub fn atime(this: &Stats) -> Date;
