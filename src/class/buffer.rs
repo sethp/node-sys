@@ -97,4 +97,9 @@ extern {
 
     #[wasm_bindgen(method, js_name = "lastIndexOf")]
     pub fn last_index_of(this: &Buffer, value: &JsValue, offset: Option<f64>, encoding: Option<&JsString>) -> f64;
+
+    //*********************//
+    // Instance Properties //
+    //*********************//
+
 }
