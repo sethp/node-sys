@@ -305,6 +305,39 @@ mod buffer {
             let source_end = Default::default();
             buffer.compare(target, target_start, target_end, source_start, source_end);
         }
+
+        #[wasm_bindgen_test]
+        fn copy() {
+            let buffer = crate::buffer::helper::buffer();
+            let target = crate::buffer::helper::buffer();
+            let target_start = Default::default();
+            let target_end = Default::default();
+            let source_start = Default::default();
+            let source_end = Default::default();
+            buffer.compare(&target, target_start, target_end, source_start, source_end);
+        }
+
+        #[wasm_bindgen_test]
+        fn entries() {
+            let buffer = crate::buffer::helper::buffer();
+            buffer.entries();
+        }
+
+        #[wasm_bindgen_test]
+        fn equals() {
+            let buffer = crate::buffer::helper::buffer();
+            buffer.equals(&buffer);
+        }
+
+        #[wasm_bindgen_test]
+        fn fill() {
+            let buffer = crate::buffer::helper::buffer();
+            let value = &0.into();
+            let offset = Default::default();
+            let end = Default::default();
+            let encoding = Default::default();
+            buffer.fill(value, offset, end, encoding);
+        }
     }
 }
 
