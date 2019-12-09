@@ -356,6 +356,12 @@ mod buffer {
             let encoding = Default::default();
             buffer.index_of(value, offset, encoding);
         }
+
+        #[wasm_bindgen_test]
+        fn keys() {
+            let buffer = crate::buffer::helper::buffer();
+            buffer.keys();
+        }
     }
 }
 
