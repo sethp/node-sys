@@ -587,6 +587,38 @@ mod buffer {
             let encoding = Default::default();
             buffer.write(string, offset, length, encoding);
         }
+
+        #[wasm_bindgen_test]
+        fn write_big_int64_be() {
+            let buffer = Buffer::alloc(8.into(), None, None);
+            let value = 0;
+            let offset = Default::default();
+            buffer.write_big_int64_be(value, offset);
+        }
+
+        #[wasm_bindgen_test]
+        fn write_big_int64_le() {
+            let buffer = Buffer::alloc(8.into(), None, None);
+            let value = 0;
+            let offset = Default::default();
+            buffer.write_big_int64_le(value, offset);
+        }
+
+        #[wasm_bindgen_test]
+        fn write_big_uint64_be() {
+            let buffer = Buffer::alloc(8.into(), None, None);
+            let value = 0;
+            let offset = Default::default();
+            buffer.write_big_uint64_be(value, offset);
+        }
+
+        #[wasm_bindgen_test]
+        fn write_big_uint64_le() {
+            let buffer = Buffer::alloc(8.into(), None, None);
+            let value = 0;
+            let offset = Default::default();
+            buffer.write_big_uint64_le(value, offset);
+        }
     }
 }
 

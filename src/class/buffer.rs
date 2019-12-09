@@ -197,6 +197,18 @@ extern {
         encoding: Option<&JsString>,
     ) -> f64;
 
+    #[wasm_bindgen(method, js_name = "writeBigInt64BE")]
+    pub fn write_big_int64_be(this: &Buffer, value: u64, offset: Option<f64>) -> f64;
+
+    #[wasm_bindgen(method, js_name = "writeBigInt64LE")]
+    pub fn write_big_int64_le(this: &Buffer, value: u64, offset: Option<f64>) -> f64;
+
+    #[wasm_bindgen(method, js_name = "writeBigUInt64BE")]
+    pub fn write_big_uint64_be(this: &Buffer, value: u64, offset: Option<f64>) -> f64;
+
+    #[wasm_bindgen(method, js_name = "writeBigUInt64LE")]
+    pub fn write_big_uint64_le(this: &Buffer, value: u64, offset: Option<f64>) -> f64;
+
     //*********************//
     // Instance Properties //
     //*********************//
