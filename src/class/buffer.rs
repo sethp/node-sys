@@ -1,4 +1,4 @@
-use js_sys::{Array, ArrayBuffer, Iterator, JsString, Uint8Array};
+use js_sys::{Array, ArrayBuffer, Iterator, JsString, Object, Uint8Array};
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
@@ -181,6 +181,10 @@ extern {
 
     #[wasm_bindgen(method, js_name = "toJSON")]
     pub fn to_json(this: &Buffer) -> Object;
+
+    #[wasm_bindgen(method, js_name = "toString")]
+    pub fn to_string(this: &Buffer, encoding: Option<JsString>, start: Option<f64>, end: Option<f64>) -> JsString;
+
     //*********************//
     // Instance Properties //
     //*********************//

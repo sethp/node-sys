@@ -562,6 +562,15 @@ mod buffer {
             let buffer = crate::buffer::helper::buffer();
             buffer.to_json();
         }
+
+        #[wasm_bindgen_test]
+        fn to_string() {
+            let buffer = crate::buffer::helper::buffer();
+            let encoding = None;
+            let start = None;
+            let end = None;
+            buffer.to_string(encoding, start, end);
+        }
     }
 }
 
