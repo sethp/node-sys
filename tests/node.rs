@@ -434,6 +434,20 @@ mod buffer {
             let offset = None;
             buffer.read_float_le(offset);
         }
+
+        #[wasm_bindgen_test]
+        fn read_int8() {
+            let buffer = Buffer::alloc(1.into(), None, None);
+            let offset = None;
+            buffer.read_int8(offset);
+        }
+
+        #[wasm_bindgen_test]
+        fn read_uint8() {
+            let buffer = Buffer::alloc(1.into(), None, None);
+            let offset = None;
+            buffer.read_uint8(offset);
+        }
     }
 }
 

@@ -122,6 +122,12 @@ extern {
     #[wasm_bindgen(method, js_name = "readFloatLE")]
     pub fn read_float_le(this: &Buffer, offset: Option<f64>) -> f32;
 
+    #[wasm_bindgen(method, js_name = "readInt8")]
+    pub fn read_int8(this: &Buffer, offset: Option<f64>) -> i8;
+
+    #[wasm_bindgen(method, js_name = "readUInt8")]
+    pub fn read_uint8(this: &Buffer, offset: Option<f64>) -> u8;
+
     //*********************//
     // Instance Properties //
     //*********************//
