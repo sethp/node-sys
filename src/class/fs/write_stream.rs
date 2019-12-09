@@ -12,9 +12,6 @@ extern {
     // Instance Methods //
     //******************//
 
-    #[wasm_bindgen(method)]
-    pub fn close(this: &WriteStream);
-
     #[wasm_bindgen(method, js_name = "bytesWritten")]
     pub fn bytes_written(this: &WriteStream) -> usize;
 
