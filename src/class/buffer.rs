@@ -104,4 +104,16 @@ extern {
 
     #[wasm_bindgen(method, getter)]
     pub fn length(this: &Buffer) -> f64;
+
+    #[wasm_bindgen(method, js_name = "readBigInt64BE")]
+    pub fn read_big_int64_be(this: &Buffer, offset: Option<f64>) -> u64;
+
+    #[wasm_bindgen(method, js_name = "readBigInt64LE")]
+    pub fn read_big_int64_le(this: &Buffer, offset: Option<f64>) -> u64;
+
+    #[wasm_bindgen(method, js_name = "readBigUInt64BE")]
+    pub fn read_big_uint64_be(this: &Buffer, offset: Option<f64>) -> u64;
+
+    #[wasm_bindgen(method, js_name = "readBigUInt64LE")]
+    pub fn read_big_uint64_le(this: &Buffer, offset: Option<f64>) -> u64;
 }

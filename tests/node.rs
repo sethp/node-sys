@@ -293,6 +293,7 @@ mod buffer {
     }
 
     mod instance {
+        use node_sys::Buffer;
         use wasm_bindgen_test::*;
 
         #[wasm_bindgen_test]
@@ -376,6 +377,34 @@ mod buffer {
         fn length() {
             let buffer = crate::buffer::helper::buffer();
             buffer.length();
+        }
+
+        #[wasm_bindgen_test]
+        fn read_big_int64_be() {
+            let buffer = Buffer::alloc(8.into(), None, None);
+            let offset = None;
+            buffer.read_big_int64_be(offset);
+        }
+
+        #[wasm_bindgen_test]
+        fn read_big_int64_le() {
+            let buffer = Buffer::alloc(8.into(), None, None);
+            let offset = None;
+            buffer.read_big_int64_le(offset);
+        }
+
+        #[wasm_bindgen_test]
+        fn read_big_uint64_be() {
+            let buffer = Buffer::alloc(8.into(), None, None);
+            let offset = None;
+            buffer.read_big_uint64_be(offset);
+        }
+
+        #[wasm_bindgen_test]
+        fn read_big_uint64_le() {
+            let buffer = Buffer::alloc(8.into(), None, None);
+            let offset = None;
+            buffer.read_big_uint64_le(offset);
         }
     }
 }
