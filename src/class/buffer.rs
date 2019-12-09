@@ -1,4 +1,4 @@
-use js_sys::{Array, ArrayBuffer, JsString, Uint8Array};
+use js_sys::{Array, ArrayBuffer, Iterator, JsString, Uint8Array};
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
@@ -77,4 +77,12 @@ extern {
     #[wasm_bindgen(method)]
     pub fn equals(this: &Buffer, that: &Buffer) -> bool;
 
+    #[wasm_bindgen(method)]
+    pub fn fill(
+        this: &Buffer,
+        value: &JsValue,
+        offset: Option<f64>,
+        end: Option<f64>,
+        encoding: Option<JsString>,
+    ) -> Buffer;
 }
