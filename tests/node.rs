@@ -443,10 +443,38 @@ mod buffer {
         }
 
         #[wasm_bindgen_test]
+        fn read_int16_be() {
+            let buffer = Buffer::alloc(2.into(), None, None);
+            let offset = None;
+            buffer.read_int16_be(offset);
+        }
+
+        #[wasm_bindgen_test]
+        fn read_int16_le() {
+            let buffer = Buffer::alloc(2.into(), None, None);
+            let offset = None;
+            buffer.read_int16_le(offset);
+        }
+
+        #[wasm_bindgen_test]
         fn read_uint8() {
             let buffer = Buffer::alloc(1.into(), None, None);
             let offset = None;
             buffer.read_uint8(offset);
+        }
+
+        #[wasm_bindgen_test]
+        fn read_uint16_be() {
+            let buffer = Buffer::alloc(2.into(), None, None);
+            let offset = None;
+            buffer.read_uint16_be(offset);
+        }
+
+        #[wasm_bindgen_test]
+        fn read_uint16_le() {
+            let buffer = Buffer::alloc(2.into(), None, None);
+            let offset = None;
+            buffer.read_uint16_le(offset);
         }
     }
 }

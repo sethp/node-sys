@@ -125,8 +125,20 @@ extern {
     #[wasm_bindgen(method, js_name = "readInt8")]
     pub fn read_int8(this: &Buffer, offset: Option<f64>) -> i8;
 
+    #[wasm_bindgen(method, js_name = "readInt16BE")]
+    pub fn read_int16_be(this: &Buffer, offset: Option<f64>) -> i16;
+
+    #[wasm_bindgen(method, js_name = "readInt16LE")]
+    pub fn read_int16_le(this: &Buffer, offset: Option<f64>) -> i16;
+
     #[wasm_bindgen(method, js_name = "readUInt8")]
     pub fn read_uint8(this: &Buffer, offset: Option<f64>) -> u8;
+
+    #[wasm_bindgen(method, js_name = "readUInt16BE")]
+    pub fn read_uint16_be(this: &Buffer, offset: Option<f64>) -> u16;
+
+    #[wasm_bindgen(method, js_name = "readUInt16LE")]
+    pub fn read_uint16_le(this: &Buffer, offset: Option<f64>) -> u16;
 
     //*********************//
     // Instance Properties //
