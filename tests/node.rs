@@ -436,6 +436,38 @@ mod buffer {
         }
 
         #[wasm_bindgen_test]
+        fn read_int_be() {
+            let buffer = Buffer::alloc(6.into(), None, None);
+            let offset = 0.into();
+            let length = 6;
+            buffer.read_int_be(offset, length);
+        }
+
+        #[wasm_bindgen_test]
+        fn read_int_le() {
+            let buffer = Buffer::alloc(6.into(), None, None);
+            let offset = 0.into();
+            let length = 6;
+            buffer.read_int_le(offset, length);
+        }
+
+        #[wasm_bindgen_test]
+        fn read_uint_be() {
+            let buffer = Buffer::alloc(6.into(), None, None);
+            let offset = 0.into();
+            let length = 6;
+            buffer.read_uint_be(offset, length);
+        }
+
+        #[wasm_bindgen_test]
+        fn read_uint_le() {
+            let buffer = Buffer::alloc(6.into(), None, None);
+            let offset = 0.into();
+            let length = 6;
+            buffer.read_uint_le(offset, length);
+        }
+
+        #[wasm_bindgen_test]
         fn read_int8() {
             let buffer = Buffer::alloc(1.into(), None, None);
             let offset = None;
