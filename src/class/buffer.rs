@@ -74,4 +74,7 @@ extern {
     #[wasm_bindgen(method)]
     pub fn entries(this: &Buffer) -> Iterator;
 
+    #[wasm_bindgen(method)]
+    pub fn equals(this: &Buffer, that: &Buffer) -> bool;
+
 }
