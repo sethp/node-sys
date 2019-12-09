@@ -54,7 +54,7 @@ extern {
 
     #[wasm_bindgen(method)]
     pub fn compare(
-        source: &Buffer,
+        this: &Buffer,
         target: &Buffer,
         target_start: Option<f64>,
         target_end: Option<f64>,
