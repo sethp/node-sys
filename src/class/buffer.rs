@@ -98,13 +98,6 @@ extern {
     #[wasm_bindgen(method, js_name = "lastIndexOf")]
     pub fn last_index_of(this: &Buffer, value: &JsValue, offset: Option<f64>, encoding: Option<&JsString>) -> f64;
 
-    //*********************//
-    // Instance Properties //
-    //*********************//
-
-    #[wasm_bindgen(method, getter)]
-    pub fn length(this: &Buffer) -> f64;
-
     #[wasm_bindgen(method, js_name = "readBigInt64BE")]
     pub fn read_big_int64_be(this: &Buffer, offset: Option<f64>) -> u64;
 
@@ -116,4 +109,11 @@ extern {
 
     #[wasm_bindgen(method, js_name = "readBigUInt64LE")]
     pub fn read_big_uint64_le(this: &Buffer, offset: Option<f64>) -> u64;
+
+    //*********************//
+    // Instance Properties //
+    //*********************//
+
+    #[wasm_bindgen(method, getter)]
+    pub fn length(this: &Buffer) -> f64;
 }
