@@ -538,6 +538,24 @@ mod buffer {
             let end = None;
             buffer.subarray(start, end);
         }
+
+        #[wasm_bindgen_test]
+        fn swap16() {
+            let buffer = Buffer::alloc(2.into(), None, None);
+            buffer.swap16();
+        }
+
+        #[wasm_bindgen_test]
+        fn swap32() {
+            let buffer = Buffer::alloc(4.into(), None, None);
+            buffer.swap32();
+        }
+
+        #[wasm_bindgen_test]
+        fn swap64() {
+            let buffer = Buffer::alloc(8.into(), None, None);
+            buffer.swap64();
+        }
     }
 }
 

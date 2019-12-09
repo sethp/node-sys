@@ -170,6 +170,15 @@ extern {
     #[wasm_bindgen(method)]
     pub fn subarray(this: &Buffer, start: Option<f64>, end: Option<f64>) -> Buffer;
 
+    #[wasm_bindgen(method)]
+    pub fn swap16(this: &Buffer) -> Buffer;
+
+    #[wasm_bindgen(method)]
+    pub fn swap32(this: &Buffer) -> Buffer;
+
+    #[wasm_bindgen(method)]
+    pub fn swap64(this: &Buffer) -> Buffer;
+
     //*********************//
     // Instance Properties //
     //*********************//
