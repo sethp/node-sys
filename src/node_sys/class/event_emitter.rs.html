@@ -110,10 +110,10 @@
     <span class="doccomment">/// `emitter::set_max_listeners` method. To change the default for all `EventEmitter`</span>
     <span class="doccomment">/// instances, the `EventEmitter::default_max_listeners` property can be used.</span>
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">getter</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;defaultMaxListeners&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">default_max_listeners</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">EventEmitter</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">usize</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">default_max_listeners</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">EventEmitter</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f64</span>;
 
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">setter</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;defaultMaxListeners&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_default_max_listeners</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">EventEmitter</span>, <span class="ident">value</span>: <span class="ident">usize</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_default_max_listeners</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">EventEmitter</span>, <span class="ident">value</span>: <span class="ident">f64</span>);
 
     <span class="doccomment">/// Adds the listener function to the end of the `listener` array for the event named</span>
     <span class="doccomment">/// `event_name`.</span>
@@ -137,7 +137,7 @@
 
     <span class="doccomment">/// Returns the number of listeners listening to the event named `event_name`.</span>
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;listenerCount&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">listener_count</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">EventEmitter</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">usize</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">listener_count</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">EventEmitter</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f64</span>;
 
     <span class="doccomment">/// Returns a copy of the array of listeners for the event named `event_name`.</span>
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>)]</span>
@@ -178,7 +178,7 @@
     <span class="doccomment">/// By default `EventEmitters` will print a warning if more than `10` listeners are added for a</span>
     <span class="doccomment">/// particular event.</span>
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;setMaxListeners&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_max_listeners</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">EventEmitter</span>, <span class="ident">n</span>: <span class="ident">usize</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">EventEmitter</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_max_listeners</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">EventEmitter</span>, <span class="ident">n</span>: <span class="ident">f64</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">EventEmitter</span>;
 
     <span class="doccomment">/// Returns a copy of the array of listeners for the event named `event_name`, including any</span>
     <span class="doccomment">/// wrappers (such as those created by `.once()`).</span>
