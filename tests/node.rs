@@ -592,6 +592,11 @@ mod process {
     }
 
     #[wasm_bindgen_test]
+    fn uptime() {
+        process.uptime();
+    }
+
+    #[wasm_bindgen_test]
     fn version() {
         process.version();
     }
