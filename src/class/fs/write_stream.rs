@@ -12,10 +12,10 @@ extern {
     // Instance Methods //
     //******************//
 
-    #[wasm_bindgen(method, js_name = "bytesWritten")]
+    #[wasm_bindgen(method, getter, js_name = "bytesWritten")]
     pub fn bytes_written(this: &WriteStream) -> usize;
 
-    #[wasm_bindgen(method)]
+    #[wasm_bindgen(method, getter)]
     pub fn path(this: &WriteStream) -> JsValue; // Buffer | string
 }
 
