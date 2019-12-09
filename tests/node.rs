@@ -522,6 +522,14 @@ mod buffer {
             let offset = None;
             buffer.read_uint32_le(offset);
         }
+
+        #[wasm_bindgen_test]
+        fn slice() {
+            let buffer = Buffer::alloc(1.into(), None, None);
+            let start = None;
+            let end = None;
+            buffer.slice(start, end);
+        }
     }
 }
 
