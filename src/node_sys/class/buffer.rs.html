@@ -171,6 +171,21 @@
 <span id="171">171</span>
 <span id="172">172</span>
 <span id="173">173</span>
+<span id="174">174</span>
+<span id="175">175</span>
+<span id="176">176</span>
+<span id="177">177</span>
+<span id="178">178</span>
+<span id="179">179</span>
+<span id="180">180</span>
+<span id="181">181</span>
+<span id="182">182</span>
+<span id="183">183</span>
+<span id="184">184</span>
+<span id="185">185</span>
+<span id="186">186</span>
+<span id="187">187</span>
+<span id="188">188</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="kw">use</span> <span class="ident">js_sys</span>::{<span class="ident">Array</span>, <span class="ident">ArrayBuffer</span>, <span class="ident">Iterator</span>, <span class="ident">JsString</span>, <span class="ident">Uint8Array</span>};
 <span class="kw">use</span> <span class="ident">wasm_bindgen</span>::<span class="ident">prelude</span>::<span class="kw-2">*</span>;
@@ -337,6 +352,21 @@
 
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;readUInt32LE&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">read_uint32_le</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Buffer</span>, <span class="ident">offset</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">f64</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">u32</span>;
+
+    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">slice</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Buffer</span>, <span class="ident">start</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">f64</span><span class="op">&gt;</span>, <span class="ident">end</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">f64</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Buffer</span>;
+
+    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">subarray</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Buffer</span>, <span class="ident">start</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">f64</span><span class="op">&gt;</span>, <span class="ident">end</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">f64</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Buffer</span>;
+
+    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">swap16</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Buffer</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Buffer</span>;
+
+    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">swap32</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Buffer</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Buffer</span>;
+
+    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">swap64</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Buffer</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Buffer</span>;
 
     <span class="comment">//*********************//</span>
     <span class="comment">// Instance Properties //</span>
