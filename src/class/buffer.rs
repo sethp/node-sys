@@ -110,6 +110,18 @@ extern {
     #[wasm_bindgen(method, js_name = "readBigUInt64LE")]
     pub fn read_big_uint64_le(this: &Buffer, offset: Option<f64>) -> u64;
 
+    #[wasm_bindgen(method, js_name = "readDoubleBE")]
+    pub fn read_double_be(this: &Buffer, offset: Option<f64>) -> f64;
+
+    #[wasm_bindgen(method, js_name = "readDoubleLE")]
+    pub fn read_double_le(this: &Buffer, offset: Option<f64>) -> f64;
+
+    #[wasm_bindgen(method, js_name = "readFloatBE")]
+    pub fn read_float_be(this: &Buffer, offset: Option<f64>) -> f32;
+
+    #[wasm_bindgen(method, js_name = "readFloatLE")]
+    pub fn read_float_le(this: &Buffer, offset: Option<f64>) -> f32;
+
     //*********************//
     // Instance Properties //
     //*********************//

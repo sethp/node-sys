@@ -406,6 +406,34 @@ mod buffer {
             let offset = None;
             buffer.read_big_uint64_le(offset);
         }
+
+        #[wasm_bindgen_test]
+        fn read_double_be() {
+            let buffer = Buffer::alloc(8.into(), None, None);
+            let offset = None;
+            buffer.read_double_be(offset);
+        }
+
+        #[wasm_bindgen_test]
+        fn read_double_le() {
+            let buffer = Buffer::alloc(8.into(), None, None);
+            let offset = None;
+            buffer.read_double_le(offset);
+        }
+
+        #[wasm_bindgen_test]
+        fn read_float_be() {
+            let buffer = Buffer::alloc(4.into(), None, None);
+            let offset = None;
+            buffer.read_float_be(offset);
+        }
+
+        #[wasm_bindgen_test]
+        fn read_float_le() {
+            let buffer = Buffer::alloc(4.into(), None, None);
+            let offset = None;
+            buffer.read_float_le(offset);
+        }
     }
 }
 
