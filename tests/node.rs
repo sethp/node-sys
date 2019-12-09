@@ -476,6 +476,20 @@ mod buffer {
             let offset = None;
             buffer.read_uint16_le(offset);
         }
+
+        #[wasm_bindgen_test]
+        fn read_uint32_be() {
+            let buffer = Buffer::alloc(4.into(), None, None);
+            let offset = None;
+            buffer.read_uint32_be(offset);
+        }
+
+        #[wasm_bindgen_test]
+        fn read_uint32_le() {
+            let buffer = Buffer::alloc(4.into(), None, None);
+            let offset = None;
+            buffer.read_uint32_le(offset);
+        }
     }
 }
 
