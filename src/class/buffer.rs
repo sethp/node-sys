@@ -61,4 +61,13 @@ extern {
         source_start: Option<f64>,
         source_end: Option<f64>,
     ) -> i32;
+
+    #[wasm_bindgen(method)]
+    pub fn copy(
+        this: &Buffer,
+        target: &Buffer,
+        target_start: Option<f64>,
+        source_start: Option<f64>,
+        source_end: Option<f64>,
+    ) -> f64;
 }
