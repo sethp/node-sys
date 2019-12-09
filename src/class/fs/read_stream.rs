@@ -17,6 +17,9 @@ extern {
 
     #[wasm_bindgen(method, getter)]
     pub fn path(this: &ReadStream) -> JsValue; // Buffer | string
+
+    #[wasm_bindgen(method, getter)]
+    pub fn pending(this: &ReadStream) -> bool;
 }
 
 //******************************//
