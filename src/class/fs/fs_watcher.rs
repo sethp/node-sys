@@ -6,4 +6,6 @@ extern {
     #[wasm_bindgen(extends = Object, js_name = "FSWatcher")]
     #[derive(Clone, Debug, Eq, PartialEq)]
     pub type FsWatcher;
+
+    // FIXME: event overloads
 }

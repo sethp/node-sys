@@ -8,6 +8,8 @@ extern {
     #[derive(Clone, Debug, Eq, PartialEq)]
     pub type Dir;
 
+    // FIXME: event overloads
+
     //******************//
     // Instance Methods //
     //******************//
