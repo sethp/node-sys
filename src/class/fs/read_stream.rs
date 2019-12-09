@@ -12,10 +12,10 @@ extern {
     // Instance Methods //
     //******************//
 
-    #[wasm_bindgen(method, js_name = "bytesRead")]
+    #[wasm_bindgen(method, getter, js_name = "bytesRead")]
     pub fn bytes_read(this: &ReadStream) -> usize;
 
-    #[wasm_bindgen(method)]
+    #[wasm_bindgen(method, getter)]
     pub fn path(this: &ReadStream) -> JsValue; // Buffer | string
 }
 
