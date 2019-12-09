@@ -88,4 +88,7 @@ extern {
 
     #[wasm_bindgen(method)]
     pub fn includes(this: &Buffer, value: &JsValue, offset: Option<f64>, encoding: Option<&JsString>) -> bool;
+
+    #[wasm_bindgen(method, js_name = "indexOf")]
+    pub fn index_of(this: &Buffer, value: &JsValue, offset: Option<f64>, encoding: Option<&JsString>) -> i32;
 }
