@@ -371,6 +371,12 @@ mod buffer {
             let encoding = Default::default();
             buffer.last_index_of(value, offset, encoding);
         }
+
+        #[wasm_bindgen_test]
+        fn length() {
+            let buffer = crate::buffer::helper::buffer();
+            buffer.length();
+        }
     }
 }
 

@@ -102,4 +102,6 @@ extern {
     // Instance Properties //
     //*********************//
 
+    #[wasm_bindgen(method, getter)]
+    pub fn length(this: &Buffer) -> f64;
 }
