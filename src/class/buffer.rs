@@ -85,4 +85,7 @@ extern {
         end: Option<f64>,
         encoding: Option<JsString>,
     ) -> Buffer;
+
+    #[wasm_bindgen(method)]
+    pub fn includes(this: &Buffer, value: &JsValue, offset: Option<f64>, encoding: Option<&JsString>) -> bool;
 }
