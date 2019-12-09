@@ -70,4 +70,8 @@ extern {
         source_start: Option<f64>,
         source_end: Option<f64>,
     ) -> f64;
+
+    #[wasm_bindgen(method)]
+    pub fn entries(this: &Buffer) -> Iterator;
+
 }
