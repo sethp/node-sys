@@ -530,6 +530,14 @@ mod buffer {
             let end = None;
             buffer.slice(start, end);
         }
+
+        #[wasm_bindgen_test]
+        fn subarray() {
+            let buffer = Buffer::alloc(1.into(), None, None);
+            let start = None;
+            let end = None;
+            buffer.subarray(start, end);
+        }
     }
 }
 

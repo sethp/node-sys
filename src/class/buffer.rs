@@ -166,6 +166,10 @@ extern {
 
     #[wasm_bindgen(method)]
     pub fn slice(this: &Buffer, start: Option<f64>, end: Option<f64>) -> Buffer;
+
+    #[wasm_bindgen(method)]
+    pub fn subarray(this: &Buffer, start: Option<f64>, end: Option<f64>) -> Buffer;
+
     //*********************//
     // Instance Properties //
     //*********************//
