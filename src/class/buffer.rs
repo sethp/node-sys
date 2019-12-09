@@ -179,6 +179,8 @@ extern {
     #[wasm_bindgen(method)]
     pub fn swap64(this: &Buffer) -> Buffer;
 
+    #[wasm_bindgen(method, js_name = "toJSON")]
+    pub fn to_json(this: &Buffer) -> Object;
     //*********************//
     // Instance Properties //
     //*********************//

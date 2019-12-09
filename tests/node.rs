@@ -556,6 +556,12 @@ mod buffer {
             let buffer = Buffer::alloc(8.into(), None, None);
             buffer.swap64();
         }
+
+        #[wasm_bindgen_test]
+        fn to_json() {
+            let buffer = crate::buffer::helper::buffer();
+            buffer.to_json();
+        }
     }
 }
 
