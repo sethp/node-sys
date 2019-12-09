@@ -7,6 +7,10 @@ extern {
     #[derive(Clone, Debug)]
     pub type Buffer;
 
+    //****************//
+    // Static Methods //
+    //****************//
+
     #[wasm_bindgen(static_method_of = Buffer)]
     pub fn alloc(size: f64, fill: Option<&Buffer>, encoding: Option<&JsString>) -> Buffer;
 
@@ -43,6 +47,10 @@ extern {
 
     #[wasm_bindgen(static_method_of = Buffer, getter, js_name = "poolSize")]
     pub fn pool_size() -> f64;
+
+    //******************//
+    // Instance Methods //
+    //******************//
 
     #[wasm_bindgen(method)]
     pub fn compare(
