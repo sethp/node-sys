@@ -571,6 +571,12 @@ mod buffer {
             let end = None;
             buffer.to_string(encoding, start, end);
         }
+
+        #[wasm_bindgen_test]
+        fn values() {
+            let buffer = crate::buffer::helper::buffer();
+            buffer.values();
+        }
     }
 }
 

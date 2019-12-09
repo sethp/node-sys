@@ -185,6 +185,9 @@ extern {
     #[wasm_bindgen(method, js_name = "toString")]
     pub fn to_string(this: &Buffer, encoding: Option<JsString>, start: Option<f64>, end: Option<f64>) -> JsString;
 
+    #[wasm_bindgen(method)]
+    pub fn values(this: &Buffer) -> Iterator;
+
     //*********************//
     // Instance Properties //
     //*********************//
