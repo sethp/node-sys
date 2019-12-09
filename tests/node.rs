@@ -577,6 +577,16 @@ mod buffer {
             let buffer = crate::buffer::helper::buffer();
             buffer.values();
         }
+
+        #[wasm_bindgen_test]
+        fn write() {
+            let buffer = crate::buffer::helper::buffer();
+            let string = &"".into();
+            let offset = Default::default();
+            let length = Default::default();
+            let encoding = Default::default();
+            buffer.write(string, offset, length, encoding);
+        }
     }
 }
 

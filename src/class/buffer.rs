@@ -188,6 +188,15 @@ extern {
     #[wasm_bindgen(method)]
     pub fn values(this: &Buffer) -> Iterator;
 
+    #[wasm_bindgen(method)]
+    pub fn write(
+        this: &Buffer,
+        string: &JsString,
+        offset: Option<f64>,
+        length: Option<f64>,
+        encoding: Option<&JsString>,
+    ) -> f64;
+
     //*********************//
     // Instance Properties //
     //*********************//
