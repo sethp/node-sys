@@ -362,6 +362,15 @@ mod buffer {
             let buffer = crate::buffer::helper::buffer();
             buffer.keys();
         }
+
+        #[wasm_bindgen_test]
+        fn last_index_of() {
+            let buffer = crate::buffer::helper::buffer();
+            let value = &0.into();
+            let offset = Default::default();
+            let encoding = Default::default();
+            buffer.last_index_of(value, offset, encoding);
+        }
     }
 }
 
