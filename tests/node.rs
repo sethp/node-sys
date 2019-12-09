@@ -210,20 +210,6 @@ mod buffer {
         }
     }
 
-    mod instance {
-        use wasm_bindgen_test::*;
-
-        #[wasm_bindgen_test]
-        fn compare() {
-            let target = crate::buffer::helper::buffer();
-            let target_start = Default::default();
-            let target_end = Default::default();
-            let source_start = Default::default();
-            let source_end = Default::default();
-            target.compare(&target, target_start, target_end, source_start, source_end);
-        }
-    }
-
     mod r#static {
         use js_sys::{Array, ArrayBuffer, Uint8Array};
         use node_sys::Buffer;
@@ -303,6 +289,21 @@ mod buffer {
         #[wasm_bindgen_test]
         fn pool_size() {
             Buffer::pool_size();
+        }
+    }
+
+    mod instance {
+        use wasm_bindgen_test::*;
+
+        #[wasm_bindgen_test]
+        fn compare() {
+            let buffer = crate::buffer::helper::buffer();
+            let target = &buffer;
+            let target_start = Default::default();
+            let target_end = Default::default();
+            let source_start = Default::default();
+            let source_end = Default::default();
+            buffer.compare(target, target_start, target_end, source_start, source_end);
         }
     }
 }
