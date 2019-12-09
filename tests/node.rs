@@ -661,6 +661,38 @@ mod buffer {
         }
 
         #[wasm_bindgen_test]
+        fn write_double_be() {
+            let buffer = Buffer::alloc(8.into(), None, None);
+            let value = 0f64;
+            let offset = Default::default();
+            buffer.write_double_be(value, offset);
+        }
+
+        #[wasm_bindgen_test]
+        fn write_double_le() {
+            let buffer = Buffer::alloc(8.into(), None, None);
+            let value = 0f64;
+            let offset = Default::default();
+            buffer.write_double_le(value, offset);
+        }
+
+        #[wasm_bindgen_test]
+        fn write_float_be() {
+            let buffer = Buffer::alloc(4.into(), None, None);
+            let value = 0f32;
+            let offset = Default::default();
+            buffer.write_float_be(value, offset);
+        }
+
+        #[wasm_bindgen_test]
+        fn write_float_le() {
+            let buffer = Buffer::alloc(4.into(), None, None);
+            let value = 0f32;
+            let offset = Default::default();
+            buffer.write_float_le(value, offset);
+        }
+
+        #[wasm_bindgen_test]
         fn write_uint8() {
             let buffer = Buffer::alloc(1.into(), None, None);
             let value = 0u8;

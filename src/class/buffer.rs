@@ -209,6 +209,18 @@ extern {
     #[wasm_bindgen(method, js_name = "writeBigUInt64LE")]
     pub fn write_big_uint64_le(this: &Buffer, value: u64, offset: Option<f64>) -> f64;
 
+    #[wasm_bindgen(method, js_name = "writeDoubleBE")]
+    pub fn write_double_be(this: &Buffer, value: f64, offset: Option<f64>) -> f64;
+
+    #[wasm_bindgen(method, js_name = "writeDoubleLE")]
+    pub fn write_double_le(this: &Buffer, value: f64, offset: Option<f64>) -> f64;
+
+    #[wasm_bindgen(method, js_name = "writeFloatBE")]
+    pub fn write_float_be(this: &Buffer, value: f32, offset: Option<f64>) -> f64;
+
+    #[wasm_bindgen(method, js_name = "writeFloatLE")]
+    pub fn write_float_le(this: &Buffer, value: f32, offset: Option<f64>) -> f64;
+
     #[wasm_bindgen(method, js_name = "writeInt8")]
     pub fn write_int8(this: &Buffer, value: i8, offset: Option<f64>) -> f64;
 
