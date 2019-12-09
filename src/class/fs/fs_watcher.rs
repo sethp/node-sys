@@ -8,4 +8,7 @@ extern {
     pub type FsWatcher;
 
     // FIXME: event overloads
+
+    #[wasm_bindgen(method)]
+    pub fn close(this: &FsWatcher);
 }
