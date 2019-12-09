@@ -12,9 +12,6 @@ extern {
     // Instance Methods //
     //******************//
 
-    #[wasm_bindgen(method)]
-    pub fn close(this: &ReadStream);
-
     #[wasm_bindgen(method, js_name = "bytesRead")]
     pub fn bytes_read(this: &ReadStream) -> usize;
 
