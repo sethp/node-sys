@@ -183,7 +183,7 @@
         <span class="ident">ProcessVersions</span>,
     },
 };
-<span class="kw">use</span> <span class="ident">js_sys</span>::{<span class="ident">Array</span>, <span class="ident">Function</span>, <span class="ident">JsString</span>, <span class="ident">Number</span>, <span class="ident">Object</span>};
+<span class="kw">use</span> <span class="ident">js_sys</span>::{<span class="ident">Function</span>, <span class="ident">JsString</span>, <span class="ident">Number</span>, <span class="ident">Object</span>};
 <span class="kw">use</span> <span class="ident">wasm_bindgen</span>::<span class="ident">prelude</span>::<span class="kw-2">*</span>;
 
 <span class="attribute">#[<span class="ident">wasm_bindgen</span>]</span>
@@ -199,7 +199,7 @@
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">arch</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">JsString</span>;
 
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">getter</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">argv</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Array</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">argv</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Box</span><span class="op">&lt;</span>[<span class="ident">JsValue</span>]<span class="op">&gt;</span>;
 
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">getter</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">argv0</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">JsString</span>;
@@ -237,7 +237,7 @@
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">env</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Object</span>;
 
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">getter</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;execArgv&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">exec_argv</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Array</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">exec_argv</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Box</span><span class="op">&lt;</span>[<span class="ident">JsValue</span>]<span class="op">&gt;</span>;
 
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">getter</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;execPath&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">exec_path</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">JsString</span>;
@@ -261,7 +261,7 @@
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_gid</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">i32</span>;
 
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;getgroups&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_groups</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Array</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_groups</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Box</span><span class="op">&lt;</span>[<span class="ident">JsValue</span>]<span class="op">&gt;</span>;
 
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;getgid&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_uid</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">i32</span>;
