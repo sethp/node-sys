@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["Dir",""],["Dirent",""],["FsWatcher",""],["ReadStream",""],["Stats",""],["WriteStream",""]]});
+initSidebarItems({"fn":[["access",""],["access_sync",""]],"struct":[["Dir",""],["Dirent",""],["FsWatcher",""],["ReadStream",""],["Stats",""],["WriteStream",""]]});
