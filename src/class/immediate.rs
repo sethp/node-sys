@@ -6,4 +6,13 @@ extern {
     #[wasm_bindgen(extends = Object)]
     #[derive(Clone, Debug, Eq, PartialEq)]
     pub type Immediate;
+
+    #[wasm_bindgen(method, js_name = "hasRef")]
+    pub fn has_ref(this: &Immediate) -> bool;
+
+    #[wasm_bindgen(method, js_name = "ref")]
+    pub fn ref_(this: &Immediate) -> Immediate;
+
+    #[wasm_bindgen(method)]
+    pub fn unref(this: &Immediate) -> Immediate;
 }
