@@ -839,6 +839,13 @@ mod module {
             fs::access(path, mode, fun);
             clo.forget()
         }
+
+        #[wasm_bindgen_test]
+        fn access_sync() {
+            let path = &".".into();
+            let mode = Default::default();
+            fs::access_sync(path, mode);
+        }
     }
 
     mod path {
