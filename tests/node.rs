@@ -201,7 +201,7 @@ mod async_hooks {
 }
 
 mod buffer {
-    pub mod helper {
+    mod helper {
         use js_sys::Array;
         use node_sys::Buffer;
 
