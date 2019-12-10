@@ -1,1 +1,1 @@
-initSidebarItems({"fn":[["access",""],["access_sync",""]],"struct":[["Dir",""],["Dirent",""],["FsWatcher",""],["ReadStream",""],["Stats",""],["WriteStream",""]]});
+initSidebarItems({"fn":[["access",""],["access_sync",""],["append_file",""],["mkdtemp_sync",""]],"struct":[["AppendFileOptions",""],["Buffer",""],["Dir",""],["Dirent",""],["FsWatcher",""],["MkdtempSyncOptions",""],["ReadStream",""],["Stats",""],["WriteStream",""]]});
