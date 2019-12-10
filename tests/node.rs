@@ -825,6 +825,22 @@ mod module {
         }
     }
 
+    mod fs {
+        use node_sys::fs;
+        use wasm_bindgen::{prelude::*, JsCast};
+        use wasm_bindgen_test::*;
+
+        #[wasm_bindgen_test]
+        fn access() {
+            let path = &".".into();
+            let mode = Default::default();
+            let clo = Closure::wrap(Box::new(|| {}) as Box<dyn Fn()>);
+            let fun = clo.as_ref().unchecked_ref();
+            fs::access(path, mode, fun);
+            clo.forget()
+        }
+    }
+
     mod path {
         use js_sys::Array;
         use node_sys::path;
