@@ -1,10 +1,9 @@
 mod helper {
     pub(crate) mod buffer {
-        use js_sys::Array;
         use node_sys::Buffer;
 
         pub fn new() -> Buffer {
-            Buffer::from_array(&Array::new())
+            Buffer::from_array(Box::new([]))
         }
     }
 
@@ -25,14 +24,14 @@ mod helper {
 mod class {
     mod buffer {
         mod r#static {
-            use js_sys::{Array, ArrayBuffer, Uint8Array};
+            use js_sys::{ArrayBuffer, Uint8Array};
             use node_sys::Buffer;
             use wasm_bindgen_test::*;
 
             #[wasm_bindgen_test]
             fn alloc() {
                 let size = Default::default();
-                let fill = Buffer::from_array(&Array::new());
+                let fill = Buffer::from_array(Box::new([]));
                 let encoding = Default::default();
                 Buffer::alloc(size, Some(&fill), encoding);
             }
@@ -52,21 +51,21 @@ mod class {
 
             #[wasm_bindgen_test]
             fn compare_() {
-                let buf = Buffer::from_array(&Array::new());
+                let buf = Buffer::from_array(Box::new([]));
                 Buffer::compare_(&buf, &buf);
             }
 
             #[wasm_bindgen_test]
             fn concat() {
-                let list = &Array::new();
+                let list = Box::new([]);
                 let total_length = Default::default();
                 Buffer::concat(list, total_length);
             }
 
             #[wasm_bindgen_test]
             fn from_array() {
-                let array = Array::new();
-                Buffer::from_array(&array);
+                let array = Box::new([]);
+                Buffer::from_array(array);
             }
 
             #[wasm_bindgen_test]
@@ -92,7 +91,7 @@ mod class {
 
             #[wasm_bindgen_test]
             fn is_buffer() {
-                assert!(Buffer::is_buffer(&Buffer::from_array(&Array::new())));
+                assert!(Buffer::is_buffer(&Buffer::from_array(Box::new([]))));
             }
 
             #[wasm_bindgen_test]
@@ -849,18 +848,17 @@ mod module {
     }
 
     mod path {
-        use js_sys::Array;
         use node_sys::path;
         use wasm_bindgen_test::*;
 
         #[wasm_bindgen_test]
         fn join() {
-            path::join(&{
-                let val = Array::new();
-                val.push(&"foo".into());
-                val.push(&"bar".into());
-                val.push(&"baz".into());
-                val
+            path::join({
+                let mut val = vec![];
+                val.push("foo".into());
+                val.push("bar".into());
+                val.push("baz".into());
+                val.into_boxed_slice()
             });
         }
     }

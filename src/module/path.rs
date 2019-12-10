@@ -1,5 +1,5 @@
 use crate::interface::{FormatInputPathObject, ParsedPath};
-use js_sys::{Array, JsString};
+use js_sys::JsString;
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen(module = "path")]
@@ -19,7 +19,7 @@ extern {
     pub fn is_absolute(path: &JsString) -> bool;
 
     #[wasm_bindgen(variadic)]
-    pub fn join(paths: &Array) -> JsString;
+    pub fn join(paths: Box<[JsValue]>) -> JsString;
 
     pub fn normalize(path: &JsString) -> JsString;
 
@@ -28,7 +28,7 @@ extern {
     pub fn relative(from: &JsString, to: &JsString) -> JsString;
 
     #[wasm_bindgen(variadic)]
-    pub fn resolve(path_segments: &Array) -> JsString;
+    pub fn resolve(path_segments: Box<[JsValue]>) -> JsString;
 
 // FIXME: path.posix
 

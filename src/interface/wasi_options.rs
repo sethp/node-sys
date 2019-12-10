@@ -1,10 +1,10 @@
-use js_sys::{Array, Object};
+use js_sys::Object;
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
 #[derive(Clone, Debug, PartialEq)]
 pub struct WasiOptions {
-    args: Option<Array>,
+    args: Option<Box<[JsValue]>>,
     env: Option<Object>,
     preopens: Object,
 }
@@ -12,7 +12,7 @@ pub struct WasiOptions {
 #[wasm_bindgen]
 impl WasiOptions {
     #[wasm_bindgen(constructor)]
-    pub fn new_with_values(args: Option<Array>, env: Option<Object>, preopens: Object) -> WasiOptions {
+    pub fn new_with_values(args: Option<Box<[JsValue]>>, env: Option<Object>, preopens: Object) -> WasiOptions {
         WasiOptions { args, env, preopens }
     }
 
@@ -23,12 +23,12 @@ impl WasiOptions {
     }
 
     #[wasm_bindgen(getter)]
-    pub fn args(&self) -> Option<Array> {
+    pub fn args(&self) -> Option<Box<[JsValue]>> {
         self.args.clone()
     }
 
     #[wasm_bindgen(setter)]
-    pub fn set_args(&mut self, value: Option<Array>) {
+    pub fn set_args(&mut self, value: Option<Box<[JsValue]>>) {
         self.args = value;
     }
 

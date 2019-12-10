@@ -1,4 +1,4 @@
-use js_sys::{Array, Function, JsString};
+use js_sys::{Function, JsString};
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
@@ -7,5 +7,5 @@ extern {
     pub type RequireResolve;
 
     #[wasm_bindgen(method)]
-    fn paths(this: &RequireResolve, request: &JsString) -> Option<Array>;
+    fn paths(this: &RequireResolve, request: &JsString) -> Option<Box<[JsValue]>>;
 }

@@ -1,5 +1,5 @@
 use crate::interface::NodeRequireFunction;
-use js_sys::{Array, JsString};
+use js_sys::JsString;
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
@@ -8,7 +8,7 @@ extern {
     pub type NodeModule;
 
     #[wasm_bindgen(method, getter)]
-    pub fn children(this: &NodeModule) -> Array;
+    pub fn children(this: &NodeModule) -> Box<[JsValue]>;
 
     #[wasm_bindgen(method, getter)]
     pub fn exports(this: &NodeModule) -> JsValue;
@@ -26,7 +26,7 @@ extern {
     pub fn parent(this: &NodeModule) -> Option<NodeModule>;
 
     #[wasm_bindgen(method, getter)]
-    pub fn paths(this: &NodeModule) -> Array;
+    pub fn paths(this: &NodeModule) -> Box<[JsValue]>;
 
     #[wasm_bindgen(method, getter)]
     pub fn require(this: &NodeModule) -> NodeRequireFunction;

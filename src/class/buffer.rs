@@ -1,4 +1,4 @@
-use js_sys::{Array, ArrayBuffer, Iterator, JsString, Object, Uint8Array};
+use js_sys::{ArrayBuffer, Iterator, JsString, Object, Uint8Array};
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
@@ -25,7 +25,7 @@ extern {
     pub fn compare_(buf1: &Buffer, buf2: &Buffer) -> i32;
 
     #[wasm_bindgen(static_method_of = Buffer)]
-    pub fn concat(list: &Array, total_length: Option<f64>) -> Buffer;
+    pub fn concat(list: Box<[JsValue]>, total_length: Option<f64>) -> Buffer;
 
     #[wasm_bindgen(static_method_of = Buffer, js_name = "isBuffer")]
     pub fn is_buffer(value: &JsValue) -> bool;
@@ -34,7 +34,7 @@ extern {
     pub fn is_encoding(encoding: &JsString) -> bool;
 
     #[wasm_bindgen(static_method_of = Buffer, js_name = "from")]
-    pub fn from_array(array: &Array) -> Buffer;
+    pub fn from_array(array: Box<[JsValue]>) -> Buffer;
 
     #[wasm_bindgen(static_method_of = Buffer, js_name = "from")]
     pub fn from_array_buffer(buffer: &ArrayBuffer, byte_offset: Option<f64>, length: Option<f64>) -> Buffer;

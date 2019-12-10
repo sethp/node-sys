@@ -12,7 +12,7 @@ use crate::{
         ProcessVersions,
     },
 };
-use js_sys::{Array, Function, JsString, Number, Object};
+use js_sys::{Function, JsString, Number, Object};
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
@@ -28,7 +28,7 @@ extern {
     pub fn arch(this: &Process) -> JsString;
 
     #[wasm_bindgen(method, getter)]
-    pub fn argv(this: &Process) -> Array;
+    pub fn argv(this: &Process) -> Box<[JsValue]>;
 
     #[wasm_bindgen(method, getter)]
     pub fn argv0(this: &Process) -> JsString;
@@ -66,7 +66,7 @@ extern {
     pub fn env(this: &Process) -> Object;
 
     #[wasm_bindgen(method, getter, js_name = "execArgv")]
-    pub fn exec_argv(this: &Process) -> Array;
+    pub fn exec_argv(this: &Process) -> Box<[JsValue]>;
 
     #[wasm_bindgen(method, getter, js_name = "execPath")]
     pub fn exec_path(this: &Process) -> JsString;
@@ -90,7 +90,7 @@ extern {
     pub fn get_gid(this: &Process) -> i32;
 
     #[wasm_bindgen(method, js_name = "getgroups")]
-    pub fn get_groups(this: &Process) -> Array;
+    pub fn get_groups(this: &Process) -> Box<[JsValue]>;
 
     #[wasm_bindgen(method, js_name = "getgid")]
     pub fn get_uid(this: &Process) -> i32;
