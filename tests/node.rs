@@ -300,7 +300,7 @@ mod buffer {
             #[allow(non_snake_case)]
             #[wasm_bindgen_test]
             fn INSPECT_MAX_BYTES() {
-                let _ = buffer::INSPECT_MAX_BYTES.clone();
+                let _ = buffer::INSPECT_MAX_BYTES;
             }
 
             #[wasm_bindgen_test]
@@ -312,7 +312,7 @@ mod buffer {
 
             #[wasm_bindgen_test]
             fn k_max_length() {
-                let _ = buffer::k_max_length.clone();
+                let _ = buffer::k_max_length;
             }
 
             #[wasm_bindgen_test]
