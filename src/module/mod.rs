@@ -1,6 +1,6 @@
 pub mod assert;
 pub mod async_hooks;
-pub(crate) mod buffer;
+pub mod buffer;
 pub mod child_process;
 pub mod cluster;
 pub mod console;
