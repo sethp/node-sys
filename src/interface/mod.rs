@@ -1,3 +1,4 @@
+pub(crate) mod append_file_options;
 pub(crate) mod assertion_error_options;
 pub(crate) mod async_iterator;
 pub(crate) mod before_exit_listener;
@@ -54,6 +55,7 @@ pub(crate) mod zlib_params;
 pub(crate) mod zlib_reset;
 
 // pub use assertion_error_options::*;
+pub use append_file_options::*;
 pub use async_iterator::*;
 pub use before_exit_listener::*;
 pub use brotli_options::*;
