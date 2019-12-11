@@ -4,6 +4,9 @@ use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen(module = "os")]
 extern {
+    //******************//
+    // Instance Methods //
+    //******************//
 
     pub fn arch() -> JsString;
 
@@ -46,6 +49,10 @@ extern {
 
     #[wasm_bindgen(js_name = "userInfo")]
     pub fn user_info(options: Option<UserInfoOptions>) -> Object;
+
+    //***********//
+    // Constants //
+    //***********//
 
     pub static EOL: JsString;
 }
