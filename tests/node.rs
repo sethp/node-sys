@@ -898,6 +898,11 @@ mod module {
         }
 
         #[wasm_bindgen_test]
+        pub fn endianness() {
+            os::endianness();
+        }
+
+        #[wasm_bindgen_test]
         pub fn network_interfaces() {
             os::network_interfaces();
         }

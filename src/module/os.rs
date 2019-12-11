@@ -8,6 +8,8 @@ extern {
 
     pub fn cpus() -> Box<[JsValue]>;
 
+    pub fn endianness() -> JsString;
+
     #[wasm_bindgen(js_name = "networkInterfaces")]
     pub fn network_interfaces() -> Object;
     pub fn tmpdir() -> JsString;
