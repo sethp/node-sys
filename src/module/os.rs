@@ -40,4 +40,6 @@ extern {
 
     #[wasm_bindgen(js_name = "type")]
     pub fn type_() -> JsString;
+
+    pub fn uptime() -> f64;
 }

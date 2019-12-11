@@ -970,6 +970,11 @@ mod module {
         pub fn type_() {
             os::type_();
         }
+
+        #[wasm_bindgen_test]
+        pub fn uptime() {
+            os::uptime();
+        }
     }
 
     mod path {
