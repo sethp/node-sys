@@ -975,6 +975,12 @@ mod module {
         pub fn uptime() {
             os::uptime();
         }
+
+        #[wasm_bindgen_test]
+        pub fn user_info() {
+            let options = None;
+            os::user_info(options);
+        }
     }
 
     mod path {

@@ -1,3 +1,4 @@
+use crate::interface::UserInfoOptions;
 use js_sys::{JsString, Object};
 use wasm_bindgen::prelude::*;
 
@@ -42,4 +43,7 @@ extern {
     pub fn type_() -> JsString;
 
     pub fn uptime() -> f64;
+
+    #[wasm_bindgen(js_name = "userInfo")]
+    pub fn user_info(options: Option<UserInfoOptions>) -> Object;
 }
