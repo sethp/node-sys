@@ -20,6 +20,7 @@ doctest = false
 test = false
 
 [dependencies]
+cfg-if = "^0.1.10"
 serde = "^1.0.102"
 
 [dependencies.js-sys]
