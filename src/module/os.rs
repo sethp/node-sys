@@ -25,5 +25,7 @@ extern {
     pub fn network_interfaces() -> Object;
 
     pub fn platform() -> JsString;
+
+    pub fn release() -> JsString;
     pub fn tmpdir() -> JsString;
 }

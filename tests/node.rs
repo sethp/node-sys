@@ -937,6 +937,11 @@ mod module {
         pub fn platform() {
             os::platform();
         }
+
+        #[wasm_bindgen_test]
+        pub fn release() {
+            os::release();
+        }
     }
 
     mod path {
