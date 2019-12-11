@@ -893,6 +893,11 @@ mod module {
         }
 
         #[wasm_bindgen_test]
+        pub fn cpus() {
+            os::cpus();
+        }
+
+        #[wasm_bindgen_test]
         pub fn network_interfaces() {
             os::network_interfaces();
         }
