@@ -948,6 +948,13 @@ mod module {
             let priority = 0;
             os::set_priority(priority);
         }
+
+        #[wasm_bindgen_test]
+        pub fn set_priority_for_pid() {
+            let pid = Default::default();
+            let priority = 0;
+            os::set_priority_for_pid(pid, priority);
+        }
     }
 
     mod path {

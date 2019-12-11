@@ -31,5 +31,8 @@ extern {
     #[wasm_bindgen(js_name = "setPriority")]
     pub fn set_priority(priority: i32);
 
+    #[wasm_bindgen(js_name = "setPriority")]
+    pub fn set_priority_for_pid(pid: u32, priority: i32);
+
     pub fn tmpdir() -> JsString;
 }
