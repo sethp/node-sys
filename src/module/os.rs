@@ -19,6 +19,8 @@ extern {
 
     pub fn hostname() -> JsString;
 
+    pub fn loadavg() -> Box<[JsValue]>;
+
     #[wasm_bindgen(js_name = "networkInterfaces")]
     pub fn network_interfaces() -> Object;
     pub fn tmpdir() -> JsString;

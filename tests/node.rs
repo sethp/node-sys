@@ -924,6 +924,11 @@ mod module {
         }
 
         #[wasm_bindgen_test]
+        pub fn loadavg() {
+            os::loadavg();
+        }
+
+        #[wasm_bindgen_test]
         pub fn network_interfaces() {
             os::network_interfaces();
         }
