@@ -899,7 +899,12 @@ mod module {
 
         #[wasm_bindgen_test]
         pub fn constants_dlopen() {
-            let _ = os::constants.dlopen();
+            let dlopen = os::constants.dlopen();
+            // let _ = dlopen.RTLD_DEEPBIND();
+            let _ = dlopen.RTLD_GLOBAL();
+            let _ = dlopen.RTLD_LAZY();
+            let _ = dlopen.RTLD_LOCAL();
+            let _ = dlopen.RTLD_NOW();
         }
 
         #[wasm_bindgen_test]
