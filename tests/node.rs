@@ -955,6 +955,11 @@ mod module {
             let priority = 0;
             os::set_priority_for_pid(pid, priority);
         }
+
+        #[wasm_bindgen_test]
+        pub fn tmpdir() {
+            os::tmpdir();
+        }
     }
 
     mod path {
