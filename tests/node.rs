@@ -932,6 +932,11 @@ mod module {
         pub fn network_interfaces() {
             os::network_interfaces();
         }
+
+        #[wasm_bindgen_test]
+        pub fn platform() {
+            os::platform();
+        }
     }
 
     mod path {

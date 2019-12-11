@@ -23,5 +23,7 @@ extern {
 
     #[wasm_bindgen(js_name = "networkInterfaces")]
     pub fn network_interfaces() -> Object;
+
+    pub fn platform() -> JsString;
     pub fn tmpdir() -> JsString;
 }
