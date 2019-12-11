@@ -15,6 +15,8 @@ extern {
     #[wasm_bindgen(js_name = "getPriority")]
     pub fn get_priority(pid: Option<u32>) -> u32;
 
+    pub fn homedir() -> JsString;
+
     #[wasm_bindgen(js_name = "networkInterfaces")]
     pub fn network_interfaces() -> Object;
     pub fn tmpdir() -> JsString;

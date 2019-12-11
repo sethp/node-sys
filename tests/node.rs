@@ -914,6 +914,11 @@ mod module {
         }
 
         #[wasm_bindgen_test]
+        pub fn homedir() {
+            os::homedir();
+        }
+
+        #[wasm_bindgen_test]
         pub fn network_interfaces() {
             os::network_interfaces();
         }
