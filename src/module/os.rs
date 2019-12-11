@@ -27,5 +27,9 @@ extern {
     pub fn platform() -> JsString;
 
     pub fn release() -> JsString;
+
+    #[wasm_bindgen(js_name = "setPriority")]
+    pub fn set_priority(priority: i32);
+
     pub fn tmpdir() -> JsString;
 }

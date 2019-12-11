@@ -942,6 +942,12 @@ mod module {
         pub fn release() {
             os::release();
         }
+
+        #[wasm_bindgen_test]
+        pub fn set_priority() {
+            let priority = 0;
+            os::set_priority(priority);
+        }
     }
 
     mod path {
