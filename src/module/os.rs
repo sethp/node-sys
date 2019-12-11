@@ -46,4 +46,6 @@ extern {
 
     #[wasm_bindgen(js_name = "userInfo")]
     pub fn user_info(options: Option<UserInfoOptions>) -> Object;
+
+    pub static EOL: JsString;
 }

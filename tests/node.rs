@@ -981,6 +981,12 @@ mod module {
             let options = None;
             os::user_info(options);
         }
+
+        #[allow(non_snake_case)]
+        #[wasm_bindgen_test]
+        pub fn EOL() {
+            let _ = os::EOL.clone();
+        }
     }
 
     mod path {
