@@ -1,1 +1,1 @@
-initSidebarItems({"fn":[["tmpdir",""]]});
+initSidebarItems({"fn":[["arch",""],["cpus",""],["endianness",""],["freemem",""],["get_priority",""],["homedir",""],["hostname",""],["loadavg",""],["network_interfaces",""],["platform",""],["release",""],["set_priority",""],["set_priority_for_pid",""],["tmpdir",""],["totalmem",""],["type_",""],["uptime",""],["user_info",""]],"static":[["EOL",""]]});
