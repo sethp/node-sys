@@ -909,7 +909,106 @@ mod module {
 
         #[wasm_bindgen_test]
         pub fn constants_errno() {
-            let _ = os::constants.errno();
+            let errno = os::constants.errno();
+            let _ = errno.E2BIG();
+            let _ = errno.EACCES();
+            let _ = errno.EADDRINUSE();
+            let _ = errno.EADDRNOTAVAIL();
+            let _ = errno.EAFNOSUPPORT();
+            let _ = errno.EAGAIN();
+            let _ = errno.EALREADY();
+            let _ = errno.EBADF();
+            let _ = errno.EBADMSG();
+            let _ = errno.EBUSY();
+            let _ = errno.ECANCELED();
+            let _ = errno.ECHILD();
+            let _ = errno.ECONNABORTED();
+            let _ = errno.ECONNREFUSED();
+            let _ = errno.ECONNRESET();
+            let _ = errno.EDEADLK();
+            let _ = errno.EDESTADDRREQ();
+            let _ = errno.EDOM();
+            let _ = errno.EDQUOT();
+            let _ = errno.EEXIST();
+            let _ = errno.EFAULT();
+            let _ = errno.EFBIG();
+            let _ = errno.EHOSTUNREACH();
+            let _ = errno.EIDRM();
+            let _ = errno.EILSEQ();
+            let _ = errno.EINPROGRESS();
+            let _ = errno.EINTR();
+            let _ = errno.EINVAL();
+            let _ = errno.EIO();
+            let _ = errno.EISCONN();
+            let _ = errno.EISDIR();
+            let _ = errno.ELOOP();
+            let _ = errno.EMFILE();
+            let _ = errno.EMLINK();
+            let _ = errno.EMSGSIZE();
+            let _ = errno.EMULTIHOP();
+            let _ = errno.ENAMETOOLONG();
+            let _ = errno.ENETDOWN();
+            let _ = errno.ENETRESET();
+            let _ = errno.ENETUNREACH();
+            let _ = errno.ENFILE();
+            let _ = errno.ENOBUFS();
+            let _ = errno.ENODATA();
+            let _ = errno.ENODEV();
+            let _ = errno.ENOENT();
+            let _ = errno.ENOEXEC();
+            let _ = errno.ENOLCK();
+            let _ = errno.ENOLINK();
+            let _ = errno.ENOMEM();
+            let _ = errno.ENOMSG();
+            let _ = errno.ENOPROTOOPT();
+            let _ = errno.ENOSPC();
+            let _ = errno.ENOSR();
+            let _ = errno.ENOSTR();
+            let _ = errno.ENOSYS();
+            let _ = errno.ENOTCONN();
+            let _ = errno.ENOTDIR();
+            let _ = errno.ENOTEMPTY();
+            let _ = errno.ENOTSOCK();
+            let _ = errno.ENOTSUP();
+            let _ = errno.ENOTTY();
+            let _ = errno.ENXIO();
+            let _ = errno.EOPNOTSUPP();
+            let _ = errno.EOVERFLOW();
+            let _ = errno.EPERM();
+            let _ = errno.EPIPE();
+            let _ = errno.EPROTO();
+            let _ = errno.EPROTONOSUPPORT();
+            let _ = errno.EPROTOTYPE();
+            let _ = errno.ERANGE();
+            let _ = errno.EROFS();
+            let _ = errno.ESPIPE();
+            let _ = errno.ESRCH();
+            let _ = errno.ESTALE();
+            let _ = errno.ETIME();
+            let _ = errno.ETIMEDOUT();
+            let _ = errno.ETXTBSY();
+            let _ = errno.EWOULDBLOCK();
+            let _ = errno.EXDEV();
+            cfg_if::cfg_if! {
+                if #[cfg(windows)] {
+                    let _ = errno.WSAEINTR();
+                    let _ = errno.WSAEBADF();
+                    let _ = errno.WSAEACCESS();
+                    let _ = errno.WASEFAULT();
+                    let _ = errno.WSAEINVAL();
+                    let _ = errno.WASEMFILE();
+                    let _ = errno.WSAEWOULDBLOCK();
+                    let _ = errno.WSAEINPROGRESS();
+                    let _ = errno.WSAEALREADY();
+                    let _ = errno.WSAENOTSOCK();
+                    let _ = errno.WSAEDESTADDRREQ();
+                    let _ = errno.WSAEMSGSIZE();
+                    let _ = errno.WSAEPROTOTYPE();
+                    let _ = errno.WSAENOPROTOOPT();
+                    let _ = errno.WSAEPROTONOSUPPORT();
+                    let _ = errno.WSAESOCKTNOSUPPORT();
+                }
+            }
         }
 
         #[wasm_bindgen_test]
