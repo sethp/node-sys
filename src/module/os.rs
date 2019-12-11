@@ -12,6 +12,9 @@ extern {
 
     pub fn freemem() -> f64;
 
+    #[wasm_bindgen(js_name = "getPriority")]
+    pub fn get_priority(pid: Option<u32>) -> u32;
+
     #[wasm_bindgen(js_name = "networkInterfaces")]
     pub fn network_interfaces() -> Object;
     pub fn tmpdir() -> JsString;

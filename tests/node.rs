@@ -908,6 +908,12 @@ mod module {
         }
 
         #[wasm_bindgen_test]
+        pub fn get_priority() {
+            let pid = Default::default();
+            os::get_priority(pid);
+        }
+
+        #[wasm_bindgen_test]
         pub fn network_interfaces() {
             os::network_interfaces();
         }
