@@ -965,6 +965,11 @@ mod module {
         pub fn totalmem() {
             os::totalmem();
         }
+
+        #[wasm_bindgen_test]
+        pub fn type_() {
+            os::type_();
+        }
     }
 
     mod path {

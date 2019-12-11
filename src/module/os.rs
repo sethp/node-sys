@@ -37,4 +37,7 @@ extern {
     pub fn tmpdir() -> JsString;
 
     pub fn totalmem() -> f64;
+
+    #[wasm_bindgen(js_name = "type")]
+    pub fn type_() -> JsString;
 }
