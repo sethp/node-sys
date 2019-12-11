@@ -1,4 +1,4 @@
-use crate::interface::UserInfoOptions;
+use crate::interface::{OsConstants, UserInfoOptions};
 use js_sys::{JsString, Object};
 use wasm_bindgen::prelude::*;
 
@@ -50,9 +50,11 @@ extern {
     #[wasm_bindgen(js_name = "userInfo")]
     pub fn user_info(options: Option<UserInfoOptions>) -> Object;
 
-    //***********//
-    // Constants //
-    //***********//
+    //************//
+    // Properties //
+    //************//
+
+    pub static constants: OsConstants;
 
     pub static EOL: JsString;
 }
