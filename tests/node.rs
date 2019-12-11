@@ -1018,7 +1018,13 @@ mod module {
 
         #[wasm_bindgen_test]
         pub fn constants_priority() {
-            let _ = os::constants.priority();
+            let priority = os::constants.priority();
+            let _ = priority.PRIORITY_LOW();
+            let _ = priority.PRIORITY_BELOW_NORMAL();
+            let _ = priority.PRIORITY_NORMAL();
+            let _ = priority.PRIORITY_ABOVE_NORMAL();
+            let _ = priority.PRIORITY_HIGH();
+            let _ = priority.PRIORITY_HIGHEST();
         }
 
         #[wasm_bindgen_test]
