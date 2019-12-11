@@ -883,6 +883,16 @@ mod module {
         }
     }
 
+    mod os {
+        use node_sys::os;
+        use wasm_bindgen_test::*;
+
+        #[wasm_bindgen_test]
+        pub fn arch() {
+            os::arch();
+        }
+    }
+
     mod path {
         use node_sys::path;
         use wasm_bindgen_test::*;
