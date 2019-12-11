@@ -17,6 +17,8 @@ extern {
 
     pub fn homedir() -> JsString;
 
+    pub fn hostname() -> JsString;
+
     #[wasm_bindgen(js_name = "networkInterfaces")]
     pub fn network_interfaces() -> Object;
     pub fn tmpdir() -> JsString;

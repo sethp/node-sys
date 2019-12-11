@@ -919,6 +919,11 @@ mod module {
         }
 
         #[wasm_bindgen_test]
+        pub fn hostname() {
+            os::hostname();
+        }
+
+        #[wasm_bindgen_test]
         pub fn network_interfaces() {
             os::network_interfaces();
         }
