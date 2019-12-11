@@ -903,6 +903,11 @@ mod module {
         }
 
         #[wasm_bindgen_test]
+        pub fn freemem() {
+            os::freemem();
+        }
+
+        #[wasm_bindgen_test]
         pub fn network_interfaces() {
             os::network_interfaces();
         }

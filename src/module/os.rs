@@ -10,6 +10,8 @@ extern {
 
     pub fn endianness() -> JsString;
 
+    pub fn freemem() -> f64;
+
     #[wasm_bindgen(js_name = "networkInterfaces")]
     pub fn network_interfaces() -> Object;
     pub fn tmpdir() -> JsString;
