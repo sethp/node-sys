@@ -1011,10 +1011,12 @@ mod module {
             }
         }
 
-        #[wasm_bindgen_test]
-        pub fn constants_libuv() {
-            let _ = os::constants.libuv();
-        }
+        // FIXME
+        // #[wasm_bindgen_test]
+        // pub fn constants_libuv() {
+        //     let libuv = os::constants.libuv();
+        //     libuv.UV_UDP_REUSEADDR();
+        // }
 
         #[wasm_bindgen_test]
         pub fn constants_priority() {
