@@ -960,6 +960,11 @@ mod module {
         pub fn tmpdir() {
             os::tmpdir();
         }
+
+        #[wasm_bindgen_test]
+        pub fn totalmem() {
+            os::totalmem();
+        }
     }
 
     mod path {

@@ -35,4 +35,6 @@ extern {
     pub fn set_priority_for_pid(pid: u32, priority: i32);
 
     pub fn tmpdir() -> JsString;
+
+    pub fn totalmem() -> f64;
 }
