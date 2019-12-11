@@ -15,7 +15,7 @@ mod helper {
             let prefix = &path::join({
                 let mut val = vec![];
                 val.push(os::tmpdir().into());
-                val.push("interfaces-rs-".into());
+                val.push("node-sys".into());
                 val.into_boxed_slice()
             });
             let options = Default::default();
