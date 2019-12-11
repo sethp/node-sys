@@ -4,8 +4,8 @@ use wasm_bindgen::prelude::*;
 extern {
     pub type OsConstantsDlopen;
 
-    #[wasm_bindgen(method, getter)]
-    pub fn RTLD_DEEPBIND(this: &OsConstantsDlopen) -> i32;
+    // #[wasm_bindgen(method, getter)]
+    // pub fn RTLD_DEEPBIND(this: &OsConstantsDlopen) -> i32;
 
     #[wasm_bindgen(method, getter)]
     pub fn RTLD_GLOBAL(this: &OsConstantsDlopen) -> i32;
