@@ -891,6 +891,11 @@ mod module {
         pub fn arch() {
             os::arch();
         }
+
+        #[wasm_bindgen_test]
+        pub fn network_interfaces() {
+            os::network_interfaces();
+        }
     }
 
     mod path {
