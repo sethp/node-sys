@@ -893,6 +893,36 @@ mod module {
         }
 
         #[wasm_bindgen_test]
+        pub fn constants() {
+            let _ = os::constants;
+        }
+
+        #[wasm_bindgen_test]
+        pub fn constants_dlopen() {
+            let _ = os::constants.dlopen();
+        }
+
+        #[wasm_bindgen_test]
+        pub fn constants_errno() {
+            let _ = os::constants.errno();
+        }
+
+        #[wasm_bindgen_test]
+        pub fn constants_libuv() {
+            let _ = os::constants.libuv();
+        }
+
+        #[wasm_bindgen_test]
+        pub fn constants_priority() {
+            let _ = os::constants.priority();
+        }
+
+        #[wasm_bindgen_test]
+        pub fn constants_signal() {
+            let _ = os::constants.signal();
+        }
+
+        #[wasm_bindgen_test]
         pub fn cpus() {
             os::cpus();
         }
