@@ -1,6 +1,7 @@
 pub(crate) mod buffer;
 pub(crate) mod event_emitter;
 pub(crate) mod fs;
+pub(crate) mod http;
 pub(crate) mod immediate;
 pub(crate) mod module;
 pub(crate) mod stream;
