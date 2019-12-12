@@ -1,4 +1,5 @@
 pub(crate) mod buffer;
+pub(crate) mod crypto;
 pub(crate) mod event_emitter;
 pub(crate) mod fs;
 pub(crate) mod http;
