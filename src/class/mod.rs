@@ -7,6 +7,7 @@ pub(crate) mod http;
 pub(crate) mod immediate;
 pub(crate) mod module;
 pub(crate) mod stream;
+pub(crate) mod string_decoder;
 pub(crate) mod timeout;
 pub(crate) mod tty;
 pub(crate) mod url;
