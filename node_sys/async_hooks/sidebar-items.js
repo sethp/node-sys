@@ -1,1 +1,1 @@
-initSidebarItems({"fn":[["create_hook",""]],"struct":[["AsyncHook",""],["CreateHookCallbacks",""]]});
+initSidebarItems({"fn":[["create_hook",""]],"struct":[["AsyncHook",""]]});
