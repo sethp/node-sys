@@ -8,6 +8,7 @@ pub(crate) mod immediate;
 pub(crate) mod module;
 pub(crate) mod stream;
 pub(crate) mod timeout;
+pub(crate) mod v8;
 pub(crate) mod vm;
 pub(crate) mod wasi;
 pub(crate) mod worker_threads;
