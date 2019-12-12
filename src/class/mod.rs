@@ -6,6 +6,7 @@ pub(crate) mod fs;
 pub(crate) mod http;
 pub(crate) mod immediate;
 pub(crate) mod module;
+pub(crate) mod perf_hooks;
 pub(crate) mod readline;
 pub(crate) mod repl;
 pub(crate) mod stream;
