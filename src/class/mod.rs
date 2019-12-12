@@ -9,6 +9,7 @@ pub(crate) mod module;
 pub(crate) mod stream;
 pub(crate) mod timeout;
 pub(crate) mod wasi;
+pub(crate) mod worker_threads;
 
 pub use buffer::*;
 pub use event_emitter::*;
