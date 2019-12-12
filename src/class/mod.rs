@@ -3,6 +3,7 @@ pub(crate) mod event_emitter;
 pub(crate) mod fs;
 pub(crate) mod immediate;
 pub(crate) mod module;
+pub(crate) mod stream;
 pub(crate) mod timeout;
 pub(crate) mod wasi;
 
