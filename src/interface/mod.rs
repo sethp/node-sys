@@ -1,3 +1,4 @@
+pub(crate) mod agent_constructor_options;
 pub(crate) mod append_file_options;
 pub(crate) mod assertion_error_options;
 pub(crate) mod async_iterator;
