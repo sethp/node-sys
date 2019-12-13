@@ -572,6 +572,30 @@ mod class {
         }
     }
 
+    mod hash {
+        use node_sys::crypto;
+        use wasm_bindgen_test::*;
+
+        #[wasm_bindgen_test]
+        pub fn digest() {
+            let algorithm = &"md5".into();
+            let options = Default::default();
+            let hash = crypto::create_hash(algorithm, options);
+            let encoding = &"hex".into();
+            hash.digest_with_encoding(encoding);
+        }
+
+        #[wasm_bindgen_test]
+        pub fn update() {
+            let algorithm = &"md5".into();
+            let options = Default::default();
+            let hash = crypto::create_hash(algorithm, options);
+            let text = &"text".into();
+            let encoding = &"utf8".into();
+            hash.update_with_encoding(text, Some(encoding));
+        }
+    }
+
     mod immediate {
         use wasm_bindgen_test::*;
 
