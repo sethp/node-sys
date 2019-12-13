@@ -854,6 +854,19 @@ mod module {
         }
     }
 
+    mod crypto {
+        use node_sys::crypto;
+        // use wasm_bindgen::prelude::*;
+        use wasm_bindgen_test::*;
+
+        #[wasm_bindgen_test]
+        pub fn create_hash() {
+            let algorithm = &"md5".into();
+            let options = Default::default();
+            crypto::create_hash(algorithm, options);
+        }
+    }
+
     mod events {
         use node_sys::{events, events::EventEmitter, process};
         use wasm_bindgen::{prelude::*, JsCast};
