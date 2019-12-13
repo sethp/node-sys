@@ -13,6 +13,7 @@ pub(crate) mod repl;
 pub(crate) mod stream;
 pub(crate) mod string_decoder;
 pub(crate) mod timeout;
+pub(crate) mod tls;
 pub(crate) mod tty;
 pub(crate) mod url;
 pub(crate) mod util;
