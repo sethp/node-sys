@@ -5,6 +5,7 @@ pub(crate) mod event_emitter;
 pub(crate) mod fs;
 pub(crate) mod http;
 pub(crate) mod http2;
+pub(crate) mod https;
 pub(crate) mod immediate;
 pub(crate) mod inspector;
 pub(crate) mod module;
