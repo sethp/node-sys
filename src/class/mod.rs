@@ -23,6 +23,7 @@ pub(crate) mod util;
 pub(crate) mod v8;
 pub(crate) mod vm;
 pub(crate) mod wasi;
+pub(crate) mod web_assembly;
 pub(crate) mod worker_threads;
 
 pub use buffer::*;
@@ -33,3 +34,4 @@ pub use module::*;
 pub use timeout::*;
 pub use url::*;
 pub use wasi::*;
+pub use web_assembly::*;
