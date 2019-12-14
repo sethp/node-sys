@@ -621,6 +621,21 @@ mod class {
 
 mod interface {}
 
+mod globals {
+    use node_sys::{__dirname, __filename};
+    use wasm_bindgen_test::*;
+
+    #[wasm_bindgen_test]
+    fn dirname() {
+        let _ = __dirname.clone();
+    }
+
+    #[wasm_bindgen_test]
+    fn filename() {
+        let _ = __filename.clone();
+    }
+}
+
 mod module {
     mod assert {
         use js_sys::{Object, Promise, Reflect};
