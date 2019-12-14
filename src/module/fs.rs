@@ -1,6 +1,6 @@
 pub use crate::{
     class::{fs::*, Buffer},
-    interface::{AppendFileOptions, MkdtempSyncOptions},
+    interface::{AppendFileOptions, MkdtempSyncOptions, WriteFileSyncOptions},
 };
 use js_sys::{Function, JsString};
 use wasm_bindgen::prelude::*;
@@ -17,4 +17,7 @@ extern {
 
     #[wasm_bindgen(js_name = "mkdtempSync")]
     pub fn mkdtemp_sync(prefix: &JsString, options: Option<MkdtempSyncOptions>) -> JsString;
+
+    #[wasm_bindgen(js_name = "writeFileSync")]
+    pub fn write_file_sync(file: &JsValue, data: &JsValue, options: Option<WriteFileSyncOptions>);
 }
