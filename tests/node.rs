@@ -622,17 +622,41 @@ mod class {
 mod interface {}
 
 mod globals {
-    use node_sys::{__dirname, __filename};
+    use node_sys::globals;
+    use wasm_bindgen::{prelude::*, JsCast};
     use wasm_bindgen_test::*;
 
     #[wasm_bindgen_test]
     fn dirname() {
-        let _ = __dirname.clone();
+        let _ = globals::__dirname.clone();
     }
 
     #[wasm_bindgen_test]
     fn filename() {
-        let _ = __filename.clone();
+        let _ = globals::__filename.clone();
+    }
+
+    #[wasm_bindgen_test]
+    fn exports() {
+        let _ = globals::exports.clone();
+    }
+
+    #[wasm_bindgen_test]
+    fn global() {
+        let _ = globals::global.clone();
+    }
+
+    #[wasm_bindgen_test]
+    fn module() {
+        let _ = globals::module.clone();
+    }
+
+    #[wasm_bindgen_test]
+    fn queue_microtask() {
+        let clo = Closure::wrap(Box::new(|| {}) as Box<dyn Fn()>);
+        let fun = clo.as_ref().unchecked_ref();
+        globals::queue_microtask(&fun);
+        clo.forget();
     }
 }
 
