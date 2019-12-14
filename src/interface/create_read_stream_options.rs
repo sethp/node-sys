@@ -17,6 +17,7 @@ pub struct CreateReadStreamOptions {
 
 #[wasm_bindgen]
 impl CreateReadStreamOptions {
+    #[allow(clippy::too_many_arguments)]
     #[wasm_bindgen(constructor)]
     pub fn new_with_values(
         auto_close: Option<bool>,
