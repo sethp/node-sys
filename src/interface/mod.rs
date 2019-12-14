@@ -9,6 +9,7 @@ pub(crate) mod console_constructor;
 pub(crate) mod console_constructor_options;
 pub(crate) mod cpu_usage;
 pub(crate) mod create_hook_callbacks;
+pub(crate) mod create_read_stream_options;
 pub(crate) mod disconnect_listener;
 pub(crate) mod domain;
 pub(crate) mod errno_exception;
