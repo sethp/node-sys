@@ -1,4 +1,4 @@
-use crate::class::console::Console;
+use crate::class::{console::Console, module::Module};
 use js_sys::{Function, JsString, Object};
 use wasm_bindgen::prelude::*;
 
@@ -14,7 +14,7 @@ extern {
 
     pub static global: Object;
 
-    pub static module: Object;
+    pub static module: Module;
 
     // pub static process: Object; // FIXME: name collision
 

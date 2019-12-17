@@ -648,7 +648,15 @@ mod globals {
 
     #[wasm_bindgen_test]
     fn module() {
-        let _ = globals::module.clone();
+        let module = globals::module.clone();
+        let _ = module.children();
+        let _ = module.exports();
+        let _ = module.filename();
+        let _ = module.id();
+        let _ = module.loaded();
+        let _ = module.parent();
+        let _ = module.paths();
+        let _ = module.require(&"module".into());
     }
 
     #[wasm_bindgen_test]
