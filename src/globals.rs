@@ -1,4 +1,4 @@
-use crate::class::{console::Console, module::Module};
+use crate::{class::Console, interface::Module};
 use js_sys::{Function, JsString, Object};
 use wasm_bindgen::prelude::*;
 
