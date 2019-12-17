@@ -271,5 +271,4 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: "13.x"
-      - run: npm ci
       - run: tools/bin/wasm-pack test --node -- --frozen --all-features --all-targets
