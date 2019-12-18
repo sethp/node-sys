@@ -168,9 +168,49 @@
 <span id="168">168</span>
 <span id="169">169</span>
 <span id="170">170</span>
+<span id="171">171</span>
+<span id="172">172</span>
+<span id="173">173</span>
+<span id="174">174</span>
+<span id="175">175</span>
+<span id="176">176</span>
+<span id="177">177</span>
+<span id="178">178</span>
+<span id="179">179</span>
+<span id="180">180</span>
+<span id="181">181</span>
+<span id="182">182</span>
+<span id="183">183</span>
+<span id="184">184</span>
+<span id="185">185</span>
+<span id="186">186</span>
+<span id="187">187</span>
+<span id="188">188</span>
+<span id="189">189</span>
+<span id="190">190</span>
+<span id="191">191</span>
+<span id="192">192</span>
+<span id="193">193</span>
+<span id="194">194</span>
+<span id="195">195</span>
+<span id="196">196</span>
+<span id="197">197</span>
+<span id="198">198</span>
+<span id="199">199</span>
+<span id="200">200</span>
+<span id="201">201</span>
+<span id="202">202</span>
+<span id="203">203</span>
+<span id="204">204</span>
+<span id="205">205</span>
+<span id="206">206</span>
+<span id="207">207</span>
+<span id="208">208</span>
+<span id="209">209</span>
+<span id="210">210</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="kw">use</span> <span class="kw">crate</span>::{
-    <span class="ident">class</span>::<span class="ident">EventEmitter</span>,
+    <span class="ident">class</span>::{<span class="ident">stream</span>, <span class="ident">EventEmitter</span>},
     <span class="ident">interface</span>::{
         <span class="ident">CpuUsage</span>,
         <span class="ident">Domain</span>,
@@ -183,7 +223,7 @@
         <span class="ident">ProcessVersions</span>,
     },
 };
-<span class="kw">use</span> <span class="ident">js_sys</span>::{<span class="ident">Function</span>, <span class="ident">JsString</span>, <span class="ident">Number</span>, <span class="ident">Object</span>};
+<span class="kw">use</span> <span class="ident">js_sys</span>::{<span class="ident">Function</span>, <span class="ident">JsString</span>, <span class="ident">Number</span>, <span class="ident">Object</span>, <span class="ident">Set</span>};
 <span class="kw">use</span> <span class="ident">wasm_bindgen</span>::<span class="ident">prelude</span>::<span class="kw-2">*</span>;
 
 <span class="attribute">#[<span class="ident">wasm_bindgen</span>]</span>
@@ -192,17 +232,12 @@
     <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Clone</span>, <span class="ident">Debug</span>, <span class="ident">PartialEq</span>)]</span>
     <span class="kw">pub</span> <span class="kw">type</span> <span class="ident">Process</span>;
 
+    <span class="comment">//******************//</span>
+    <span class="comment">// Instance Methods //</span>
+    <span class="comment">//******************//</span>
+
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">catch</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">abort</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">JsValue</span><span class="op">&gt;</span>;
-
-    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">getter</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">arch</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">JsString</span>;
-
-    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">getter</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">argv</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Box</span><span class="op">&lt;</span>[<span class="ident">JsValue</span>]<span class="op">&gt;</span>;
-
-    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">getter</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">argv0</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">JsString</span>;
 
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">chdir</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>, <span class="ident">directory</span>: <span class="ident">JsString</span>);
@@ -211,50 +246,25 @@
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">config</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Object</span>;
 
-    <span class="comment">// FIXME</span>
-    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">getter</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">connected</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span>;
-
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;cpuUsage&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">cpu_usage</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>, <span class="ident">previous_value</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">CpuUsage</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">CpuUsage</span>;
 
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">cwd</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">JsString</span>;
 
-    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">getter</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">debug_port</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Number</span>;
-
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">disconnect</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>);
-
-    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">getter</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">domain</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Domain</span><span class="op">&gt;</span>;
 
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;emitWarning&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">emit_warning</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>, <span class="ident">warning</span>: <span class="kw-2">&amp;</span><span class="ident">JsString</span>, <span class="ident">name</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">JsString</span><span class="op">&gt;</span>, <span class="ident">ctor</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">Function</span><span class="op">&gt;</span>);
 
-    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">getter</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">env</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Object</span>;
-
-    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">getter</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;execArgv&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">exec_argv</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Box</span><span class="op">&lt;</span>[<span class="ident">JsValue</span>]<span class="op">&gt;</span>;
-
-    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">getter</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;execPath&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">exec_path</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">JsString</span>;
-
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">exit</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>);
 
-    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">getter</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;exitCode&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">exit_code</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span>;
-
-    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">getter</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">features</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">ProcessFeatures</span>;
-
-    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;getgid&quot;</span>)]</span>
+    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;getegid&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_egid</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">i32</span>;
 
-    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;getgid&quot;</span>)]</span>
+    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;geteuid&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_euid</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">i32</span>;
 
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;getgid&quot;</span>)]</span>
@@ -263,11 +273,8 @@
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;getgroups&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_groups</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Box</span><span class="op">&lt;</span>[<span class="ident">JsValue</span>]<span class="op">&gt;</span>;
 
-    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;getgid&quot;</span>)]</span>
+    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;getuid&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_uid</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">i32</span>;
-
-    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">getter</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;hrtime&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">hr_time</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">HrTime</span>;
 
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">catch</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">kill</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>, <span class="ident">pid</span>: <span class="ident">u32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">JsValue</span><span class="op">&gt;</span>;
@@ -278,26 +285,15 @@
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">catch</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;kill&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">kill_with_signal_id</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>, <span class="ident">pid</span>: <span class="ident">u32</span>, <span class="ident">signal_id</span>: <span class="ident">i32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">JsValue</span><span class="op">&gt;</span>;
 
-    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">getter</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;mainModule&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">main_module</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">NodeModule</span><span class="op">&gt;</span>;
-
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;memoryUsage&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">memory_usage</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">MemoryUsage</span>;
 
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">variadic</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;nextTick&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">next_tick</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>, <span class="ident">callback</span>: <span class="kw-2">&amp;</span><span class="ident">Function</span>, <span class="ident">args</span>: <span class="ident">Box</span><span class="op">&lt;</span>[<span class="ident">JsValue</span>]<span class="op">&gt;</span>);
 
-    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">pid</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">u32</span>;
-
-    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">getter</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">platform</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">JsString</span>;
-
-    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">ppid</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">u32</span>;
-
-    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">getter</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">ProcessRelease</span>;
+    <span class="comment">// FIXME: https://nodejs.org/api/process.html#process_process_resourceusage</span>
+    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;resourceUsage&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">resource_usage</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Object</span>;
 
     <span class="comment">// FIXME: might be undefined; how to handle nicely</span>
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>)]</span>
@@ -309,29 +305,113 @@
         <span class="ident">callback</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">Function</span><span class="op">&gt;</span>,
     ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span>;
 
-    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">catch</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;setgid&quot;</span>)]</span>
+    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">catch</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;setegid&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_egid</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>, <span class="ident">id</span>: <span class="ident">u32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">JsValue</span><span class="op">&gt;</span>;
 
-    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">catch</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;setgid&quot;</span>)]</span>
+    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">catch</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;seteuid&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_euid</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>, <span class="ident">id</span>: <span class="ident">u32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">JsValue</span><span class="op">&gt;</span>;
 
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">catch</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;setgid&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_gid</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>, <span class="ident">id</span>: <span class="ident">u32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">JsValue</span><span class="op">&gt;</span>;
 
-    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">catch</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;setgid&quot;</span>)]</span>
+    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">catch</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;setuid&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_uid</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>, <span class="ident">id</span>: <span class="ident">u32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">JsValue</span><span class="op">&gt;</span>;
 
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">catch</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;setgroups&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_groups</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>, <span class="ident">id</span>: <span class="ident">u32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">JsValue</span><span class="op">&gt;</span>;
 
-    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">title</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">JsString</span>;
+    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;setUncaughtExceptionCaptureCallback&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_uncaught_exception_capture_callback</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>, <span class="ident">callback</span>: <span class="kw-2">&amp;</span><span class="ident">Function</span>);
 
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">umask</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>, <span class="ident">mask</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">u32</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">u32</span>;
 
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">uptime</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f64</span>;
+
+    <span class="comment">//*********************//</span>
+    <span class="comment">// Instance Properties //</span>
+    <span class="comment">//*********************//</span>
+
+    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">getter</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;allowedNodeEnvironmentFlags&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">allowed_node_environment_flags</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Set</span>;
+
+    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">getter</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">arch</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">JsString</span>;
+
+    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">getter</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">argv</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Box</span><span class="op">&lt;</span>[<span class="ident">JsValue</span>]<span class="op">&gt;</span>;
+
+    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">getter</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">argv0</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">JsString</span>;
+
+    <span class="comment">// FIXME</span>
+    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">getter</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">connected</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span>;
+
+    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">getter</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">debug_port</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Number</span>;
+
+    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">getter</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">domain</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Domain</span><span class="op">&gt;</span>;
+
+    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">getter</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">env</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Object</span>;
+
+    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">getter</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;execArgv&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">exec_argv</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Box</span><span class="op">&lt;</span>[<span class="ident">JsValue</span>]<span class="op">&gt;</span>;
+
+    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">getter</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;execPath&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">exec_path</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">JsString</span>;
+
+    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">getter</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;exitCode&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">exit_code</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span>;
+
+    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">getter</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">features</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">ProcessFeatures</span>;
+
+    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">getter</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;hrtime&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">hr_time</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">HrTime</span>;
+
+    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">getter</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;mainModule&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">main_module</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">NodeModule</span><span class="op">&gt;</span>;
+
+    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">getter</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;noDeprecation&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">no_deprecation</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span>;
+
+    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">getter</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">pid</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">JsString</span>;
+
+    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">getter</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">platform</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">JsString</span>;
+
+    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">getter</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">ppid</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">JsString</span>;
+
+    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">getter</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">release</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">ProcessRelease</span>;
+
+    <span class="comment">// FIXME: https://nodejs.org/api/process.html#process_process_report</span>
+    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">getter</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">report</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Object</span>;
+
+    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">getter</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">stderr</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">stream</span>::<span class="ident">Writable</span>;
+
+    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">getter</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">stdin</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">stream</span>::<span class="ident">Readable</span>;
+
+    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">getter</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">stdout</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">stream</span>::<span class="ident">Writable</span>;
+
+    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">getter</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;throwDeprecation&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">throw_deprecation</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span>;
+
+    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">getter</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">title</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">JsString</span>;
+
+    <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">getter</span>, <span class="ident">js_name</span> <span class="op">=</span> <span class="string">&quot;traceDeprecation&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">trace_deprecation</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span>;
 
     <span class="attribute">#[<span class="ident">wasm_bindgen</span>(<span class="ident">method</span>, <span class="ident">getter</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">version</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="ident">Process</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">JsString</span>;
