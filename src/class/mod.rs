@@ -24,6 +24,7 @@ pub(crate) mod vm;
 pub(crate) mod wasi;
 pub(crate) mod web_assembly;
 pub(crate) mod worker_threads;
+pub(crate) mod zlib;
 
 pub use buffer::*;
 pub use console::*;
