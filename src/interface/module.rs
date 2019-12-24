@@ -4,7 +4,7 @@ use wasm_bindgen::prelude::*;
 #[wasm_bindgen]
 extern {
     #[wasm_bindgen(extends = Object)]
-    #[derive(Clone, Debug, Eq, PartialEq)]
+    #[derive(Clone, Debug)]
     pub type Module;
 
     #[wasm_bindgen(method, getter)]

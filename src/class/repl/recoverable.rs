@@ -4,6 +4,6 @@ use wasm_bindgen::prelude::*;
 #[wasm_bindgen(module = "repl")]
 extern {
     #[wasm_bindgen(extends = Object)]
-    #[derive(Clone, Debug, PartialEq)]
+    #[derive(Clone, Debug)]
     pub type Recoverable;
 }

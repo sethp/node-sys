@@ -5,7 +5,7 @@ use wasm_bindgen::prelude::*;
 #[wasm_bindgen(module = "fs")]
 extern {
     #[wasm_bindgen(extends = Object, extends = AsyncIterator)]
-    #[derive(Clone, Debug, Eq, PartialEq)]
+    #[derive(Clone, Debug)]
     pub type Dir;
 
     // FIXME: event overloads

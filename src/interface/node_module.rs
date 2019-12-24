@@ -1,10 +1,11 @@
 use crate::interface::NodeRequireFunction;
-use js_sys::JsString;
+use js_sys::{JsString, Object};
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
 extern {
-    #[derive(Clone, Debug, PartialEq)]
+    #[wasm_bindgen(extends = Object)]
+    #[derive(Clone, Debug)]
     pub type NodeModule;
 
     #[wasm_bindgen(method, getter)]

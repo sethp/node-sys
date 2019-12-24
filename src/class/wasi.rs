@@ -5,7 +5,7 @@ use wasm_bindgen::prelude::*;
 #[wasm_bindgen(module = "wasi")]
 extern {
     #[wasm_bindgen(extends = Object, js_name = "WASI")]
-    #[derive(Clone, Debug, Eq, PartialEq)]
+    #[derive(Clone, Debug)]
     pub type Wasi;
 
     #[wasm_bindgen(constructor)]

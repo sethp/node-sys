@@ -4,8 +4,8 @@ use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen(module = "crypto")]
 extern {
-    #[wasm_bindgen(extends = Object, extends = Transform)]
-    #[derive(Clone, Debug, PartialEq)]
+    #[wasm_bindgen(extends = Transform)]
+    #[derive(Clone, Debug)]
     pub type Hash;
 
     #[wasm_bindgen(method)]

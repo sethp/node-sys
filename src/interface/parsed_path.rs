@@ -3,7 +3,7 @@ use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
 extern {
-    #[derive(Clone, Debug, PartialEq)]
+    #[derive(Clone, Debug)]
     pub type ParsedPath;
 
     #[wasm_bindgen(method, getter)]

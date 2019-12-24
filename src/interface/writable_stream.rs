@@ -5,7 +5,7 @@ use wasm_bindgen::prelude::*;
 #[wasm_bindgen]
 extern {
     #[wasm_bindgen(extends = EventEmitter)]
-    #[derive(Clone, Debug, Eq, PartialEq)]
+    #[derive(Clone, Debug)]
     pub type WritableStream;
 
     //******************//

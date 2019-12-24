@@ -4,6 +4,6 @@ use wasm_bindgen::prelude::*;
 #[wasm_bindgen(module = "http")]
 extern {
     #[wasm_bindgen(extends = Object)]
-    #[derive(Clone, Debug, PartialEq)]
+    #[derive(Clone, Debug)]
     pub type Server;
 }

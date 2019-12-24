@@ -5,7 +5,7 @@ use wasm_bindgen::{prelude::*, JsCast};
 #[wasm_bindgen(module = "fs")]
 extern {
     #[wasm_bindgen(extends = WritableStream)]
-    #[derive(Clone, Debug, Eq, PartialEq)]
+    #[derive(Clone, Debug)]
     pub type WriteStream;
 
     //******************//

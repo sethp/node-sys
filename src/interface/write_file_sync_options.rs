@@ -2,7 +2,7 @@ use js_sys::JsString;
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct WriteFileSyncOptions {
     encoding: Option<JsString>,
     flag: Option<JsString>,

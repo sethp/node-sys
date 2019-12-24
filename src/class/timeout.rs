@@ -5,7 +5,7 @@ use wasm_bindgen::prelude::*;
 #[wasm_bindgen]
 extern {
     #[wasm_bindgen(extends = Object, extends = Timer)]
-    #[derive(Clone, Debug, Eq, PartialEq)]
+    #[derive(Clone, Debug)]
     pub type Timeout;
 
     #[wasm_bindgen(method, js_name = "hasRef")]

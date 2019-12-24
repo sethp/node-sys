@@ -4,7 +4,7 @@ use wasm_bindgen::prelude::*;
 #[wasm_bindgen(module = "fs")]
 extern {
     #[wasm_bindgen(extends = Object, js_name = "FSWatcher")]
-    #[derive(Clone, Debug, Eq, PartialEq)]
+    #[derive(Clone, Debug)]
     pub type FsWatcher;
 
     // FIXME: event overloads
