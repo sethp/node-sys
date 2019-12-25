@@ -32,7 +32,7 @@ jobs:
         uses: actions/cache@v1
         with:
           path: tools/bin
-          key: tools-bin-${{ runner.OS }}-[${{ env.RUST_TOOLCHAIN }}]-${{ hashFiles('**/tools-cache.lock') }}
+          key: tools-bin-${{ runner.OS }}-[${{ env.RUST_TOOLCHAIN }}]-${{ hashFiles('.github/caching/tools-cache.lock') }}
       - name: Install sccache and wasm-pack
         if: steps.cache-tools-bin.outputs.cache-hit != 'true'
         run: |
@@ -62,7 +62,7 @@ jobs:
         uses: actions/cache@v1
         with:
           path: /home/runner/.cache/sccache
-          key: sccache-[linux-cache-tools]-${{ runner.OS }}-s${{ hashFiles('**/Cargo.lock') }}
+          key: sccache-[linux-cache-tools]-${{ runner.OS }}-s${{ hashFiles('.github/caching/sccache.lock') }}
       # if /home/runner/tools/bin wasn't cached, restore /home/runner/.cargo/git
       - name: Restore /home/runner/.cargo/git
         if: "steps.cache-tools-bin.outputs.cache-hit != 'true'"
@@ -103,10 +103,63 @@ jobs:
         uses: actions/cache@v1
         with:
           path: tools/bin
-          key: tools-bin-${{ runner.OS }}-[${{ env.RUST_TOOLCHAIN }}]-${{ hashFiles('**/tools-cache.lock') }}
+          key: tools-bin-${{ runner.OS }}-[${{ env.RUST_TOOLCHAIN }}]-${{ hashFiles('.github/caching/tools-cache.lock') }}
       - run: cargo-audit audit
 
-  # verify that project builds (via "check" via "clippy") on linux
+  # verify that project builds on linux
+  linux-cargo-check:
+    name: Run cargo check
+    needs: [skip-commit, linux-cache-tools]
+    runs-on: ubuntu-latest
+    env:
+      RUSTFLAGS: -Dwarnings
+      RUST_TOOLCHAIN: 1.40.0
+      RUSTC_WRAPPER: sccache
+    steps:
+      - run: echo "::add-path::$GITHUB_WORKSPACE/tools/bin"
+      - uses: actions/checkout@v1
+      - name: Prepare for restoring caches
+        run: |
+          rm -rf /home/runner/.rustup
+          rm -rf /home/runner/.cargo/git
+          rm -rf /home/runner/.cargo/registry
+      - name: Restore /home/runner/.rustup
+        uses: actions/cache@v1
+        with:
+          path: /home/runner/.rustup
+          key: rustup-${{ runner.OS }}-[${{ env.RUST_TOOLCHAIN }}]-${{ hashFiles('rust-toolchain') }}
+      - name: Restore /home/runner/.cache/sccache
+        uses: actions/cache@v1
+        with:
+          path: /home/runner/.cache/sccache
+          key: sccache-[linux-cargo-check]-${{ runner.OS }}-s${{ hashFiles('.github/caching/sccache.lock') }}
+      - name: Restore /home/runner/tools/bin
+        uses: actions/cache@v1
+        with:
+          path: tools/bin
+          key: tools-bin-${{ runner.OS }}-[${{ env.RUST_TOOLCHAIN }}]-${{ hashFiles('.github/caching/tools-cache.lock') }}
+      - name: Restore /home/runner/.cargo/git
+        uses: actions/cache@v1
+        with:
+          path: /home/runner/.cargo/git
+          key: cargo-git-${{ runner.OS }}-${{ hashFiles('**/Cargo.lock') }}
+      - name: Restore /home/runner/.cargo/registry
+        uses: actions/cache@v1
+        with:
+          path: /home/runner/.cargo/registry
+          key: cargo-registry-${{ runner.OS }}-${{ hashFiles('**/Cargo.lock') }}
+      - name: Restore ./target
+        uses: actions/cache@v1
+        with:
+          path: target
+          key: cargo-build-target-${{ runner.OS }}-${{ hashFiles('**/Cargo.lock') }}
+      - name: Run cargo check
+        uses: actions-rs/cargo@v1
+        with:
+          command: check
+          args: --all-features --all-targets --benches --bins --examples --tests --workspace
+
+  # verify that project passes clippy lints on linux
   linux-cargo-clippy:
     name: Run cargo clippy
     needs: [skip-commit, linux-cache-tools]
@@ -131,12 +184,12 @@ jobs:
         uses: actions/cache@v1
         with:
           path: /home/runner/.cache/sccache
-          key: sccache-[linux-cargo-clippy]-${{ runner.OS }}-s${{ hashFiles('**/Cargo.lock') }}
+          key: sccache-[linux-cargo-clippy]-${{ runner.OS }}-s${{ hashFiles('.github/caching/sccache.lock') }}
       - name: Restore /home/runner/tools/bin
         uses: actions/cache@v1
         with:
           path: tools/bin
-          key: tools-bin-${{ runner.OS }}-[${{ env.RUST_TOOLCHAIN }}]-${{ hashFiles('**/tools-cache.lock') }}
+          key: tools-bin-${{ runner.OS }}-[${{ env.RUST_TOOLCHAIN }}]-${{ hashFiles('.github/caching/tools-cache.lock') }}
       - name: Restore /home/runner/.cargo/git
         uses: actions/cache@v1
         with:
@@ -153,9 +206,9 @@ jobs:
           path: target
           key: cargo-build-target-${{ runner.OS }}-${{ hashFiles('**/Cargo.lock') }}
       - name: Run cargo clippy
-        uses: actions-rs/cargo@v1
+        uses: actions-rs/clippy-check@v1
         with:
-          command: clippy
+          token: ${{ secrets.GITHUB_TOKEN }}
           args: --all-features --all-targets --benches --bins --examples --tests --workspace -- -D warnings
 
   # build the documentation
@@ -183,12 +236,12 @@ jobs:
         uses: actions/cache@v1
         with:
           path: /home/runner/.cache/sccache
-          key: sccache-[linux-cargo-docs]-${{ runner.OS }}-s${{ hashFiles('**/Cargo.lock') }}
+          key: sccache-[linux-cargo-docs]-${{ runner.OS }}-s${{ hashFiles('.github/caching/sccache.lock') }}
       - name: Restore /home/runner/tools/bin
         uses: actions/cache@v1
         with:
           path: tools/bin
-          key: tools-bin-${{ runner.OS }}-[${{ env.RUST_TOOLCHAIN }}]-${{ hashFiles('**/tools-cache.lock') }}
+          key: tools-bin-${{ runner.OS }}-[${{ env.RUST_TOOLCHAIN }}]-${{ hashFiles('.github/caching/tools-cache.lock') }}
       - name: Restore /home/runner/.cargo/git
         uses: actions/cache@v1
         with:
@@ -268,12 +321,12 @@ jobs:
         uses: actions/cache@v1
         with:
           path: /home/runner/.cache/sccache
-          key: sccache-[linux-cargo-test]-${{ runner.OS }}-s${{ hashFiles('**/Cargo.lock') }}
+          key: sccache-[linux-cargo-test]-${{ runner.OS }}-s${{ hashFiles('.github/caching/sccache.lock') }}
       - name: Restore /home/runner/tools/bin
         uses: actions/cache@v1
         with:
           path: tools/bin
-          key: tools-bin-${{ runner.OS }}-[${{ env.RUST_TOOLCHAIN }}]-${{ hashFiles('**/tools-cache.lock') }}
+          key: tools-bin-${{ runner.OS }}-[${{ env.RUST_TOOLCHAIN }}]-${{ hashFiles('.github/caching/tools-cache.lock') }}
       - name: Restore /home/runner/.cargo/git
         uses: actions/cache@v1
         with:
