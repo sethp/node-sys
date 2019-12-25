@@ -293,5 +293,5 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: "13.x"
-      - run: npm ci
+      - run: if [ -f package.json ]; then npm ci; fi
       - run: wasm-pack test --node -- --frozen --all-features --all-targets --benches --bins --examples --tests --workspace
