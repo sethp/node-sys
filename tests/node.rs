@@ -982,6 +982,7 @@ mod module {
 
     mod os {
         use node_sys::os;
+        use wasm_bindgen::JsCast;
         use wasm_bindgen_test::*;
 
         #[wasm_bindgen_test]
@@ -1133,7 +1134,16 @@ mod module {
 
         #[wasm_bindgen_test]
         pub fn cpus() {
-            os::cpus();
+            let cpus = os::cpus();
+            let cpu = cpus[0].clone().unchecked_into::<node_sys::CpuInfo>();
+            let _ = cpu.model();
+            let _ = cpu.speed();
+            let times = cpu.times();
+            let _ = times.idle();
+            let _ = times.irq();
+            let _ = times.nice();
+            let _ = times.sys();
+            let _ = times.user();
         }
 
         #[wasm_bindgen_test]
