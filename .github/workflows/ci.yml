@@ -261,7 +261,7 @@ jobs:
         uses: actions-rs/cargo@v1
         with:
           command: doc
-          args: --frozen --all-features --no-deps --package node-sys
+          args: --frozen --offline --all-features --no-deps --package node-sys
       - env:
           PERSONAL_TOKEN: ${{ secrets.ACTIONS_GH_PAGES_TOKEN }}
           PUBLISH_BRANCH: gh-pages
@@ -347,4 +347,4 @@ jobs:
         with:
           node-version: "13.x"
       - run: if [ -f package.json ]; then npm ci; fi
-      - run: wasm-pack test --node -- --frozen --all-features --all-targets --benches --bins --examples --tests --workspace
+      - run: wasm-pack test --node -- --frozen --offline --all-features --all-targets --benches --bins --examples --tests --workspace
