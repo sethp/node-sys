@@ -591,7 +591,7 @@ mod class {
 
         #[wasm_bindgen_test]
         pub fn digest() {
-            let algorithm = &"md5".into();
+            let algorithm = "md5";
             let options = Default::default();
             let hash = crypto::create_hash(algorithm, options);
             let encoding = Some("hex");
@@ -600,7 +600,7 @@ mod class {
 
         #[wasm_bindgen_test]
         pub fn update() {
-            let algorithm = &"md5".into();
+            let algorithm = "md5";
             let options = Default::default();
             let hash = crypto::create_hash(algorithm, options);
             let text = &"text".into();
@@ -985,7 +985,7 @@ mod module {
 
         #[wasm_bindgen_test]
         pub fn create_hash() {
-            let algorithm = &"md5".into();
+            let algorithm = &"md5";
             let options = Default::default();
             crypto::create_hash(algorithm, options);
         }
