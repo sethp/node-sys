@@ -594,8 +594,8 @@ mod class {
             let algorithm = &"md5".into();
             let options = Default::default();
             let hash = crypto::create_hash(algorithm, options);
-            let encoding = &"hex".into();
-            hash.digest_with_encoding(encoding);
+            let encoding = Some("hex");
+            hash.digest(encoding);
         }
 
         #[wasm_bindgen_test]
@@ -604,8 +604,8 @@ mod class {
             let options = Default::default();
             let hash = crypto::create_hash(algorithm, options);
             let text = &"text".into();
-            let encoding = &"utf8".into();
-            hash.update_with_encoding(text, Some(encoding));
+            let encoding = Some("utf8");
+            hash.update(text, encoding);
         }
     }
 
