@@ -1,10 +1,12 @@
-use crate::{class::Buffer, interface::SetAadOptions};
-use js_sys::Object;
+use crate::{
+    class::{stream::Transform, Buffer},
+    interface::SetAadOptions,
+};
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen(module = "crypto")]
 extern {
-    #[wasm_bindgen(extends = Object)]
+    #[wasm_bindgen(extends = Transform)]
     #[derive(Clone, Debug)]
     pub type Cipher;
 
