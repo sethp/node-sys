@@ -1,9 +1,9 @@
-use js_sys::Object;
+use crate::class::stream::Transform;
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen(module = "crypto")]
 extern {
-    #[wasm_bindgen(extends = Object)]
+    #[wasm_bindgen(extends = Transform)]
     #[derive(Clone, Debug)]
     pub type Hmac;
 }
