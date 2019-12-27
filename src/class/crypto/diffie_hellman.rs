@@ -19,31 +19,31 @@ extern {
         output_encoding: Option<&str>,
     ) -> JsValue;
 
-    #[wasm_bindgen(method)]
+    #[wasm_bindgen(method, js_name = "generateKeys")]
     pub fn generate_keys(this: &DiffieHellman, encoding: Option<&str>) -> JsValue;
 
-    #[wasm_bindgen(method)]
+    #[wasm_bindgen(method, js_name = "getGenerator")]
     pub fn get_generator(this: &DiffieHellman, encoding: Option<&str>) -> JsValue;
 
-    #[wasm_bindgen(method)]
+    #[wasm_bindgen(method, js_name = "getPrime")]
     pub fn get_prime(this: &DiffieHellman, encoding: Option<&str>) -> JsValue;
 
-    #[wasm_bindgen(method)]
+    #[wasm_bindgen(method, js_name = "getPrivateKey")]
     pub fn get_private_key(this: &DiffieHellman, encoding: Option<&str>) -> JsValue;
 
-    #[wasm_bindgen(method)]
+    #[wasm_bindgen(method, js_name = "getPublicKey")]
     pub fn get_public_key(this: &DiffieHellman, encoding: Option<&str>) -> JsValue;
 
-    #[wasm_bindgen(method)]
+    #[wasm_bindgen(method, js_name = "setPrivateKey")]
     pub fn set_private_key(this: &DiffieHellman, private_key: &JsValue, encoding: Option<&str>);
 
-    #[wasm_bindgen(method)]
+    #[wasm_bindgen(method, js_name = "setPublicKey")]
     pub fn set_public_key(this: &DiffieHellman, public_key: &JsValue, encoding: Option<&str>);
 
     //*********************//
     // Instance Properties //
     //*********************//
 
-    #[wasm_bindgen(method, getter)]
+    #[wasm_bindgen(method, getter, js_name = "verifyError")]
     pub fn verify_error(this: &DiffieHellman) -> u32;
 }
