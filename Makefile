@@ -12,4 +12,4 @@ fmt:
 
 .PHONY: test
 test:
-	wasm-pack test --node -- --locked --all-features --all-targets --benches --bins --examples --tests --workspace
+	RUSTFLAGS="-Dwarnings" wasm-pack test --node -- --locked --all-features --all-targets --benches --bins --examples --tests --workspace
