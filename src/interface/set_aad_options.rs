@@ -32,7 +32,7 @@ impl SetAadOptions {
 
     #[wasm_bindgen(getter, js_name = "plaintextLength")]
     pub fn plaintext_length(&self) -> f64 {
-        self.plaintext_length.clone()
+        self.plaintext_length
     }
 
     #[wasm_bindgen(setter)]
