@@ -16,4 +16,4 @@ fmt:
 
 .PHONY: test
 test:
-	RUSTFLAGS="-Dwarnings" wasm-pack test --node -- --locked --all-features --all-targets --benches --bins --examples --tests --workspace
+	RUSTFLAGS="-Dwarnings" wasm-pack test --node -- --all-features --all-targets --benches --bins --examples --tests --workspace
