@@ -1,1 +1,1 @@
-initSidebarItems({"fn":[["create_hash",""]]});
+initSidebarItems({"fn":[["create_hash",""]],"static":[["constants",""]]});
