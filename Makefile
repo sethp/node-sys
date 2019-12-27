@@ -2,6 +2,10 @@
 check:
 	RUSTFLAGS="-Dwarnings" cargo check --all-features --all-targets --benches --bins --examples --tests --workspace
 
+.PHONY: clean
+clean:
+	cargo clean
+
 .PHONY: clippy
 clippy:
 	cargo clippy --all-features --all-targets --benches --bins --examples --tests --workspace -- -D warnings
