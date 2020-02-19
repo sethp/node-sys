@@ -14,5 +14,5 @@ extern {
     pub fn digest(this: &Hash, encoding: Option<&str>) -> JsValue;
 
     #[wasm_bindgen(method)]
-    pub fn update(this: &Hash, data: &JsValue, input_encoding: Option<&str>);
+    pub fn update(this: &Hash, data: &JsValue, input_encoding: Option<&str>) -> Hash;
 }
