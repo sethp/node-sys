@@ -18,7 +18,7 @@ jobs:
     needs: [skip-commit]
     runs-on: ubuntu-latest
     env:
-      RUST_TOOLCHAIN: 1.40.0
+      RUST_TOOLCHAIN: 1.43.1
     steps:
       - uses: actions/checkout@v1
       - name: Restore /home/runner/tools/bin
@@ -48,7 +48,7 @@ jobs:
     needs: [skip-commit, cache-tools]
     runs-on: ubuntu-latest
     env:
-      RUST_TOOLCHAIN: 1.40.0
+      RUST_TOOLCHAIN: 1.43.1
     steps:
       - uses: actions/checkout@v1
       - name: Restore /home/runner/tools/bin
@@ -66,7 +66,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       RUSTFLAGS: -Dwarnings
-      RUST_TOOLCHAIN: 1.40.0
+      RUST_TOOLCHAIN: 1.43.1
     steps:
       - uses: actions/checkout@v1
       - name: Install Rust toolchain
@@ -85,7 +85,7 @@ jobs:
     needs: [skip-commit, cache-tools]
     runs-on: ubuntu-latest
     env:
-      RUST_TOOLCHAIN: 1.40.0
+      RUST_TOOLCHAIN: 1.43.1
     steps:
       - uses: actions/checkout@v1
       - name: Install Rust toolchain
@@ -104,7 +104,7 @@ jobs:
     needs: [skip-commit, cache-tools]
     runs-on: ubuntu-latest
     env:
-      RUST_TOOLCHAIN: 1.40.0
+      RUST_TOOLCHAIN: 1.43.1
     steps:
       - uses: actions/checkout@v1
       - name: Install Rust toolchain
@@ -145,7 +145,7 @@ jobs:
     needs: [skip-commit, cache-tools]
     runs-on: ubuntu-latest
     env:
-      RUST_TOOLCHAIN: 1.40.0
+      RUST_TOOLCHAIN: 1.43.1
     steps:
       - uses: actions/checkout@v1
       - name: Configure node
