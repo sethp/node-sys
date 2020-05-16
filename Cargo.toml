@@ -24,17 +24,17 @@ cfg-if = "^0.1.10"
 serde = "^1.0.102"
 
 [dependencies.js-sys]
-version = "^0.3.35"
+version = "^0.3.39"
 features = []
 
 [dependencies.web-sys]
-version = "^0.3.35"
+version = "^0.3.39"
 features = []
 
 [dependencies.wasm-bindgen]
-version = "^0.2.58"
+version = "^0.2.62"
 features = ["strict-macro"]
 
 [dev-dependencies]
-wasm-bindgen-futures = "^0.4.8"
-wasm-bindgen-test = "^0.3.8"
+wasm-bindgen-futures = "^0.4.12"
+wasm-bindgen-test = "^0.3.12"
