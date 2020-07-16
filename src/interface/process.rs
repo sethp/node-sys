@@ -1,22 +1,15 @@
 use crate::{
     class::{stream, EventEmitter},
     interface::{
-        CpuUsage,
-        Domain,
-        HrTime,
-        MemoryUsage,
-        NodeModule,
-        ProcessFeatures,
-        ProcessRelease,
-        ProcessSendOptions,
-        ProcessVersions,
+        CpuUsage, Domain, HrTime, MemoryUsage, NodeModule, ProcessFeatures, ProcessRelease,
+        ProcessSendOptions, ProcessVersions,
     },
 };
 use js_sys::{Function, JsString, Number, Object, Set};
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
-extern {
+extern "C" {
     #[wasm_bindgen(extends = EventEmitter)]
     #[derive(Clone, Debug)]
     pub type Process;
@@ -45,10 +38,15 @@ extern {
     pub fn disconnect(this: &Process);
 
     #[wasm_bindgen(method, js_name = "emitWarning")]
-    pub fn emit_warning(this: &Process, warning: &JsString, name: Option<&JsString>, ctor: Option<&Function>);
+    pub fn emit_warning(
+        this: &Process,
+        warning: &JsString,
+        name: Option<&JsString>,
+        ctor: Option<&Function>,
+    );
 
     #[wasm_bindgen(method)]
-    pub fn exit(this: &Process);
+    pub fn exit(this: &Process, code: Option<i32>);
 
     #[wasm_bindgen(method, js_name = "getegid")]
     pub fn get_egid(this: &Process) -> i32;
@@ -69,7 +67,11 @@ extern {
     pub fn kill(this: &Process, pid: u32) -> Result<(), JsValue>;
 
     #[wasm_bindgen(method, catch, js_name = "kill")]
-    pub fn kill_with_signal_name(this: &Process, pid: u32, signal_name: &JsString) -> Result<(), JsValue>;
+    pub fn kill_with_signal_name(
+        this: &Process,
+        pid: u32,
+        signal_name: &JsString,
+    ) -> Result<(), JsValue>;
 
     #[wasm_bindgen(method, catch, js_name = "kill")]
     pub fn kill_with_signal_id(this: &Process, pid: u32, signal_id: i32) -> Result<(), JsValue>;
